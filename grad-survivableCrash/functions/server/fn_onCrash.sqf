@@ -41,6 +41,8 @@ params ["_veh"];
 	{
 		params ["_veh"];
 
+		_veh setPos (getMarkerPos "mrk_crashSite");
+
 		// trigger ejection and effects on crew
 		{
 			[_x, _veh] remoteExecCall ["GRAD_survivableCrash_fnc_onCrashLocal", _x];

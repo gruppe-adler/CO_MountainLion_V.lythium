@@ -6,11 +6,18 @@ _unit disableAI "ALL";
 _unit enableAI "ANIM";
 
 [_unit, "HubSittingChairC_idle1"] remoteExec ["switchMove", 0]; 
+[_unit, "AlShishani"] remoteExec ["setIdentity", 0, true];
+
+missionNamespace setVariable ["ML_alShishani", _unit, true];
 
 _unit addEventHandler ["AnimDone", {
     params ["_unit"];
 
-    _unit setVariable ["AnimDoneHandler", _thisEventHandler, true];
+    if (missionNamespace getVariable ["ML_alShishani_loopEnd", false]) exitWith {
+        if (!(_unit getVariable ["ACE_captives_isHandcuffed",false])) then {
+            _unit playMoveNow "AmovPercMstpSnonWnonDnon_Scared2";
+        };
+    };
 
     if (!alive _unit) exitWith {
         _unit removeEventHandler ["AnimDone", _thisEventHandler];

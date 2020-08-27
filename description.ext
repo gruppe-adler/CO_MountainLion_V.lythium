@@ -267,6 +267,18 @@ class CfgNotifications {
     };
 };
 
+class CfgIdentities
+{
+  class AlShishani
+  {
+    name    = "Abu Omar al-Shishani";
+    nameSound = "Abu Omar al-Shishani"; // Arma 3 only!
+    face    = "GreekHead_A3_11";
+    glasses   = "TRYK_Beard_BW2";
+    speaker   = "male03per";
+    pitch   = 0.9;
+  };
+};
 
 class CfgTaskTypes
 {

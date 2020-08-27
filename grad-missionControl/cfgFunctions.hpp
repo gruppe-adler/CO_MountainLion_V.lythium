@@ -8,6 +8,7 @@ class grad_missionControl {
       class adjustDroneFOV;
       class adjustDronePipEffect;
       class createBloodEffect;
+      class detectFapper  { postInit = 1; };
       class droneFeedInit;
       class droneFeedinterpretMouseWheel;
       class droneFeedinterpretMouseClick;

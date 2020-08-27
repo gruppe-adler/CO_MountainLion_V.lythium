@@ -15,7 +15,7 @@ if (hasInterface) then {
 
         ["cameraView", {
             params ["_unit", "_newCamera"];
-            systemChat str "Camera changed.";
+            // systemChat str "Camera changed.";
             [] call GRAD_missionControl_fnc_droneFeedReset;  
         }, true] call CBA_fnc_addPlayerEventHandler;
 
