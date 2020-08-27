@@ -8,22 +8,22 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2398;
+		nextID=2486;
 	};
 	class MarkerIDProvider
 	{
-		nextID=11;
+		nextID=12;
 	};
 	class LayerIndexProvider
 	{
-		nextID=60;
+		nextID=79;
 	};
 	class Camera
 	{
-		pos[]={6900.3511,259.84174,4505.3081};
-		dir[]={0.57916075,-0.50990957,0.63609749};
-		up[]={0.34334716,0.86017984,0.37710112};
-		aside[]={0.73944557,2.6496127e-007,-0.67325717};
+		pos[]={7299.7363,212.45457,4600.2222};
+		dir[]={-0.079728782,-0.43901765,-0.89494836};
+		up[]={-0.038956948,0.89847326,-0.43729436};
+		aside[]={-0.99606651,3.1236414e-007,0.088736676};
 	};
 };
 binarizationWanted=0;
@@ -124,13 +124,16 @@ addons[]=
 	"A3_Props_F_Orange_Humanitarian_Garbage",
 	"A3_Structures_F_Heli_Items_Food",
 	"A3_Structures_F_Items_Food",
-	"A3_Structures_F_EPA_Items_Medical"
+	"A3_Structures_F_EPA_Items_Medical",
+	"A3_Structures_F_Items_Vessels",
+	"A3_Structures_F_Households_Addons",
+	"gm_objects_pallet"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=70;
+		items=72;
 		class Item0
 		{
 			className="A3_Modules_F_Tacops";
@@ -582,6 +585,20 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item70
+		{
+			className="A3_Structures_F_Households";
+			name="Arma 3 - Houses";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item71
+		{
+			className="gm_objects_pallet";
+			name="gm_objects_pallet";
+			author="Global Mobilization";
+			url="global-mobilization.com";
+		};
 	};
 };
 randomSeed=16502480;
@@ -942,7 +959,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=370;
+		items=437;
 		class Item0
 		{
 			dataType="Logic";
@@ -13919,7 +13936,7 @@ class Mission
 			};
 			id=2363;
 			type="rhs_mags_crate";
-			atlOffset=0.070968628;
+			atlOffset=0.071014404;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13959,7 +13976,7 @@ class Mission
 			};
 			id=2364;
 			type="Box_East_WpsLaunch_F";
-			atlOffset=0.066665649;
+			atlOffset=0.066711426;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13990,7 +14007,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={6891.7749,229.65237,4488.3887};
-				angles[]={-0,5.1431303,-0};
+				angles[]={0,5.1431303,0};
 			};
 			side="Empty";
 			flags=4;
@@ -14355,6 +14372,7 @@ class Mission
 		{
 			dataType="Layer";
 			name="TARGET HOUSE STUFF";
+			state=1;
 			class Entities
 			{
 				items=51;
@@ -14445,7 +14463,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6918.4863,231.97565,4524.5059};
-						angles[]={-0,3.306895,0};
+						angles[]={0,3.306895,0};
 					};
 					side="Empty";
 					flags=4;
@@ -14608,7 +14626,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6920.6055,231.71364,4527.7646};
-						angles[]={-0,0.14507839,0};
+						angles[]={0,0.14507839,0};
 					};
 					side="Empty";
 					flags=4;
@@ -15465,7 +15483,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6919.8481,231.19514,4527.8652};
-						angles[]={-0,0.13089947,0};
+						angles[]={0,0.13089947,0};
 					};
 					side="Empty";
 					flags=4;
@@ -15713,7 +15731,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6921.5552,228.959,4527.7031};
-						angles[]={-0,0.17204814,0};
+						angles[]={0,0.17204814,0};
 					};
 					side="Empty";
 					flags=4;
@@ -15827,7 +15845,7 @@ class Mission
 					{
 					};
 					id=1037;
-					atlOffset=0.03288269;
+					atlOffset=-140.66;
 				};
 				class Item35
 				{
@@ -16133,7 +16151,755 @@ class Mission
 				};
 			};
 			id=2397;
-			atlOffset=0.86474609;
+			atlOffset=0.86297607;
+		};
+		class Item370
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7299.5435,209.58928,4590.6758};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[this, suicideCar] call BIS_fnc_attachToRelative;}";
+			};
+			id=2400;
+			type="MetalBarrel_burning_F";
+			atlOffset=0.88433838;
+		};
+		class Item371
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7299.1997,209.58435,4590.1094};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[this, suicideCar] call BIS_fnc_attachToRelative;}";
+			};
+			id=2401;
+			type="MetalBarrel_burning_F";
+			atlOffset=0.87937927;
+		};
+		class Item372
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7298.8906,209.58212,4590.5933};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[this, suicideCar] call BIS_fnc_attachToRelative;}";
+			};
+			id=2402;
+			type="MetalBarrel_burning_F";
+			atlOffset=0.87715149;
+		};
+		class Item373
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7298.7144,209.58205,4589.3506};
+				angles[]={0,5.5004163,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[this, suicideCar] call BIS_fnc_attachToRelative;}";
+			};
+			id=2403;
+			type="MetalBarrel_burning_F";
+			atlOffset=0.87709045;
+		};
+		class Item374
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7299.3896,209.59207,4589.3691};
+				angles[]={0,3.2287338,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[this, suicideCar] call BIS_fnc_attachToRelative;}";
+			};
+			id=2404;
+			type="MetalBarrel_burning_F";
+			atlOffset=0.88711548;
+		};
+		class Item375
+		{
+			dataType="Layer";
+			name="lock";
+			state=1;
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7299.436,208.38124,4588.9521};
+						angles[]={0,1.5534827,0};
+					};
+					side="Empty";
+					flags=5;
+					class Attributes
+					{
+						disableSimulation=1;
+					};
+					id=2398;
+					type="Land_i_Garage_V2_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="allowDamage";
+							expression="_this allowdamage _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			id=2405;
+		};
+		class Item376
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7299.2241,210.23598,4592.3926};
+				angles[]={0.78539819,0,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[this, suicideCar] call BIS_fnc_attachToRelative;}";
+			};
+			id=2416;
+			type="gm_pallet_01";
+			atlOffset=1.4611511;
+		};
+		class Item377
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7299.2231,210.3595,4591.1577};
+			};
+			side="Civilian";
+			flags=6;
+			class Attributes
+			{
+				name="suicideCar";
+			};
+			id=2399;
+			type="LOP_AM_Nissan_PKM";
+			atlOffset=0.15899658;
+		};
+		class Item378
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7299.2261,209.18324,4594.1377};
+				angles[]={1.5707964,0,0.014451326};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[this, suicideCar] call BIS_fnc_attachToRelative;}";
+			};
+			id=2417;
+			type="gm_pallet_01";
+			atlOffset=0.55352783;
+		};
+		class Item379
+		{
+			dataType="Marker";
+			position[]={7298.563,208.80299,4600.7729};
+			name="mrk_suicideCar_1";
+			type="Empty";
+			id=2418;
+			atlOffset=0.63383484;
+		};
+		class Item380
+		{
+			dataType="Marker";
+			position[]={7302.2031,209.07219,4606.6699};
+			name="mrk_suicideCar_2";
+			type="Empty";
+			id=2419;
+			atlOffset=0.63383484;
+		};
+		class Item381
+		{
+			dataType="Marker";
+			position[]={7308.332,209.89893,4608.6025};
+			name="mrk_suicideCar_3";
+			type="Empty";
+			id=2420;
+			atlOffset=0.63383484;
+		};
+		class Item382
+		{
+			dataType="Marker";
+			position[]={7315.876,210.11903,4607.5659};
+			name="mrk_suicideCar_4";
+			type="Empty";
+			id=2421;
+			atlOffset=0.63383484;
+		};
+		class Item383
+		{
+			dataType="Marker";
+			position[]={7326.8608,209.99957,4602.8516};
+			name="mrk_suicideCar_5";
+			type="Empty";
+			id=2422;
+			atlOffset=0.63383484;
+		};
+		class Item384
+		{
+			dataType="Marker";
+			position[]={7347.4019,209.00256,4583.5889};
+			name="mrk_suicideCar_6";
+			type="Empty";
+			id=2423;
+			atlOffset=0.63383484;
+		};
+		class Item385
+		{
+			dataType="Marker";
+			position[]={7366.8311,206.65694,4566.5225};
+			name="mrk_suicideCar_7";
+			type="Empty";
+			id=2424;
+			atlOffset=0.63383484;
+		};
+		class Item386
+		{
+			dataType="Marker";
+			position[]={7402.0322,198.94876,4519.9697};
+			name="mrk_suicideCar_8";
+			type="Empty";
+			id=2425;
+			atlOffset=0.63383484;
+		};
+		class Item387
+		{
+			dataType="Marker";
+			position[]={7433.3477,192.04437,4477.7563};
+			name="mrk_suicideCar_9";
+			type="Empty";
+			id=2426;
+			atlOffset=0.63383484;
+		};
+		class Item388
+		{
+			dataType="Marker";
+			position[]={7463.2764,187.38821,4437.8623};
+			name="mrk_suicideCar_10";
+			type="Empty";
+			id=2427;
+			atlOffset=0.63383484;
+		};
+		class Item389
+		{
+			dataType="Marker";
+			position[]={7486.2866,186.23587,4407.5366};
+			name="mrk_suicideCar_11";
+			type="Empty";
+			id=2428;
+			atlOffset=0.63383484;
+		};
+		class Item390
+		{
+			dataType="Marker";
+			position[]={7493.9058,186.44633,4399.9941};
+			name="mrk_suicideCar_12";
+			type="Empty";
+			id=2429;
+			atlOffset=0.63383484;
+		};
+		class Item391
+		{
+			dataType="Marker";
+			position[]={7500.3057,186.85469,4395.0415};
+			name="mrk_suicideCar_13";
+			type="Empty";
+			id=2430;
+			atlOffset=0.63383484;
+		};
+		class Item392
+		{
+			dataType="Marker";
+			position[]={7506.1973,187.50858,4392.6211};
+			name="mrk_suicideCar_14";
+			type="Empty";
+			id=2431;
+			atlOffset=0.63383484;
+		};
+		class Item393
+		{
+			dataType="Marker";
+			position[]={7513.3164,188.32054,4390.9707};
+			name="mrk_suicideCar_15";
+			type="Empty";
+			id=2432;
+			atlOffset=0.63383484;
+		};
+		class Item394
+		{
+			dataType="Marker";
+			position[]={7521.897,189.26637,4390.499};
+			name="mrk_suicideCar_16";
+			type="Empty";
+			id=2433;
+			atlOffset=0.63383484;
+		};
+		class Item395
+		{
+			dataType="Marker";
+			position[]={7533.731,190.79613,4392.0547};
+			name="mrk_suicideCar_17";
+			type="Empty";
+			id=2434;
+			atlOffset=0.63383484;
+		};
+		class Item396
+		{
+			dataType="Marker";
+			position[]={7545.8013,192.69716,4394.3174};
+			name="mrk_suicideCar_18";
+			type="Empty";
+			id=2435;
+			atlOffset=0.63383484;
+		};
+		class Item397
+		{
+			dataType="Marker";
+			position[]={7556.9277,194.603,4398.7964};
+			name="mrk_suicideCar_19";
+			type="Empty";
+			id=2436;
+			atlOffset=0.63383484;
+		};
+		class Item398
+		{
+			dataType="Marker";
+			position[]={7568.7617,196.62915,4403.1826};
+			name="mrk_suicideCar_20";
+			type="Empty";
+			id=2437;
+			atlOffset=0.63383484;
+		};
+		class Item399
+		{
+			dataType="Marker";
+			position[]={7576.6353,198.01855,4405.0674};
+			name="mrk_suicideCar_21";
+			type="Empty";
+			id=2438;
+			atlOffset=0.63383484;
+		};
+		class Item400
+		{
+			dataType="Marker";
+			position[]={7589.2705,200.196,4405.0205};
+			name="mrk_suicideCar_22";
+			type="Empty";
+			id=2439;
+			atlOffset=0.63383484;
+		};
+		class Item401
+		{
+			dataType="Marker";
+			position[]={7599.4072,201.96875,4403.7476};
+			name="mrk_suicideCar_23";
+			type="Empty";
+			id=2440;
+			atlOffset=0.63383484;
+		};
+		class Item402
+		{
+			dataType="Marker";
+			position[]={7608.3179,203.63332,4401.1074};
+			name="mrk_suicideCar_24";
+			type="Empty";
+			id=2441;
+			atlOffset=0.63383484;
+		};
+		class Item403
+		{
+			dataType="Marker";
+			position[]={7618.9736,205.55342,4396.7227};
+			name="mrk_suicideCar_25";
+			type="Empty";
+			id=2442;
+			atlOffset=0.63383484;
+		};
+		class Item404
+		{
+			dataType="Marker";
+			position[]={7627.2969,206.90761,4393.3398};
+			name="mrk_suicideCar_26";
+			type="Empty";
+			id=2443;
+			atlOffset=0.63383484;
+		};
+		class Item405
+		{
+			dataType="Marker";
+			position[]={7633.9478,207.75336,4390.7725};
+			name="mrk_suicideCar_27";
+			type="Empty";
+			id=2444;
+			atlOffset=0.63383484;
+		};
+		class Item406
+		{
+			dataType="Marker";
+			position[]={7636.6025,208.15619,4387.1851};
+			name="mrk_suicideCar_28";
+			type="Empty";
+			id=2445;
+			atlOffset=0.63383484;
+		};
+		class Item407
+		{
+			dataType="Marker";
+			position[]={7638.499,208.52725,4382.75};
+			name="mrk_suicideCar_29";
+			type="Empty";
+			id=2446;
+			atlOffset=0.63383484;
+		};
+		class Item408
+		{
+			dataType="Marker";
+			position[]={7642.7002,208.88982,4379.7451};
+			name="mrk_suicideCar_30";
+			type="Empty";
+			id=2447;
+			atlOffset=0.63383484;
+		};
+		class Item409
+		{
+			dataType="Marker";
+			position[]={7646.7554,209.05888,4378.8403};
+			name="mrk_suicideCar_31";
+			type="Empty";
+			id=2448;
+			atlOffset=0.63383484;
+		};
+		class Item410
+		{
+			dataType="Marker";
+			position[]={7651.9775,209.20656,4376.5356};
+			name="mrk_suicideCar_32";
+			type="Empty";
+			id=2449;
+			atlOffset=0.63383484;
+		};
+		class Item411
+		{
+			dataType="Marker";
+			position[]={7653.4658,209.29492,4370.437};
+			name="mrk_suicideCar_33";
+			type="Empty";
+			id=2450;
+			atlOffset=0.63383484;
+		};
+		class Item412
+		{
+			dataType="Marker";
+			position[]={7657.2876,209.17519,4366.5576};
+			name="mrk_suicideCar_34";
+			type="Empty";
+			id=2451;
+			atlOffset=0.63383484;
+		};
+		class Item413
+		{
+			dataType="Marker";
+			position[]={7664.9609,208.83582,4364.5728};
+			name="mrk_suicideCar_35";
+			type="Empty";
+			id=2452;
+			atlOffset=0.63383484;
+		};
+		class Item414
+		{
+			dataType="Marker";
+			position[]={7670.5347,208.30725,4358.9365};
+			name="mrk_suicideCar_36";
+			type="Empty";
+			id=2453;
+			atlOffset=0.63383484;
+		};
+		class Item415
+		{
+			dataType="Marker";
+			position[]={7672.439,207.66217,4352.6133};
+			name="mrk_suicideCar_37";
+			type="Empty";
+			id=2454;
+			atlOffset=0.63383484;
+		};
+		class Item416
+		{
+			dataType="Marker";
+			position[]={7677.5439,206.58687,4346.8223};
+			name="mrk_suicideCar_38";
+			type="Empty";
+			id=2455;
+			atlOffset=0.63383484;
+		};
+		class Item417
+		{
+			dataType="Marker";
+			position[]={7683.792,205.5412,4343.5459};
+			name="mrk_suicideCar_39";
+			type="Empty";
+			id=2456;
+			atlOffset=0.63383484;
+		};
+		class Item418
+		{
+			dataType="Marker";
+			position[]={7690.9546,203.19281,4333.5654};
+			name="mrk_suicideCar_40";
+			type="Empty";
+			id=2457;
+			atlOffset=0.63383484;
+		};
+		class Item419
+		{
+			dataType="Marker";
+			position[]={7694.459,200.80641,4322.8994};
+			name="mrk_suicideCar_41";
+			type="Empty";
+			id=2458;
+			atlOffset=0.63383484;
+		};
+		class Item420
+		{
+			dataType="Marker";
+			position[]={7695.1455,198.83389,4314.2129};
+			name="mrk_suicideCar_42";
+			type="Empty";
+			id=2459;
+			atlOffset=0.63383484;
+		};
+		class Item421
+		{
+			dataType="Marker";
+			position[]={7698.1929,195.98161,4303.0127};
+			name="mrk_suicideCar_43";
+			type="Empty";
+			id=2460;
+			atlOffset=0.63383484;
+		};
+		class Item422
+		{
+			dataType="Marker";
+			position[]={7702.46,192.33826,4288.0029};
+			name="mrk_suicideCar_44";
+			type="Empty";
+			id=2461;
+			atlOffset=0.63383484;
+		};
+		class Item423
+		{
+			dataType="Marker";
+			position[]={7707.9849,188.93732,4271.9702};
+			name="mrk_suicideCar_45";
+			type="Empty";
+			id=2462;
+			atlOffset=0.6338501;
+		};
+		class Item424
+		{
+			dataType="Marker";
+			position[]={7713.2441,186.98718,4264.8179};
+			name="mrk_suicideCar_46";
+			type="Empty";
+			id=2463;
+			atlOffset=0.63380432;
+		};
+		class Item425
+		{
+			dataType="Marker";
+			position[]={7722.9844,184.77617,4258.8047};
+			name="mrk_suicideCar_47";
+			type="Empty";
+			id=2464;
+			atlOffset=0.77726746;
+		};
+		class Item426
+		{
+			dataType="Marker";
+			position[]={7733.0425,183.47876,4258.5884};
+			name="mrk_suicideCar_48";
+			type="Empty";
+			id=2465;
+			atlOffset=0.63378906;
+		};
+		class Item427
+		{
+			dataType="Marker";
+			position[]={7746.8804,182.67326,4261.9922};
+			name="mrk_suicideCar_49";
+			type="Empty";
+			id=2466;
+		};
+		class Item428
+		{
+			dataType="Marker";
+			position[]={7758.8096,182.92595,4264.0098};
+			name="mrk_suicideCar_50";
+			type="Empty";
+			id=2467;
+			atlOffset=0.63383484;
+		};
+		class Item429
+		{
+			dataType="Marker";
+			position[]={7769.082,183.13266,4267.3828};
+			name="mrk_suicideCar_51";
+			type="Empty";
+			id=2468;
+			atlOffset=0.63383484;
+		};
+		class Item430
+		{
+			dataType="Marker";
+			position[]={7779.6147,183.53839,4270.165};
+			name="mrk_suicideCar_52";
+			type="Empty";
+			id=2469;
+			atlOffset=0.63383484;
+		};
+		class Item431
+		{
+			dataType="Marker";
+			position[]={7792.4409,184.05484,4273.043};
+			name="mrk_suicideCar_53";
+			type="Empty";
+			id=2470;
+			atlOffset=0.63383484;
+		};
+		class Item432
+		{
+			dataType="Marker";
+			position[]={7806.5811,184.72842,4276.0718};
+			name="mrk_suicideCar_54";
+			type="Empty";
+			id=2471;
+			atlOffset=0.63383484;
+		};
+		class Item433
+		{
+			dataType="Marker";
+			position[]={7825.7983,185.69002,4278.0444};
+			name="mrk_suicideCar_55";
+			type="Empty";
+			id=2472;
+			atlOffset=0.63383484;
+		};
+		class Item434
+		{
+			dataType="Marker";
+			position[]={7854.0811,187.87654,4276.7861};
+			name="mrk_suicideCar_56";
+			type="Empty";
+			id=2473;
+			atlOffset=0.63383484;
+		};
+		class Item435
+		{
+			dataType="Marker";
+			position[]={8000.1299,206.60861,4246.6577};
+			name="mrk_suicideCar_57";
+			type="Empty";
+			id=2474;
+			atlOffset=0.63383484;
+		};
+		class Item436
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7299.2231,208.27747,4591.1987};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=2485;
+					type="LOP_Tak_Civ_Random";
+					atlOffset=0.15899658;
+				};
+			};
+			class Attributes
+			{
+				speedMode="FULL";
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=2485;
+						item1=2399;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=2484;
+			atlOffset=0.15899658;
 		};
 	};
 };
