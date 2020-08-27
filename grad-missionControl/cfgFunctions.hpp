@@ -24,6 +24,7 @@ class grad_missionControl {
 		  file = grad-missionControl\functions\server;
 
       class addApacheDestruction;
+      class addExplosionSource;
       class addFortifications;
       class addIntel;
       class alertUnits;
@@ -39,6 +40,7 @@ class grad_missionControl {
       class isInsideHouse;
       class ownerShipHandler { postInit = 1; };
       class readIntel;
+      class secondaryExplosions;
       class sitDown;
       class weaponizeCivilian;
       class weaponizeVehicle;
