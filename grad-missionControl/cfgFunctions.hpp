@@ -42,6 +42,9 @@ class grad_missionControl {
       class readIntel;
       class secondaryExplosions;
       class sitDown;
+      class suicideCar;
+      class suicideCarExplode;
+      class suicideCarInit;
       class weaponizeCivilian;
       class weaponizeVehicle;
   };
