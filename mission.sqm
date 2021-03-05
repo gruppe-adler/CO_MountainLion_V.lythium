@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2645;
+		nextID=2646;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=136;
+		nextID=155;
 	};
 	class Camera
 	{
-		pos[]={10969.707,78.7883,3027.543};
-		dir[]={0.61551201,-0.31933734,-0.72053927};
-		up[]={0.20741653,0.94764102,-0.24280886};
-		aside[]={-0.76034957,-7.4505806e-008,-0.6495195};
+		pos[]={11511.354,32.98584,2512.7107};
+		dir[]={-0.50078213,-0.52936041,0.68484986};
+		up[]={-0.31246397,0.84839255,0.42731214};
+		aside[]={0.80722284,6.5658242e-008,0.59026569};
 	};
 };
 binarizationWanted=0;
@@ -135,13 +135,14 @@ addons[]=
 	"CUP_CA_Config",
 	"A3_Structures_F_Enoch_Industrial_Garages",
 	"A3_Structures_F_Exp_Walls_Tin",
-	"UK3CB_Factions_TKM_O"
+	"UK3CB_Factions_TKM_O",
+	"gm_vehicles_land_tracked_marder_ge_army_marder1"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=76;
+		items=77;
 		class Item0
 		{
 			className="A3_Modules_F_Tacops";
@@ -634,6 +635,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item76
+		{
+			className="gm_vehicles_land_tracked_marder_ge_army_marder1";
+			name="gm_vehicles_land_tracked_marder_ge_army_marder1";
+			author="Global Mobilization";
+			url="global-mobilization.com";
+		};
 	};
 };
 randomSeed=16502480;
@@ -994,7 +1002,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=544;
+		items=545;
 		class Item0
 		{
 			dataType="Logic";
@@ -3536,7 +3544,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11494.137,25.746702,2524.0469};
+				position[]={11494.232,25.746693,2523.5229};
 				angles[]={0.00069053395,3.1312873,6.2778587};
 			};
 			side="Empty";
@@ -3546,7 +3554,6 @@ class Mission
 			};
 			id=708;
 			type="gm_ge_army_fuchsa0_reconnaissance_des";
-			atlOffset=-0.0001449585;
 		};
 		class Item118
 		{
@@ -18291,7 +18298,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7278.4731,210.52689,4625.2388};
-				angles[]={0,1.464188,-0};
+				angles[]={0,1.464188,0};
 			};
 			side="Empty";
 			flags=4;
@@ -18317,6 +18324,219 @@ class Mission
 			};
 			id=2644;
 			type="Land_i_Garage_V2_F";
+		};
+		class Item544
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11502.336,25.698139,2523.3457};
+				angles[]={6.2813587,3.2238045,6.2671685};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				textures="gm_ge_des";
+			};
+			id=2645;
+			type="gm_ge_army_marder1a2";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="VehicleCustomization";
+					expression="if (local _this) then {if (isSimpleObject _this) then {_this setVariable ['bis_fnc_initVehicle_customization',_value]} else {([_this] + _value + [true]) call (uinamespace getvariable 'bis_fnc_initVehicle');};};";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"ARRAY"
+								};
+							};
+							class value
+							{
+								items=2;
+								class Item0
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"ARRAY"
+											};
+										};
+									};
+								};
+								class Item1
+								{
+									class data
+									{
+										class type
+										{
+											type[]=
+											{
+												"ARRAY"
+											};
+										};
+										class value
+										{
+											items=10;
+											class Item0
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"STRING"
+														};
+													};
+													value="beacon_01_org_unhide";
+												};
+											};
+											class Item1
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"SCALAR"
+														};
+													};
+													value=0;
+												};
+											};
+											class Item2
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"STRING"
+														};
+													};
+													value="sideskirt_unhide";
+												};
+											};
+											class Item3
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"SCALAR"
+														};
+													};
+													value=1;
+												};
+											};
+											class Item4
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"STRING"
+														};
+													};
+													value="CamoNet_01_unhide";
+												};
+											};
+											class Item5
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"SCALAR"
+														};
+													};
+													value=0;
+												};
+											};
+											class Item6
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"STRING"
+														};
+													};
+													value="supply_01_unhide";
+												};
+											};
+											class Item7
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"SCALAR"
+														};
+													};
+													value=0;
+												};
+											};
+											class Item8
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"STRING"
+														};
+													};
+													value="supply_02_unhide";
+												};
+											};
+											class Item9
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"SCALAR"
+														};
+													};
+													value=0;
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };
