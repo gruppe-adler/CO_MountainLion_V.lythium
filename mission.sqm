@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=155;
+		nextID=174;
 	};
 	class Camera
 	{
-		pos[]={11511.354,32.98584,2512.7107};
-		dir[]={-0.50078213,-0.52936041,0.68484986};
-		up[]={-0.31246397,0.84839255,0.42731214};
-		aside[]={0.80722284,6.5658242e-008,0.59026569};
+		pos[]={11306.617,79.240631,2519.0432};
+		dir[]={0.80220419,-0.57969606,0.14290173};
+		up[]={0.57071167,0.81483275,0.1016645};
+		aside[]={0.17537552,0,-0.9845016};
 	};
 };
 binarizationWanted=0;
@@ -35,7 +35,7 @@ addons[]=
 	"A3_Modules_F_Curator_Animals",
 	"A3_Structures_F_Civ_Camping",
 	"cba_xeh",
-	"Wall",
+	"Jbad_Wall",
 	"A3_Structures_F_Exp_Walls_Concrete",
 	"A3_Modules_F",
 	"CUP_Buildings_Config",
@@ -82,7 +82,7 @@ addons[]=
 	"A3_Weapons_F_Items",
 	"ace_medical_engine",
 	"ace_medical_treatment",
-	"Ind_Coltan_Mine",
+	"Jbad_Ind_Coltan_Mine",
 	"A3_Structures_F_EPA_Civ_Constructions",
 	"ace_interaction",
 	"ace_cargo",
@@ -173,8 +173,8 @@ class AddonsMetaData
 		};
 		class Item4
 		{
-			className="Wall";
-			name="Wall";
+			className="Jbad_Wall";
+			name="Jbad_Wall";
 		};
 		class Item5
 		{
@@ -428,8 +428,8 @@ class AddonsMetaData
 		};
 		class Item43
 		{
-			className="Ind_Coltan_Mine";
-			name="Ind_Coltan_Mine";
+			className="Jbad_Ind_Coltan_Mine";
+			name="Jbad_Ind_Coltan_Mine";
 		};
 		class Item44
 		{
@@ -5299,7 +5299,7 @@ class Mission
 						class Attribute2
 						{
 							property="ace_isEngineer";
-							expression="if !(_value == ([0,1] select (_this getUnitTrait 'engineer'))|| {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
 							class Value
 							{
 								class data
@@ -5417,7 +5417,7 @@ class Mission
 						class Attribute2
 						{
 							property="ace_isEngineer";
-							expression="if !(_value == ([0,1] select (_this getUnitTrait 'engineer'))|| {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
 							class Value
 							{
 								class data
@@ -5537,7 +5537,7 @@ class Mission
 						class Attribute2
 						{
 							property="ace_isEngineer";
-							expression="if !(_value == ([0,1] select (_this getUnitTrait 'engineer'))|| {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
 							class Value
 							{
 								class data
@@ -5655,7 +5655,7 @@ class Mission
 						class Attribute2
 						{
 							property="ace_isEngineer";
-							expression="if !(_value == ([0,1] select (_this getUnitTrait 'engineer'))|| {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
 							class Value
 							{
 								class data
@@ -7460,7 +7460,7 @@ class Mission
 						class Attribute2
 						{
 							property="ace_isEngineer";
-							expression="if !(_value == ([0,1] select (_this getUnitTrait 'engineer'))|| {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
 							class Value
 							{
 								class data
@@ -7579,7 +7579,7 @@ class Mission
 						class Attribute2
 						{
 							property="ace_isEngineer";
-							expression="if !(_value == ([0,1] select (_this getUnitTrait 'engineer'))|| {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
 							class Value
 							{
 								class data
@@ -7734,7 +7734,7 @@ class Mission
 						class Attribute2
 						{
 							property="ace_isEngineer";
-							expression="if !(_value == ([0,1] select (_this getUnitTrait 'engineer'))|| {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
 							class Value
 							{
 								class data
@@ -7852,7 +7852,7 @@ class Mission
 						class Attribute2
 						{
 							property="ace_isEngineer";
-							expression="if !(_value == ([0,1] select (_this getUnitTrait 'engineer'))|| {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
 							class Value
 							{
 								class data
@@ -18341,6 +18341,7 @@ class Mission
 			};
 			id=2645;
 			type="gm_ge_army_marder1a2";
+			atlOffset=-0.00028991699;
 			class CustomAttributes
 			{
 				class Attribute0

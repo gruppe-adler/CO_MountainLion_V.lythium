@@ -118,8 +118,15 @@ diag_log "add server marker";
 
     private _identifier = format ["GRAD_sandstorm_id%1", _id];
 
-    diag_log format ["_identifier: %1 - %2 - %3", _identifier];
+    
     missionNamespace setVariable [_identifier + "_speed", _speed, true];
-    0 setWindDir _windDirection;
+
+    private _vector = [0, _speed];
+    private _newVector = [ _vector, -_windDirection ] call BIS_fnc_rotateVector2D;
+    _newVector params ["_vectorX", "_vectorY"];
+
+    diag_log format ["_identifier: %1 - _newVector: %2", _identifier, _newVector];
+
+    setWind [_vectorX, _vectorY, true];
 
 }] call CBA_fnc_addEventhandler;
