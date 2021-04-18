@@ -1,5 +1,3 @@
-sleep 5;
-
 private _multiPlier = 1;
 
 [] remoteExec ["GRAD_introCam_fnc_play", [0,-2] select isDedicated, false];

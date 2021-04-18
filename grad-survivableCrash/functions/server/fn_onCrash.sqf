@@ -72,6 +72,8 @@ params ["_veh"];
 			];
 			_veh allowDamage false;
 
+			[_veh] call GRAD_survivableCrash_fnc_throwOutInventory;
+
 		}, [_veh]] call CBA_fnc_waitUntilAndExecute;
 
 		// lets vehicle slide a bit

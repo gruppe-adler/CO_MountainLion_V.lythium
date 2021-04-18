@@ -1,9 +1,13 @@
+/*
+	test with: [cursorTarget] execVM "grad-survivableCrash\functions\server\fn_throwOutInventory.sqf";
+*/
+
 params ["_veh"];
 
-private _items = getItemCargo _veh;
-private _magazines = getMagazineCargo _veh;
-private _weapons = getWeaponCargo _veh;
-private _backpacks = getBackpackCargo _veh;
+private _items = ItemCargo _veh;
+private _magazines = MagazineCargo _veh;
+private _weapons = WeaponCargo _veh;
+private _backpacks = BackpackCargo _veh;
 
 private _position = position _veh;
 private _radius = 15;
@@ -13,7 +17,7 @@ private _chance = 2;
 {
 	if (random _chance > 1) then {
 		private _holder = [_position, _radius] call GRAD_survivableCrash_fnc_spawnHolder;
-	 	_holder addItemCargoGlobal [typeOf _x, 1];
+	 	_holder addItemCargoGlobal [_x, 1];
 	 	_veh removeItem _x;
 	};
 } forEach _items;
@@ -21,7 +25,7 @@ private _chance = 2;
 {
 	if (random _chance > 1) then {
 	 	private _holder = [_position, _radius] call GRAD_survivableCrash_fnc_spawnHolder;
-	 	_holder addMagazineCargoGlobal [typeOf _x, 1];
+	 	_holder addMagazineCargoGlobal [_x, 1];
 	 	_veh removeItem _x;
 	};
 } forEach _magazines;
@@ -29,7 +33,7 @@ private _chance = 2;
 {
 	if (random _chance > 1) then {
 	 	private _holder = [_position, _radius] call GRAD_survivableCrash_fnc_spawnHolder;
-	 	_holder addWeaponCargoGlobal [typeOf _x, 1];
+	 	_holder addWeaponCargoGlobal [_x, 1];
 	 	_veh removeItem _x;
 	};
 } forEach _weapons;
@@ -37,7 +41,7 @@ private _chance = 2;
 {
 	if (random _chance > 1) then {
 	 	private _holder = [_position, _radius] call GRAD_survivableCrash_fnc_spawnHolder;
-	 	_holder addBackpackCargoGlobal [typeOf _x, 1];
+	 	_holder addBackpackCargoGlobal [_x, 1];
 	 	_veh removeItem _x;
 	};
 } forEach _backpacks;

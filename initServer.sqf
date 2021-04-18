@@ -1,11 +1,11 @@
-// setDate [2015, 06, 06, 5.5, 0];
+setDate [2015, 10, 06, 5.5, 0];
 
 
 ["Initialize", [true]] call BIS_fnc_dynamicGroups;
 
 
 if (isMultiplayer) then {
-	[] spawn GRAD_introCam_fnc_init;
+	// [] spawn GRAD_introCam_fnc_init;
 } else {
     // [] spawn GRAD_introCam_fnc_init;
 };
@@ -35,30 +35,28 @@ addMissionEventHandler ["HandleDisconnect", {
 }];
 
 
-[{
-    private _chairs = [];
 
-    for "_i" from 1 to 64 do {
-        private _varName = format ["chair_%1", _i];
-        _chairs pushBackUnique (call compile _varName);
-    };
+private _chairs = [];
 
-    {   
+for "_i" from 1 to 64 do {
+    private _varName = format ["chair_%1", _i];
+    _chairs pushBackUnique (call compile _varName);
+};
 
-        if (_forEachIndex < (count _chairs) - 1) then {
+{   
 
-            private _chair = _chairs select _forEachIndex;
+    if (_forEachIndex < (count _chairs) - 1) then {
 
-            if (!((typeOf _x) isEqualTo "B_Officer_F") && (!((side _x) isEqualTo civilian))) then {
-                _x setVariable ["ml_id", _forEachIndex, true];
-            };
+        private _chair = _chairs select _forEachIndex;
 
-            if (!isPlayer _x) then {
-                [_chair, _x] call acex_sitting_fnc_sit;
-            };
-
+        if (!((typeOf _x) isEqualTo "B_Officer_F") && (!((side _x) isEqualTo civilian))) then {
+            _x setVariable ["ml_id", _forEachIndex, true];
         };
 
-    } forEach (playableUnits + switchableUnits);
+        if (!isPlayer _x) then {
+            [_chair, _x] call acex_sitting_fnc_sit;
+        };
 
-}, 2] call CBA_fnc_waitAndExecute;
+    };
+
+} forEach (playableUnits + switchableUnits);

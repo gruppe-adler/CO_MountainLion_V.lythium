@@ -7,6 +7,8 @@ _unit allowDamage false;
 
 _unit unassignItem "itemmap";_unit removeItem "itemmap";
 _unit unassignItem "itemgps";_unit removeItem "itemgps";
+
+execVM "grad-survivableCrash\functions\client\fn_disableRadio.sqf";
 	
 if (_unit == player) then {
 	addCamShake [10, 2, 15];
@@ -28,6 +30,8 @@ _veh say3D ["vehicle_dragging",150];
 	if (vehicle _unit != _unit) then {
 		moveOut _unit;
 	};
+	private _position = (getPosATL _unit) findEmptyPosition [5,50,typeOf _unit];
+	_unit setPos _position;
 	_unit switchMove "";
 	_unitVelocity = velocity _unit;
 	_unit setVelocity [0,0,0];

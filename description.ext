@@ -12,8 +12,8 @@ respawnDialog = 0;
 respawnButton = 0;
 
 loadScreen = "pic\loading.jpg";
-OnLoadName    = "CO MOUNTAIN LION IV";
-OnLoadMission = "Capturing an ISIS warlord.";
+OnLoadName    = "CO BERGLÖWE";
+OnLoadMission = "Gefangennahme eines ISIS warlords.";
 
 class Header
 {
@@ -37,7 +37,6 @@ class cfgFunctions {
   #include "grad-enhancedDesert\cfgFunctions.hpp"
   #include "grad-introCam\cfgFunctions.hpp"
   #include "grad-missionControl\cfgFunctions.hpp"
-  #include "grad-permaChoice\cfgFunctions.hpp"
   #include "grad-reinforcements\cfgFunctions.hpp"
   #include "grad-rotorWash\cfgFunctions.hpp"
   #include "grad-fortificationTransport\cfgFunctions.hpp"

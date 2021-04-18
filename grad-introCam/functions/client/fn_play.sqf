@@ -1,5 +1,12 @@
 // dont display for JIP
-if (didJIP) exitWith {};
+if (didJIP) exitWith {
+    diag_log "did jip exiting intro";
+};
+
+titleText ["","BLACK FADED",999];
+0 fadeSound 0;
+
+sleep 5;
 waitUntil {!isNull player};
 waitUntil {time > 0};
 player setVariable ["tf_voiceVolume", 0, true];
@@ -44,8 +51,6 @@ cutText [" ", "BLACK IN", 3];
 private _camera = "camera" camCreate (getpos player);
 _camera cameraeffect ["terminate", "back"];
 camDestroy _camera;
-
-STHud_UIMode = 1;
 
 setViewDistance _viewDistanceCache;
 setObjectViewDistance _objectViewDistanceCache;
