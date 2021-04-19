@@ -61,7 +61,7 @@ class CfgHints
 {
    class HintLogistics
    {
-       displayName = "Logistics 1";
+       displayName = "Logistics 2";
 
        class Fortifications
        {
