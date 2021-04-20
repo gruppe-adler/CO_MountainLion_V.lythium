@@ -42,6 +42,9 @@ params ["_veh"];
 		params ["_veh"];
 
 		_veh setPos (getMarkerPos "mrk_crashSite");
+		_veh attachTo [crashSite, [0,0,0]];
+		_veh setVectorDir [0.963404,-0.126286,-0.236441];
+		_veh setVectorUp [0.201631,-0.239806,0.949651];
 
 		// trigger ejection and effects on crew
 		{
