@@ -42,6 +42,8 @@ class cfgFunctions {
   #include "grad-fortificationTransport\cfgFunctions.hpp"
   #include "grad-civAnimations\cfgFunctions.hpp"
   #include "grad-attackGroups\cfgFunctions.hpp"
+  #include "grad-airDrop\cfgFunctions.hpp"
+  #include "grad-textures\cfgFunctions.hpp"
 
   #include "node_modules\grad-loadout\cfgFunctions.hpp"
   #include "node_modules\grad-customGear\cfgFunctions.hpp"

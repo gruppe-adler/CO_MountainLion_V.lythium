@@ -1,21 +1,16 @@
 //by Persian MO
 
-_target = _this select 0;
-_caller = _this select 1;
-_id = _this select 2;
-_classm = _this select 3;
-_class = _classm select 0;
+params ["_plane", "_vehicle", "_id"];
 
-_pos = getPosATL _caller;
+private _pos = _plane modelToWorld [.5,-20,0];
 
+detach _vehicle;
+_vehicle setDir random 360;
+_vehicle setPos _pos;
 
+_vehicle call grad_airdrop_fnc_airDrop;
 
-sleep 2;
+_plane removeAction _id;
 
-
-_veh = _class createVehicle [0,0,0];
-_veh setDir random 360;
-_veh setPos _pos;
-_veh call KK_fnc_paraDrop;
-
-_target removeAction _id;
+private _vehicleCount = _plane getVariable ["vehicleCount", 1];
+_plane setVariable ["vehicleCount", _vehicleCount - 1, true];

@@ -25,7 +25,7 @@ _introPicWhite ctrlSetPosition [
  	safeZoneW,  
  	safezoneH
 ];
-_introPicWhite ctrlsetText "pic\intro_black.paa";
+_introPicWhite ctrlsetText "pic\intro.paa";
 _introPicWhite ctrlsetFade 1;
 _introPicWhite ctrlCommit 0;
 

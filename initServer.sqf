@@ -7,7 +7,7 @@ setDate [2015, 10, 06, 5.5, 0];
 if (isMultiplayer) then {
 	// [] spawn GRAD_introCam_fnc_init;
 } else {
-    // [] spawn GRAD_introCam_fnc_init;
+    [] spawn GRAD_introCam_fnc_init;
 };
 
 

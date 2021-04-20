@@ -1,14 +1,14 @@
 // AIR DROP BY KK
 
-private ["_para","_paras","_p","_veh","_vel","_time"];
+private ["_para","_paras","_p","_vehicle","_vel","_time"];
 /*_class = format [
     "b_parachute_02_F", 
     toString [(toArray faction _this) select 0]
 ];*/
-_para = createVehicle ["b_parachute_02_F", [0,0,0], [], 0, "FLY"];
+private _para = createVehicle ["b_parachute_02_F", [0,0,0], [], 0, "FLY"];
 _para setDir getDir _this;
 _para setPos getPos _this;
-_paras =  [_para];
+private _paras = [_para];
 _this attachTo [_para, [0,2,0]];
 {
     _p = createVehicle ["b_parachute_02_F", [0,0,0], [], 0, "FLY"];
@@ -19,20 +19,20 @@ _this attachTo [_para, [0,2,0]];
     [0.5,0.4,0.6],[-0.5,0.4,0.6],[0.5,-0.4,0.6],[-0.5,-0.4,0.6]
 ];
 0 = [_this, _paras] spawn {
-    _veh = _this select 0;
-    waitUntil {getPos _veh select 2 < 4};
-    _vel = velocity _veh;
-    detach _veh;
-    _veh setVelocity _vel;
-    missionNamespace setVariable ["#FX", [_veh, _vel select 2]];
+    params ["_vehicle"];
+    waitUntil {getPos _vehicle select 2 < 4};
+    _vel = velocity _vehicle;
+    detach _vehicle;
+    _vehicle setVelocity _vel;
+    missionNamespace setVariable ["#FX", [_vehicle, _vel select 2]];
     publicVariable "#FX";
     playSound3D [
         "a3\sounds_f\weapons\Flare_Gun\flaregun_1_shoot.wss",
-        _veh
+        _vehicle
     ];
     {
         detach _x;
-        _x disableCollisionWith _veh;   
+        _x disableCollisionWith _vehicle;   
     } count (_this select 1);
     _time = time + 5;
     waitUntil {time > _time};
