@@ -69,15 +69,20 @@ waitUntil {  time > 3 };
 
 
 
-// not used for anything atm
-["ML MISSION", "Briefing Done",
+["BERGLOEWE MISSION", "Start Kaffeefahrt",
 {
-  BRIEFING_DONE = true; publicVariable "BRIEFING_DONE";
+  execVM "grad-missionControl\functions\server\fn_startKaffeefahrt.sqf";
+
+}] call zen_custom_modules_fnc_register;
+
+["BERGLOEWE MISSION", "Start SuicideCar",
+{
+  execVM "grad-missionControl\functions\server\fn_suicideCar.sqf";
 
 }] call zen_custom_modules_fnc_register;
 
 
-["ML MUSIC", "Intro Fly Music",
+["BERGLOEWE MUSIC", "Intro Fly Music",
 {
   [5, 1] remoteExec ["fadeMusic"];
   ["openingbook"] remoteExec ["playMusic"];

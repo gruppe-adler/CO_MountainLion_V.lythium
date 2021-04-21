@@ -1,3 +1,5 @@
+// execVM "grad-missionControl\functions\server\fn_startKaffeefahrt.sqf";
+
 
 private _car = kaffeefahrtBus;
 private _path = [];
@@ -16,13 +18,13 @@ kaffeefahrt_building animateSource ["Door_4_sound_source", 1];
 
 
 private _types = [
-    "LOP_AM_OPF_Infantry_Engineer",
-    "LOP_AM_OPF_Infantry_Rifleman",
-    "LOP_AM_OPF_Infantry_Rifleman_9",
-    "LOP_AM_OPF_Infantry_SL",
-    "LOP_AM_OPF_Infantry_AR_Asst",
-    "LOP_AM_OPF_Infantry_Rifleman_8",
-    "LOP_AM_OPF_Infantry_Corpsman"
+    "UK3CB_TKM_O_IED",
+    "UK3CB_TKM_O_MD",
+    "UK3CB_TKM_O_RIF_1",
+    "UK3CB_TKM_O_SNI",
+    "UK3CB_TKM_O_WAR",
+    "UK3CB_TKM_O_GL",
+    "UK3CB_TKM_O_DEM"
 ];
 
 private _group = createGroup east;
