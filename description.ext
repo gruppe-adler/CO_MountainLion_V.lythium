@@ -44,6 +44,7 @@ class cfgFunctions {
   #include "grad-attackGroups\cfgFunctions.hpp"
   #include "grad-airDrop\cfgFunctions.hpp"
   #include "grad-textures\cfgFunctions.hpp"
+  #include "grad-herding\cfgFunctions.hpp"
 
   #include "node_modules\grad-loadout\cfgFunctions.hpp"
   #include "node_modules\grad-customGear\cfgFunctions.hpp"
@@ -192,6 +193,7 @@ class CfgGradFortifications {
 class cfgSounds {
 
   #include "grad-survivableCrash\cfgSounds.hpp"
+  #include "grad-herding\cfgSounds.hpp"
 
     class GRAD_heartbeat_slow_1
       {

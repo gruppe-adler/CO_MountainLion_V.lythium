@@ -19,8 +19,8 @@ params ["_veh"];
 
 	_veh setHitPointDamage ["hitavionics",1];
 
-	private _smoke = createVehicle ["test_EmptyObjectForSmoke", position _veh, [], 0, "CAN_COLLIDE"];
-	_smoke attachTo [_veh,[0,0,0],"motor"];
+	// private _smoke = createVehicle ["test_EmptyObjectForSmoke", position _veh, [], 0, "CAN_COLLIDE"];
+	// _smoke attachTo [_veh,[0,0,0],"motor"];
 
 	_veh allowDamage false;
 
@@ -60,7 +60,7 @@ params ["_veh"];
 			count (crew _veh) < 1
 		},{
 			params ["_veh"];
-			_veh setVectorDirAndUp [[0,1,0], [1,0,0]]; // tilt 90 degress sideways
+			_veh engineOn false;
 			_veh setVehicleLock "LOCKED";
 			_veh allowDamage true;
 			{ _veh setHitPointDamage [_x,.7]; } forEach [
