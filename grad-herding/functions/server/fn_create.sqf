@@ -62,10 +62,11 @@ for "_i" from 1 to _count do {
 
 		_animal addEventHandler ["AnimDone", {
 			params ["_unit", "_anim"];
-			
+			diag_log format ["_animDone done %1", _anim];
 			private _anim = _unit getVariable ["GRAD_HERDING_ANIM", GRAD_HERDING_ANIM_STOP];
-			[_unit, _anim] remoteExec ["switchMove", 0];
-			// _unit playMoveNow _anim;
+			// [_unit, _anim] remoteExec ["switchMove", 0];
+			_unit playMoveNow _anim;
+			diag_log format ["_animDone exec %1", _anim];
 		}];
 };
 
