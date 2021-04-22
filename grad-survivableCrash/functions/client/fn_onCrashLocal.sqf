@@ -8,7 +8,8 @@ _unit allowDamage false;
 _unit unassignItem "itemmap";_unit removeItem "itemmap";
 _unit unassignItem "itemgps";_unit removeItem "itemgps";
 
-execVM "grad-survivableCrash\functions\client\fn_disableRadio.sqf";
+[] call GRAD_survivableCrash_fnc_disableRadio;
+[_unit] call GRAD_survivableCrash_fnc_disableBFT;
 	
 if (_unit == player) then {
 	addCamShake [10, 2, 15];
