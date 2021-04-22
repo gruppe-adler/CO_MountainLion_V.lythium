@@ -8,6 +8,7 @@ _unit allowDamage false;
 _unit unassignItem "itemmap";_unit removeItem "itemmap";
 _unit unassignItem "itemgps";_unit removeItem "itemgps";
 
+
 [] call GRAD_survivableCrash_fnc_disableRadio;
 [_unit] call GRAD_survivableCrash_fnc_disableBFT;
 	

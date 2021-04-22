@@ -17,6 +17,7 @@ class GRAD_herding {
         class makeSound;
         class moveAnimal;
         class removeAnimalFromHerd;
+        class sniper;
     };
     
 };

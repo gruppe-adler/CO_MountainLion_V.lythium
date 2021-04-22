@@ -60,12 +60,14 @@ for "_i" from 1 to _count do {
 				_herdAnimals pushBack _animal;
 		};
 
-		_animal addEventHandler ["AnimDone", {
+		_animal addEventHandler ["AnimChanged", {
 			params ["_unit", "_anim"];
+
+			if (!alive _unit) then {_unit removeEventHandler _thisEventhandler; };
 			diag_log format ["_animDone done %1", _anim];
 			private _anim = _unit getVariable ["GRAD_HERDING_ANIM", GRAD_HERDING_ANIM_STOP];
 			// [_unit, _anim] remoteExec ["switchMove", 0];
-			_unit playMoveNow _anim;
+			_unit playMove _anim; // playmoveNow prevents turning
 			diag_log format ["_animDone exec %1", _anim];
 		}];
 };

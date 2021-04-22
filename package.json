@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "grad-customGear": "^2.0.0",
+    "grad-factions": "^3.0.1",
+    "grad-leaveNotes": "^2.2.1",
+    "grad-loadout": "^4.11.5"
+  }
+}
