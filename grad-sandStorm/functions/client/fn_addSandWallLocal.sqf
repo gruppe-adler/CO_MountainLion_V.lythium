@@ -2,6 +2,8 @@ params ["_trigger", "_triggerSound", "_helperObject", "_sandstormIdentifier"];
 
 private _updateRate = 1;
 
+GRAD_SANDSTORM_DEBUG = if ((allCurators findIf {getAssignedCuratorUnit _x == player}) != -1) then { true } else { false };
+
 if (GRAD_SANDSTORM_DEBUG) then {
     diag_log "add local sandwall";
 };
@@ -88,7 +90,8 @@ if (!GRAD_SANDSTORM_DEBUG) then {
         };
     };
 
-    if ((vehicle player) inArea _trigger) then {
+    // accomodate for curators flying around in their cams
+    if ((positionCameraToWorld [0,0,0]) inArea _trigger) then {
 
         // playSound ["A3\sounds_f\ambient\winds\wind-synth-fast.wss", player];
 

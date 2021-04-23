@@ -30,7 +30,8 @@ private _introVehicles = _vehicleDefinitions call GRAD_introCam_fnc_playRecord;
 private _camDefinitions = [
     ["FREE", getPos intro_camPos1, getPos intro_camPos2, intro_camTarget1, intro_camTarget2, 38.4, 0, 0.4, 0.2, [0,0,0], [0,0,0]],
 	["FREE", getPos intro_camPos2, getPos intro_camPos3, intro_camTarget2, _introVehicles select 0, 25, 0, 0.2, 0.1, [0,0,0], [0,0,5]],
-	["FREE", getPos intro_camPos3, getPos intro_end, _introVehicles select 0, intro_end2, 63.4, 0, 0.1, 0.2, [0,0,5], [0,0,2]]
+	["FREE", getPos intro_camPos3, getPos intro_end, _introVehicles select 0, intro_end2, 63.4, 0, 0.1, 0.2, [0,0,5], [0,0,2]],
+    ["FREE", getPos intro_end, getPos intro_end, intro_end2, intro_end2, 5, 0, 0.2, 0.3, [0,0,2], [0,0,2]]
 ];
 
 /////// dont edit below

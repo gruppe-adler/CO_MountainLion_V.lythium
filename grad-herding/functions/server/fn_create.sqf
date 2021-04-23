@@ -17,14 +17,24 @@ private _herdAnimals = [];
 private _currentIndex = (missionNamespace getVariable ["GRAD_herding_instanceCount", 0]) + 1;
 missionNamespace setVariable ["GRAD_herding_instanceCount", _currentIndex, true];
 
-private _shepherd = (createGroup civilian) createUnit ["UK3CB_TKC_C_WORKER", _spawnPosition, [], 0, "NONE"];
+private _shepherd = (createGroup west) createUnit ["UK3CB_TKC_C_WORKER", _spawnPosition, [], 0, "NONE"];
 
 private _pole = "Land_Net_Fence_pole_F" createVehicle [0,0,0];
 _pole attachTo [_shepherd, [0,0,0], "RightHandMiddle1", true];
 _pole setVectorDirAndUp [[0,0.66,-0.33],[0,0.33,0.66]];
 _shepherd setVariable ["shepherdPole", _pole, true];
-[] remoteExec ["GRAD_herding_fnc_addGestureHandler", _shepherd];
 
+[_shepherd] remoteExec ["GRAD_herding_fnc_addGestureHandler", _shepherd];
+
+_shepherd addEventHandler ["ControlsShifted", {
+	params ["_vehicle", "_activeCoPilot", "_oldController"];
+
+	diag_log "controls shifted of shepherd";
+
+	if (isPlayer _activeCoPilot) then {
+		[_vehicle] remoteExec ["GRAD_herding_fnc_addGestureHandler", _activeCoPilot];
+	};
+}];
 
 _shepherd addMPEventHandler ["MPkilled", {
 	params ["_unit"];
@@ -63,12 +73,12 @@ for "_i" from 1 to _count do {
 		_animal addEventHandler ["AnimChanged", {
 			params ["_unit", "_anim"];
 
-			if (!alive _unit) then {_unit removeEventHandler _thisEventhandler; };
-			diag_log format ["_animDone done %1", _anim];
+			if (!alive _unit) exitWith {_unit removeEventHandler ["AnimChanged", _thisEventhandler]; };
+			// diag_log format ["_animDone done %1", _anim];
 			private _anim = _unit getVariable ["GRAD_HERDING_ANIM", GRAD_HERDING_ANIM_STOP];
 			// [_unit, _anim] remoteExec ["switchMove", 0];
 			_unit playMove _anim; // playmoveNow prevents turning
-			diag_log format ["_animDone exec %1", _anim];
+			// diag_log format ["_animDone exec %1", _anim];
 		}];
 };
 

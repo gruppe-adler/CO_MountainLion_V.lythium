@@ -82,7 +82,7 @@ diag_log "add server marker";
     _helperObject setPosASL _newPos;
     _helperObject setVectorUp [0,0,1];
 
-     hint str _newPos;
+     // hint str _newPos;
 
     // _soundSource setPos _newPos;
     _markerstr setMarkerPos _newPos;

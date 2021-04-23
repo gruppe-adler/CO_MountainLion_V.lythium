@@ -51,7 +51,6 @@ _car setDriveOnPath _path;
             {
                 [_x] allowGetIn false;
                 doGetOut _x;
-                sleep random 0.3;
             } forEach crew _car;
         };
 

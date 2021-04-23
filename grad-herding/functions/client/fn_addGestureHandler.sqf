@@ -1,3 +1,11 @@
+params ["_unit"];
+
+if (_unit getVariable ["hasGestureHandler", false]) exitWith {
+	diag_log "has alreayd gesture handler locally";
+};
+
+_unit setVariable ["hasGestureHandler", true];
+
 ["ace_common_playActionNow", {
 	params ["_unit", "_anim"];
 
