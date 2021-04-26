@@ -14,5 +14,5 @@ _grain ppEffectAdjust [
     1.0,
     0 // 0 for Arma 3
 ];
-_grain ppEffectCommit 1;
+_grain ppEffectCommit 2;
 ppEffectDestroy _grain;

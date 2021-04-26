@@ -6,6 +6,6 @@ _colorEffect ppEffectCommit 1;
 private _grain = ppEffectCreate ["FilmGrain", 2050];
 _grain ppEffectEnable true;
 _grain ppEffectAdjust [0.08, 1.25, 2.05, 0.75, 1, 0];
-_grain ppEffectCommit 1;
+_grain ppEffectCommit 2;
 
 [_colorEffect, _grain]

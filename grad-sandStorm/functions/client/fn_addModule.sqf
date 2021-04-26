@@ -8,7 +8,7 @@ module for ZEN
 
 */
 
-["GRAD Sandstorm", "Edit Sandstorm", {
+["BERGLOEWE MISSION", "Edit Sandstorm", {
 
 private _existingSandstormsCount = missionNamespace getVariable ["GRAD_sandstorm_existingSandstormCount", 0];
 private _sandStormIds = [];
@@ -62,7 +62,7 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 
 
 
-["GRAD Sandstorm", "Start Sandstorm", {
+["BERGLOEWE MISSION", "Start Sandstorm", {
 
 	params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 	_position = ASLToAGL _position;

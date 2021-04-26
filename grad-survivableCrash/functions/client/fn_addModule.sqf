@@ -1,5 +1,5 @@
-["GRAD Survivable Crashes", "Crash Helicopter", {
-    
+["BERGLOEWE MISSION", "Crash closest Helicopter", {
+
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
     _position = ASLToAGL _position;
 
@@ -9,8 +9,8 @@
 
 }] call zen_custom_modules_fnc_register;
 
-["GRAD Survivable Crashes", "Disable Helicopter", {
-    
+["BERGLOEWE MISSION", "Disable closest Helicopter", {
+
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
     _position = ASLToAGL _position;
 

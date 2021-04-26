@@ -60,7 +60,7 @@ waitUntil {  time > 3 };
 
   if (missionNamespace getVariable ["GRAD_MISSIONCONTROL_ZEUS_AI_CHARGE", false]) then {
 
-        [_group, _waypointID] call GRAD_missionControl_fnc_enableChargeMode;
+        [_group, _waypointID] remoteExec ["GRAD_missionControl_fnc_enableChargeMode", 2];
   };
 
   }];
@@ -83,7 +83,7 @@ waitUntil {  time > 3 };
 
 
 
-["ZEUS HELPERS", "Alert enemy AI around here",
+["BERGLOEWE HELPERS", "Alert enemy AI around here",
 {
   // Get all the passed parameters
   params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
@@ -95,7 +95,7 @@ waitUntil {  time > 3 };
 }] call zen_custom_modules_fnc_register;
 
 
-["ZEUS HELPERS", "Toggle AI Charge",
+["BERGLOEWE HELPERS", "Toggle AI Charging",
 {
   private _current = missionNamespace getVariable ["GRAD_MISSIONCONTROL_ZEUS_AI_CHARGE", false];
   missionNamespace setVariable ["GRAD_MISSIONCONTROL_ZEUS_AI_CHARGE", !_current, true];
@@ -105,66 +105,15 @@ waitUntil {  time > 3 };
 }] call zen_custom_modules_fnc_register;
 
 
-["ML MUSIC", "Outro Music",
+["BERGLOEWE MUSIC", "Outro Music",
 {
   [5, 1] remoteExec ["fadeMusic"];
   ["outro"] remoteExec ["playMusic"];
 }] call zen_custom_modules_fnc_register;
-/*
-["ML FX", "Make Suicide Bomber",
-{
-  // Get all the passed parameters
-  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
-  if (isNull _objectUnderCursor) exitWith { hint "no unit selected"; };
-
-  [_objectUnderCursor, 300, 100] remoteExec ["GRAD_ambient_fnc_suicider", 2];
-
-}] call zen_custom_modules_fnc_register;
-
-// for debrief
-["ML MISSION", "Force Respawn everyone",
-{
-  // Get all the passed parameters
-  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
-  [] remoteExec ["GRAD_permaChoice_fnc_forceRespawn", [0,-2] select isDedicated, true];
-
-}] call zen_custom_modules_fnc_register;
-
-// for debrief
-["ZEUS HELPERS", "Create Chair Circle",
-{
-  // Get all the passed parameters
-  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
 
-  private _count = count (playableUnits + switchableUnits) + 2;
 
-  // possible chairs
-  private _chairs = ["Land_CampingChair_V1_F", _position, _count] call GRAD_missionControl_fnc_createChairCircle;
-
-}] call zen_custom_modules_fnc_register;
-
-// not working as expected
-["ZEUS HELPERS", "Drop TFAR Ears",
-{
-  // Get all the passed parameters
-  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-
-
-  if (isNull _objectUnderCursor) exitWith {
-      hint "Returning TFAR ears to Zeus";
-      player setVariable ["TF_fnc_position", nil];
-  };
-
-  [_objectUnderCursor] call GRAD_missionControl_fnc_dropZeusEars;
-
-}] call zen_custom_modules_fnc_register;
-*/
-
-
-["Mountain Enemies", "Weaponize Vehicle",
+["BERGLOEWE HELPERS", "Weaponize Civ Vehicle Crew",
 {
   params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
