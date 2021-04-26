@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=3004;
+		nextID=3006;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=269;
+		nextID=307;
 	};
 	class Camera
 	{
-		pos[]={11358.874,37.932079,2510.9727};
-		dir[]={0.18967871,-0.63158405,0.75176466};
-		up[]={0.15451485,0.77530545,0.61239862};
-		aside[]={0.96962571,2.8521754e-008,-0.24464501};
+		pos[]={11318.177,71.568916,2458.9783};
+		dir[]={0.79092818,-0.51472336,0.33091259};
+		up[]={0.474841,0.85735428,0.1986665};
+		aside[]={0.38596725,-4.3452019e-008,-0.92251647};
 	};
 };
 binarizationWanted=0;
@@ -3161,7 +3161,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={11382.986,23.381674,2518.9897};
-						angles[]={6.278254,0,-0};
+						angles[]={6.278254,0,0};
 					};
 					side="West";
 					flags=4;
@@ -4336,7 +4336,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={11381.783,23.388878,2522.4978};
-				angles[]={6.2818937,0,-0};
+				angles[]={6.2818937,0,0};
 			};
 			title="Hammer";
 			description="2 Fireteams";
@@ -8767,7 +8767,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={11346.805,38.66674,2536.6094};
-				angles[]={-0,3.0373769,-0};
+				angles[]={0,3.0373769,0};
 			};
 			side="Empty";
 			class Attributes
@@ -15668,7 +15668,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={11362.296,23.342766,2507.5488};
-						angles[]={6.2817206,0,-0};
+						angles[]={6.2817206,0,0};
 					};
 					side="West";
 					flags=6;
@@ -15894,7 +15894,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={11363.504,23.337975,2505.1089};
-				angles[]={6.2817206,0,-0};
+				angles[]={6.2817206,0,0};
 			};
 			title="Bumble";
 			id=2742;

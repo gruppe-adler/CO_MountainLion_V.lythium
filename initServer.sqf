@@ -60,3 +60,22 @@ for "_i" from 1 to 64 do {
     };
 
 } forEach (playableUnits + switchableUnits);
+
+
+// klamotten in 3cb fuzzi
+
+// suicide auto fährt nicht
+
+// attach uav dings
+
+// build/remove wind slowly
+
+// crash site tag remove on map
+
+// delete sandstorm marker
+// removing local sandwall
+// deleting sandstorm id
+
+// restarting sound effect systemchat
+
+// kampfbrillen vs. sandsturm - aufsetzen zum wegmachen

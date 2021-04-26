@@ -15,6 +15,7 @@ if (GRAD_SANDSTORM_DEBUG) then {
     debug
 */
 
+
 private _markerstr = createMarkerLocal [format ["mrk_lod_%1", _sandstormIdentifier],[0,0]];
 _markerstr setMarkerShapeLocal "ELLIPSE"; 
 _markerstr setMarkerColorLocal "ColorBlue"; 

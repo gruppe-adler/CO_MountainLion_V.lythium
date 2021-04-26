@@ -82,13 +82,6 @@ waitUntil {  time > 3 };
 }] call zen_custom_modules_fnc_register;
 
 
-["BERGLOEWE MUSIC", "Intro Fly Music",
-{
-  [5, 1] remoteExec ["fadeMusic"];
-  ["openingbook"] remoteExec ["playMusic"];
-
-}] call zen_custom_modules_fnc_register;
-
 
 ["ZEUS HELPERS", "Alert enemy AI around here",
 {
