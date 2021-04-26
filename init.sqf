@@ -4,5 +4,3 @@ BRIEFING_DONE = false;
 
 enableSentences false;
 ["BLU_F", "BwTrop"] call GRAD_Loadout_fnc_FactionSetLoadout;
-["OPF_F", "Taliban"] call GRAD_Loadout_fnc_FactionSetLoadout;
-["CIV_F", "Taliban"] call GRAD_Loadout_fnc_FactionSetLoadout;

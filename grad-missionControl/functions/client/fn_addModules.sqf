@@ -81,6 +81,11 @@ waitUntil {  time > 3 };
 
 }] call zen_custom_modules_fnc_register;
 
+["BERGLOEWE MISSION", "Change Briefing Slide",
+{
+  intro_billboard setObjectTextureGlobal [0, "pic\briefing2.paa"];
+
+}] call zen_custom_modules_fnc_register;
 
 
 ["BERGLOEWE HELPERS", "Alert enemy AI around here",

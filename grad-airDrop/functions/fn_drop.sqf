@@ -1,6 +1,6 @@
 //by Persian MO
 
-params ["_plane", "_vehicle", "_id"];
+params ["_plane", "_vehicle"];
 
 private _pos = _plane modelToWorld [.5,-20,0];
 
@@ -9,8 +9,6 @@ _vehicle setDir random 360;
 _vehicle setPos _pos;
 
 _vehicle call grad_airdrop_fnc_airDrop;
-
-_plane removeAction _id;
 
 private _vehicleCount = _plane getVariable ["vehicleCount", 1];
 _plane setVariable ["vehicleCount", _vehicleCount - 1, true];
