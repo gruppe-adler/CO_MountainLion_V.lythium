@@ -3,13 +3,7 @@ class GRAD_introCam {
     class flyrecord {
             file = grad-introCam\functions\flyrecord;
 
-            class ah64;
-            class heli5;
-            class mh6_2;
             class playRecord;
-            class planeC;
-            class planeR;
-            class planeL;
     };
 
     class client {
