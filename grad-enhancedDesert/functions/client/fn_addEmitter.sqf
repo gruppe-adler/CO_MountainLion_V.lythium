@@ -58,7 +58,7 @@ private _multi = 0.2;
 		 [0,1,0,1,0,1], 0, 0, "", "", _vehicle];
 	};
 
-}, 0.1, [_vehicle, _colorR, _colorG, _colorB, _lifetime, _multi] call CBA_fnc_addPerFrameHandler;
+}, 0.1, [_vehicle, _colorR, _colorG, _colorB, _lifetime, _multi]] call CBA_fnc_addPerFrameHandler;
 
 /*
 drop ["\A3\data_f\cl_basic","", "Billboard", 1, 60, [0,0,0], [0, 0, 10], 0.3, 1, 1,50, [0.3,3], [[0.5,0.5,0.5,0],[0.7,0.7,0.7,0.5],[0.9,0.9,0.9,0]], [0,1,0,1,0,1], 0, 0, "", "", player];

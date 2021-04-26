@@ -52,7 +52,7 @@ setWind [0,1,true];
     private _currentSpeed = 1;
 
     for "_i" from 1 to _maxSpeed step 1 do {
-        1 setWindStr _i;
+        setWind [0, _i];
         missionNamespace setVariable [_identifier + "_speed", _i, true];
 
         sleep 1;
@@ -88,7 +88,7 @@ diag_log "add server marker";
             params ["_maxSpeed", "_identifier"];
 
             for "_i" from _maxSpeed to 1 step -1 do {
-                1 setWindStr _i;
+                setWind [0, _i];
                 missionNamespace setVariable [_identifier + "_speed", _currentSpeed, true];
 
                 sleep 1;
