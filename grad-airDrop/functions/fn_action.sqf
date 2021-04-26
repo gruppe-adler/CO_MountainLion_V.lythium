@@ -1,3 +1,8 @@
+/*
+
+// NOT USED ANYMORE
+
+
 grad_airDrop_fnc_canLoad = {
     params ["_unit"];
 
@@ -9,6 +14,7 @@ grad_airDrop_fnc_canLoad = {
 
     _C130isCloseAndEmpty
 };
+
 
 ["Car", "init", {
     
@@ -31,5 +37,5 @@ grad_airDrop_fnc_canLoad = {
     _vehicle enableVehicleCargo false;  
 
 }] call CBA_fnc_addClassEventHandler;
-
+*/
     

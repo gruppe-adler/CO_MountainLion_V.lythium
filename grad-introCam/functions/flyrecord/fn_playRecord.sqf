@@ -40,6 +40,12 @@ _group setSpeedMode "NORMAL";
 	private _pos = getMarkerPos _x;
 	_pos set [2,40];
   	private _waypoint = _group addWaypoint [_pos, 0];
+
+  	if (count _waypoints isEqualTo (_forEachIndex-1)) then {
+  		_waypoint setWaypointStatements ["true", "
+  			[this] call GRAD_missionControl_fnc_despawn;
+  		"];
+  	};
 } forEach _waypoints;
 
 _spawnedVehicles

@@ -26,6 +26,7 @@ class Header
 #include "node_modules\grad-fortifications\grad_fortifications.hpp"
 #include "node_modules\grad-leaveNotes\grad_leaveNotes.hpp"
 
+
 class RscTitles {
     #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
 };
@@ -56,6 +57,7 @@ disableRandomization[]=
 {
 	"UK3CB_TKC_B_CIV"
 };
+
 
 class Loadouts {
     baseDelay = 1;      // base delay in seconds before applying loadouts on mission start

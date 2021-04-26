@@ -15,11 +15,12 @@ diag_log format ["adding emitter to %1", _vehicle];
 private _colorR = 0.3; 
 private _colorG = 0.25; 
 private _colorB = 0.2; 
-private _lifetime = 60;
+private _lifetime = 30;
+private _multi = 0.2;
 
 [{
 	params ["_args", "_handle"];
-	_args params ["_vehicle", "_colorR", "_colorG", "_colorB", "_lifetime"];
+	_args params ["_vehicle", "_colorR", "_colorG", "_colorB", "_lifetime", "_multi"];
 
 	if (!alive _vehicle) exitWith {
 		[_handle] call CBA_fnc_removePerFrameHandler;
@@ -40,24 +41,24 @@ private _lifetime = 60;
 		 [
 		 	
 		 	[_colorR, _colorG, _colorB, 0],
-		 	[_colorR, _colorG, _colorB, 0.55],
-		 	[_colorR, _colorG, _colorB, 0.43],
-		 	[_colorR, _colorG, _colorB, 0.37],
-		 	[_colorR, _colorG, _colorB, 0.34],
-		 	[_colorR, _colorG, _colorB, 0.30],
-		 	[_colorR, _colorG, _colorB, 0.28],
-		 	[_colorR, _colorG, _colorB, 0.25],
-		 	[_colorR, _colorG, _colorB, 0.23],
-		 	[_colorR, _colorG, _colorB, 0.2],
-		 	[_colorR, _colorG, _colorB, 0.17],
-		 	[_colorR, _colorG, _colorB, 0.15],
-		 	[_colorR, _colorG, _colorB, 0.1],
+		 	[_colorR, _colorG, _colorB, 0.55*_multi],
+		 	[_colorR, _colorG, _colorB, 0.43*_multi],
+		 	[_colorR, _colorG, _colorB, 0.37*_multi],
+		 	[_colorR, _colorG, _colorB, 0.34*_multi],
+		 	[_colorR, _colorG, _colorB, 0.30*_multi],
+		 	[_colorR, _colorG, _colorB, 0.28*_multi],
+		 	[_colorR, _colorG, _colorB, 0.25*_multi],
+		 	[_colorR, _colorG, _colorB, 0.23*_multi],
+		 	[_colorR, _colorG, _colorB, 0.2*_multi],
+		 	[_colorR, _colorG, _colorB, 0.17*_multi],
+		 	[_colorR, _colorG, _colorB, 0.15*_multi],
+		 	[_colorR, _colorG, _colorB, 0.1*_multi],
 		 	[_colorR, _colorG, _colorB, 0]
 		 ], 
 		 [0,1,0,1,0,1], 0, 0, "", "", _vehicle];
 	};
 
-}, 1, [_vehicle, _colorR, _colorG, _colorB, _lifetime]] call CBA_fnc_addPerFrameHandler;
+}, 0.1, [_vehicle, _colorR, _colorG, _colorB, _lifetime, _multi] call CBA_fnc_addPerFrameHandler;
 
 /*
 drop ["\A3\data_f\cl_basic","", "Billboard", 1, 60, [0,0,0], [0, 0, 10], 0.3, 1, 1,50, [0.3,3], [[0.5,0.5,0.5,0],[0.7,0.7,0.7,0.5],[0.9,0.9,0.9,0]], [0,1,0,1,0,1], 0, 0, "", "", player];

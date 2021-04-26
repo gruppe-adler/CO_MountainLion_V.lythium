@@ -51,11 +51,9 @@ setWind [0,1,true];
 
     private _currentSpeed = 1;
 
-    for _i from _maxSpeed to 1 do {
-        _currentSpeed = linearConversion [1,_maxSpeed, _i,0,1];
-        private _wSpeed = [wind, _currentSpeed] call BIS_fnc_vectorMultiply;
-        setWind [_wSpeed select 0, _wSpeed select 1, true];
-        missionNamespace setVariable [_identifier + "_speed", _currentSpeed, true];
+    for "_i" from 1 to _maxSpeed step 1 do {
+        1 setWindStr _i;
+        missionNamespace setVariable [_identifier + "_speed", _i, true];
 
         sleep 1;
     };
@@ -89,10 +87,8 @@ diag_log "add server marker";
         [_speed, _identifier] spawn {
             params ["_maxSpeed", "_identifier"];
 
-            for _i from 1 to _maxSpeed do {
-                private _currentSpeed = linearConversion [1,_maxSpeed, _i,0,1];
-                private _wSpeed = [wind, _currentSpeed] call BIS_fnc_vectorMultiply;
-                setWind [_wSpeed select 0, _wSpeed select 1, true];
+            for "_i" from _maxSpeed to 1 step -1 do {
+                1 setWindStr _i;
                 missionNamespace setVariable [_identifier + "_speed", _currentSpeed, true];
 
                 sleep 1;

@@ -4,7 +4,7 @@ class GRAD_airDrop {
         file = grad-airDrop\functions;
         
         class modules { postInit = 1; };
-        class action { preInit = 1; };
+        class action;
         class airdrop;
         class drop;
         class dropOnLocation;
