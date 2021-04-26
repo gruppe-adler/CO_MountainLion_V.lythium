@@ -52,6 +52,11 @@ class cfgFunctions {
   #include "node_modules\grad-leaveNotes\cfgFunctions.hpp"
 };
 
+disableRandomization[]=
+{
+	"UK3CB_TKC_B_CIV"
+};
+
 class Loadouts {
     baseDelay = 1;      // base delay in seconds before applying loadouts on mission start
     handleRadios = 1;   // radios are handled by grad-loadout
@@ -214,12 +219,12 @@ class cfgSounds {
       // subtitle delay in seconds, subtitle text
       titles[] = {0, ""};
     };
-    
+
 };
 
 class cfgMusic {
     #include "GRAD-sandstorm\cfgMusic.hpp"
-    
+
     class muse_high
     {
         name = "muse_high";

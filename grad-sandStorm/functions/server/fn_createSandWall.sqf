@@ -32,9 +32,9 @@ _triggerSound attachTo [_helperObject];
 // diag_log "add server wall";
 
 [
-    _trigger, 
-    _triggerSound, 
-    _helperObject, 
+    _trigger,
+    _triggerSound,
+    _helperObject,
     _identifier
 ] remoteExec [
     "GRAD_sandstorm_fnc_addSandWallLocal", [0,-2] select isDedicated, true
@@ -44,10 +44,24 @@ missionNamespace setVariable [_identifier, _trigger, true];
 
 setWind [0,1,true];
 0 setWindDir _dir;
-private _wSpeed = [wind, _speed] call BIS_fnc_vectorMultiply;
-setWind [_wSpeed select 0, _wSpeed select 1, true];
 
-missionNamespace setVariable [_identifier + "_speed", _speed, true];
+// turn up wind speed over time
+[_speed, _identifier] spawn {
+    params ["_maxSpeed", "_identifier"];
+
+    private _currentSpeed = 1;
+
+    for _i from _maxSpeed to 1 do {
+        _currentSpeed = linearConversion [1,_maxSpeed, _i,0,1];
+        private _wSpeed = [wind, _currentSpeed] call BIS_fnc_vectorMultiply;
+        setWind [_wSpeed select 0, _wSpeed select 1, true];
+        missionNamespace setVariable [_identifier + "_speed", _currentSpeed, true];
+
+        sleep 1;
+    };
+};
+
+
 
 // 5 setGusts 0.35;
 
@@ -64,13 +78,26 @@ diag_log "add server marker";
 
 [{
     params ["_args", "_handle"];
-    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_markerstr", "_identifier"];
+    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_markerstr", "_identifier", "_speed"];
 
     if (isNull _helperObject) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
         systemChat "sandstorm: removing as marker is null";
         deleteVehicle _trigger;
         deleteVehicle _triggerSound;
+
+        [_speed, _identifier] spawn {
+            params ["_maxSpeed", "_identifier"];
+
+            for _i from 1 to _maxSpeed do {
+                private _currentSpeed = linearConversion [1,_maxSpeed, _i,0,1];
+                private _wSpeed = [wind, _currentSpeed] call BIS_fnc_vectorMultiply;
+                setWind [_wSpeed select 0, _wSpeed select 1, true];
+                missionNamespace setVariable [_identifier + "_speed", _currentSpeed, true];
+
+                sleep 1;
+            };
+        };
     };
 
     private _dir = windDir;
@@ -90,25 +117,25 @@ diag_log "add server marker";
     // add local effects if player is inside sandstorm
     {
         _vehicle = _x;
-        
+
         if (count ([_vehicle] inAreaArray _trigger) > 0) then {
             // [_vehicle] call GRAD_sandstorm_fnc_addDamage; // todo enable
         };
     } forEach vehicles;
 
-    
+
     private _fog =  [(0.3 + random 0.1), 0.003, 0];
     missionNamespace setVariable ["GRAD_sandstorm_fogValue", _fog, true];
 
 
     _newPos params ["_xPos", "_yPos"];
-    
+
     if (_xPos < -_size || _xPos > (worldSize + _size) || _yPos < -_size || _yPos > (worldSize+_size)) then {
         deleteVehicle _helperObject;
         systemChat "deleting trigger out of map";
     };
-    
-}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _identifier]] call CBA_fnc_addPerFrameHandler;
+
+}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _identifier, _speed]] call CBA_fnc_addPerFrameHandler;
 
 
 ["GRAD_sandstorm_parametersEdited", {
@@ -118,7 +145,7 @@ diag_log "add server marker";
 
     private _identifier = format ["GRAD_sandstorm_id%1", _id];
 
-    
+
     missionNamespace setVariable [_identifier + "_speed", _speed, true];
 
     private _vector = [0, _speed];

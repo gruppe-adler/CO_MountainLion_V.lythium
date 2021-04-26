@@ -17,10 +17,10 @@ if (GRAD_SANDSTORM_DEBUG) then {
 
 
 private _markerstr = createMarkerLocal [format ["mrk_lod_%1", _sandstormIdentifier],[0,0]];
-_markerstr setMarkerShapeLocal "ELLIPSE"; 
-_markerstr setMarkerColorLocal "ColorBlue"; 
-_markerstr setMarkerBrushLocal "Border"; 
-_markerstr setMarkerSizeLocal [4000,4000]; 
+_markerstr setMarkerShapeLocal "ELLIPSE";
+_markerstr setMarkerColorLocal "ColorBlue";
+_markerstr setMarkerBrushLocal "Border";
+_markerstr setMarkerSizeLocal [4000,4000];
 _markerstr setMarkerPosLocal (getpos (vehicle player));
 
 
@@ -37,12 +37,14 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
     if (isNull _trigger) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
-        
+
         if (GRAD_SANDSTORM_DEBUG) then {
             systemChat "removing local sandwall";
             diag_log "removing local sandwall";
         };
-        
+
+        deleteMarkerLocal _markerstr;
+
         // delete emitter
         ["borderBottom", _sandstormIdentifier] call GRAD_sandstorm_fnc_clearEmitterArray;
         ["fillerSmall", _sandstormIdentifier] call GRAD_sandstorm_fnc_clearEmitterArray;
@@ -54,12 +56,12 @@ if (!GRAD_SANDSTORM_DEBUG) then {
          _markerstr setMarkerPos (getPos vehicle player);
     };
 
-    // 
+    //
     ["borderBottom", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
     ["fillerSmall", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
     ["filler", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
 
-    if ((vehicle player) inArea _triggerSound) then {
+    if ((positionCameraToWorld [0,0,0]) inArea _triggerSound) then {
         if ((player getVariable ["sandStormSoundEH", -1]) == -1) then {
                 0 fadeMusic 0;
                 playMusic "desertLoop";
@@ -67,7 +69,7 @@ if (!GRAD_SANDSTORM_DEBUG) then {
                 private _soundeffect = addMusicEventHandler ["MusicStop", {
                         playMusic "desertLoop";
                         if (GRAD_SANDSTORM_DEBUG) then {
-                            systemChat "restarting sound effect";
+                            systemChat "zeus only hint: restarting sound effect of sandstorm";
                         };
                 }];
                 player setVariable ["sandStormSoundEH", _soundeffect];
@@ -102,7 +104,7 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
             player setVariable ["isInsideSandstorm", true];
             player setVariable ["isInsideSandstormPP", _pp];
-            player setVariable ["isInsideSandstormLeaves", _leaves];  
+            player setVariable ["isInsideSandstormLeaves", _leaves];
 
             player setVariable ["tf_receivingDistanceMultiplicator", 4];
             player setVariable ["tf_sendingDistanceMultiplicator", 0.25];
@@ -129,8 +131,8 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
             {
                 deleteVehicle _x;
-            } forEach _leaves; 
+            } forEach _leaves;
         };
     };
-    
+
 }, _updateRate, [_trigger, _triggerSound, _markerstr, _helperObject, _sandstormIdentifier, _updateRate]] call CBA_fnc_addPerFrameHandler;

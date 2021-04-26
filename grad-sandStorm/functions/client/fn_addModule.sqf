@@ -29,20 +29,20 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 
 		["GRAD Sandstorm", [
 		    [
-		    	"COMBO", 
+		    	"COMBO",
 		    	["Sandstorm ID", "Which sandstorm values below are attributed to"], [
-		    	_sandStormIds, _sandStormIdentifier, 0], 
+		    	_sandStormIds, _sandStormIdentifier, 0],
 		    	true
 		    ],
 		    [
 		        "SLIDER",
-		        ["Sandstorm Speed", "0 - 50 kmh recommended"],
+		        ["0 - 120 kmh (def 50)"],
 		        [0, 120, 50, 1],
 		        true
 		    ],
 		    [
 		        "SLIDER",
-		        ["Sandstorm Direction", "Direction Sandstorm is moving"],
+		        ["Sandstorm Direction", "0-360° (def current winddir)"],
 		        [0, 360, windDir, 1],
 		        true
 		    ]
@@ -54,7 +54,7 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		        "_speed",
 		        "_windDirection"
 		    ];
-		    
+
 		    ["GRAD_sandstorm_parametersEdited", [_id, _speed, _windDirection]] call CBA_fnc_globalEvent;
 		}] call zen_dialog_fnc_create;
 
@@ -63,27 +63,27 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 
 
 ["GRAD Sandstorm", "Start Sandstorm", {
-	
+
 	params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 	_position = ASLToAGL _position;
 
 		["GRAD Sandstorm", [
 			[
 		        "SLIDER",
-		        ["Sandstorm Radius", "4 - 12km"],
-		        [4000, 12000, 8000, 1],
+		        ["Sandstorm Radius", "4 - 12km (def 6km)"],
+		        [4000, 12000, 6000, 1],
 		        true
 		    ],
 		    [
 		        "SLIDER",
-		        ["Sandstorm Speed", "0 - 50 kmh recommended"],
+		        ["Sandstorm Speed", "0 - 120 kmh (def 50)"],
 		        [0, 120, 50, 1],
 		        true
 		    ],
 		    [
 		        "SLIDER",
-		        ["Sandstorm Direction", "Direction Sandstorm is moving"],
-		        [0, 360, windDir, 1],
+		        ["Sandstorm Direction", "0-360° (def 180)"],
+		        [0, 360, 180, 1],
 		        true
 		    ]
 		], {
@@ -97,7 +97,7 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		    ];
 
 		    diag_log format ["creating sandstorm with %1, %2, %3, %4", _position, _radius, _speed, _windDirection];
-		    
+
 		    [_position, _radius, _speed, _windDirection] remoteExec ["GRAD_sandstorm_fnc_createSandWall", 2];
 		}, {}, [_position]] call zen_dialog_fnc_create;
 

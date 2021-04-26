@@ -13,14 +13,14 @@ if (isMultiplayer) then {
 
 // [["mrk_ied_1", "mrk_ied_2", "mrk_ied_3"], 3, true] call GRAD_ambient_fnc_ied;
 
-{ 
-    _x setSkill ["aimingShake", 0.2]; 
-    _x setSkill ["aimingSpeed", 0.9]; 
-    _x setSkill ["endurance", 0.6]; 
-    _x setSkill ["spotDistance", 1]; 
-    _x setSkill ["spotTime", 0.9]; 
-    _x setSkill ["courage", 1]; 
-    _x setSkill ["reloadSpeed", 1]; 
+{
+    _x setSkill ["aimingShake", 0.2];
+    _x setSkill ["aimingSpeed", 0.9];
+    _x setSkill ["endurance", 0.6];
+    _x setSkill ["spotDistance", 1];
+    _x setSkill ["spotTime", 0.9];
+    _x setSkill ["courage", 1];
+    _x setSkill ["reloadSpeed", 1];
     _x setSkill ["commanding", 1];
     _x setSkill ["general", 1];
 
@@ -43,7 +43,7 @@ for "_i" from 1 to 64 do {
     _chairs pushBackUnique (call compile _varName);
 };
 
-{   
+{
 
     if (_forEachIndex < (count _chairs) - 1) then {
 
@@ -62,20 +62,20 @@ for "_i" from 1 to 64 do {
 } forEach (playableUnits + switchableUnits);
 
 
-// klamotten in 3cb fuzzi
+// klamotten in 3cb fuzzi - trying to to fix with exclusion in description.ext
 
-// suicide auto fährt nicht
+// suicide auto fährt nicht - trying to fix with server execution
 
-// attach uav dings
+// attach uav dings - disabled simulation
 
-// build/remove wind slowly
+// build/remove wind slowly - should work now
 
-// crash site tag remove on map
+// crash site tag remove on map -- no idea why this appears, maybe only zeus
 
 // delete sandstorm marker
 // removing local sandwall
 // deleting sandstorm id
 
-// restarting sound effect systemchat
+// kampfbrillen vs. sandsturm - aufsetzen zum wegmachen - testen + brillen hinzufügen
 
-// kampfbrillen vs. sandsturm - aufsetzen zum wegmachen
+// connect detect fapper - should work

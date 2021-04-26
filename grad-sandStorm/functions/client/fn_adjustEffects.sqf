@@ -1,5 +1,5 @@
 /*
-    
+
     grain effect, sound volume, camshake inside and outside vehicles/buildings
 
 */
@@ -98,7 +98,7 @@ if (_vehicleState == 1 && !_inBuilding) then {
 
         /*
         if (GRAD_SANDSTORM_DEBUG) then {
-            systemChat format ["player with goggles"];
+            systemChat format ["zeus only: player with goggles"];
         };
         */
         setAperture _apertureOutsideGoggles;
@@ -108,7 +108,7 @@ if (_vehicleState == 1 && !_inBuilding) then {
 
         /*
         if (GRAD_SANDSTORM_DEBUG) then {
-            systemChat format ["player no goggles"];
+            systemChat format ["zeus only: player no goggles"];
         };
         */
         setAperture _apertureOutsideNoGoggles;
@@ -116,7 +116,7 @@ if (_vehicleState == 1 && !_inBuilding) then {
     enableCamShake true;
     addCamShake [_shakepower/3, _shakeduration/2, _shakefreq];
     0.5 fadeMusic _originalVolume;
-    
+
 };
 
 _inBuilding

@@ -4,19 +4,19 @@ waitUntil {  time > 3 };
 
 {
 
-  
+
     _x addEventHandler ["CuratorGroupPlaced", {
         params ["", "_group"];
         ["GRAD_missionControl_setServerAsOwner", [_group]] call CBA_fnc_serverEvent;
 
-        { 
-            _x setSkill ["aimingShake", 0.2]; 
-            _x setSkill ["aimingSpeed", 0.9]; 
-            _x setSkill ["endurance", 0.6]; 
-            _x setSkill ["spotDistance", 1]; 
-            _x setSkill ["spotTime", 0.9]; 
-            _x setSkill ["courage", 1]; 
-            _x setSkill ["reloadSpeed", 1]; 
+        {
+            _x setSkill ["aimingShake", 0.2];
+            _x setSkill ["aimingSpeed", 0.9];
+            _x setSkill ["endurance", 0.6];
+            _x setSkill ["spotDistance", 1];
+            _x setSkill ["spotTime", 0.9];
+            _x setSkill ["courage", 1];
+            _x setSkill ["reloadSpeed", 1];
             _x setSkill ["commanding", 1];
             _x setSkill ["general", 1];
 
@@ -27,15 +27,15 @@ waitUntil {  time > 3 };
 
     _x addEventHandler ["CuratorObjectPlaced", {
         params ["", "_object"];
-        
 
-        _object setSkill ["aimingShake", 0.2]; 
-        _object setSkill ["aimingSpeed", 0.9]; 
-        _object setSkill ["endurance", 0.6]; 
-        _object setSkill ["spotDistance", 1]; 
-        _object setSkill ["spotTime", 0.9]; 
-        _object setSkill ["courage", 1]; 
-        _object setSkill ["reloadSpeed", 1]; 
+
+        _object setSkill ["aimingShake", 0.2];
+        _object setSkill ["aimingSpeed", 0.9];
+        _object setSkill ["endurance", 0.6];
+        _object setSkill ["spotDistance", 1];
+        _object setSkill ["spotTime", 0.9];
+        _object setSkill ["courage", 1];
+        _object setSkill ["reloadSpeed", 1];
         _object setSkill ["commanding", 1];
         _object setSkill ["general", 1];
 
@@ -71,13 +71,13 @@ waitUntil {  time > 3 };
 
 ["BERGLOEWE MISSION", "Start Kaffeefahrt",
 {
-  execVM "grad-missionControl\functions\server\fn_startKaffeefahrt.sqf";
+  remoteExec ["grad_missionControl_fnc_startKaffeefahrt", 2];
 
 }] call zen_custom_modules_fnc_register;
 
 ["BERGLOEWE MISSION", "Start SuicideCar",
 {
-  execVM "grad-missionControl\functions\server\fn_suicideCar.sqf";
+  remoteExec ["grad_missionControl_fnc_suicideCar", 2];
 
 }] call zen_custom_modules_fnc_register;
 
@@ -138,9 +138,9 @@ waitUntil {  time > 3 };
   // Get all the passed parameters
   params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-  
+
   private _count = count (playableUnits + switchableUnits) + 2;
-  
+
   // possible chairs
   private _chairs = ["Land_CampingChair_V1_F", _position, _count] call GRAD_missionControl_fnc_createChairCircle;
 
@@ -152,12 +152,12 @@ waitUntil {  time > 3 };
   // Get all the passed parameters
   params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-  
+
   if (isNull _objectUnderCursor) exitWith {
       hint "Returning TFAR ears to Zeus";
       player setVariable ["TF_fnc_position", nil];
   };
-  
+
   [_objectUnderCursor] call GRAD_missionControl_fnc_dropZeusEars;
 
 }] call zen_custom_modules_fnc_register;
@@ -168,13 +168,11 @@ waitUntil {  time > 3 };
 {
   params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-  
+
   if (isNull _objectUnderCursor) exitWith {
       hint "no vehicle selected";
   };
-  
+
   [_objectUnderCursor] call GRAD_missionControl_fnc_weaponizeVehicle;
 
 }] call zen_custom_modules_fnc_register;
-
-
