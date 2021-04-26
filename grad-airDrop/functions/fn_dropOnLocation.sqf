@@ -1,10 +1,11 @@
 params ["_position", ["_vehicles", []]];
 
 private _plane = "RHS_C130J" createVehicle [0,0,0];
-private _spawnPos = [20000, _position#1, 100];
-private _despawnPos = [-5000, _position#1, 100];
+private _spawnPos = [20000, _position#1, 1000];
+private _despawnPos = [-5000, _position#1, 1000];
 
 createVehicleCrew _plane;
+_plane setPos _spawnPos;
 _plane setDir (_plane getDir _position);
 _plane engineOn true;
 _plane flyInHeight 100;
@@ -19,6 +20,7 @@ _plane setVelocityModelSpace [0, 300, 0]; // initial push
 } forEach _vehicles;
 
 group _plane addWaypoint [_position, 0];
+group _plane addWaypoint [_despawnPos, 1];
 
 [{
     params ["_plane", "_position"];
@@ -27,10 +29,11 @@ group _plane addWaypoint [_position, 0];
 {
     params ["_plane", "_position"];
     [_plane] spawn {
+        params ["_plane"];
         {
             [_plane, _x] call grad_airdrop_fnc_drop;
             sleep 2;
-        } forEach attachedObjects _plane;
+        } forEach (attachedObjects _plane);
     };
 },
 [_plane, _position]] call CBA_fnc_waitUntilAndExecute;
