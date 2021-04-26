@@ -1,4 +1,4 @@
-["BERGLOEWE MISSION", "Crash closest Helicopter", {
+["BERGLOEWE MISSION", "Crash closest Helicopter/Air Vehicle", {
 
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
     _position = ASLToAGL _position;
@@ -9,13 +9,10 @@
 
 }] call zen_custom_modules_fnc_register;
 
-["BERGLOEWE MISSION", "Disable closest Helicopter", {
+["BERGLOEWE MISSION", "Disable Engine of Object", {
 
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-    _position = ASLToAGL _position;
 
-    private _vehicles = nearestObjects [_position, ["Air"], 2000, true];
-
-    [_vehicles select 0] remoteExec ["GRAD_survivableCrash_fnc_onDisable", 2];
+    [_objectUnderCursor] remoteExec ["GRAD_survivableCrash_fnc_onDisable", 2];
 
 }] call zen_custom_modules_fnc_register;
