@@ -88,6 +88,7 @@ _veh say3D ["vehicle_dragging",150];
 
 				_unit allowDamage true;
 				[_unit, false] call ace_medical_fnc_setUnconscious;
+				[player, "Acts_UnconsciousStandUp_part1"] remoteExecCall ["switchMove"];
 
 			}, [_unit], 2 + random 15] call CBA_fnc_waitAndExecute;
 

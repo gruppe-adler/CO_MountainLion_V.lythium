@@ -8,7 +8,7 @@
 
 if (!isServer) exitWith {};
 
-params ["_spawnPosition", ["_count",10], ["_shepherd", objNull], ["_animalType", "Goat_random_F"]];
+params ["_spawnPosition", ["_count",10], ["_shepherd", objNull], ["_animalType", "Goat_random_F"], ["_killTrigger", false]];
 
 private _herdArray = [_shepherd, objNull, [], []];
 private _herdAnimals = [];
@@ -24,17 +24,11 @@ _pole attachTo [_shepherd, [0,0,0], "RightHandMiddle1", true];
 _pole setVectorDirAndUp [[0,0.66,-0.33],[0,0.33,0.66]];
 _shepherd setVariable ["shepherdPole", _pole, true];
 
-[_shepherd] remoteExec ["GRAD_herding_fnc_addGestureHandler", _shepherd];
+_shepherd setVariable ["GRAD_isShepherd", true, true];
 
-_shepherd addEventHandler ["ControlsShifted", {
-	params ["_vehicle", "_activeCoPilot", "_oldController"];
-
-	diag_log "controls shifted of shepherd";
-
-	if (isPlayer _activeCoPilot) then {
-		[_vehicle] remoteExec ["GRAD_herding_fnc_addGestureHandler", _activeCoPilot];
-	};
-}];
+if (_killTrigger) then {
+	_shepherd setVariable ["GRAD_isShepherd_killTrigger", true, true];
+};
 
 _shepherd addMPEventHandler ["MPkilled", {
 	params ["_unit"];

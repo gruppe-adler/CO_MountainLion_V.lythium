@@ -28,12 +28,6 @@ if (isMultiplayer) then {
 
 } forEach (allUnits - switchableUnits - playableUnits);
 
-addMissionEventHandler ["HandleDisconnect", {
-    params ["_unit", "_id", "_uid", "_name"];
-    diag_log ["HandleDisconnect",_this];
-    _unit == zuluPilot
-}];
-
 
 
 private _chairs = [];

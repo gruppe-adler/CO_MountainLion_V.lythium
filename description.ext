@@ -40,7 +40,6 @@ class cfgFunctions {
   #include "grad-missionControl\cfgFunctions.hpp"
   #include "grad-reinforcements\cfgFunctions.hpp"
   #include "grad-rotorWash\cfgFunctions.hpp"
-  #include "grad-fortificationTransport\cfgFunctions.hpp"
   #include "grad-civAnimations\cfgFunctions.hpp"
   #include "grad-attackGroups\cfgFunctions.hpp"
   #include "grad-airDrop\cfgFunctions.hpp"

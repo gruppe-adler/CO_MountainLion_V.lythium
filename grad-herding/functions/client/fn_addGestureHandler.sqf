@@ -14,7 +14,9 @@ _unit setVariable ["hasGestureHandler", true];
 		_unit setVariable ["GRAD_HERDING_TARGET", _target, true];
         systemChat "directing herd to position";
 
-        missionNamespace setVariable ["GRAD_herding_targetFree", true, true];
+        if (_unit getVariable ["GRAD_isShepherd_killTrigger", false]) then {
+            missionNamespace setVariable ["GRAD_herding_targetFree", true, true];
+        };
 	};
 
 	if (_anim isEqualTo "ace_gestures_regroup") then {
@@ -22,7 +24,9 @@ _unit setVariable ["hasGestureHandler", true];
 		_unit setVariable ["GRAD_HERDING_TARGET", _target, true];
         systemChat "directing herd to me";
 
-        missionNamespace setVariable ["GRAD_herding_targetFree", true, true];
+        if (_unit getVariable ["GRAD_isShepherd_killTrigger", false]) then {
+            missionNamespace setVariable ["GRAD_herding_targetFree", true, true];
+        };
 	};
 
 	if (_anim isEqualTo "ace_gestures_hold") then {
@@ -30,7 +34,9 @@ _unit setVariable ["hasGestureHandler", true];
 		_unit setVariable ["GRAD_HERDING_TARGET", _target, true];
         systemChat "directing herd to me";
 
-        missionNamespace setVariable ["GRAD_herding_targetFree", true, true];
+        if (_unit getVariable ["GRAD_isShepherd_killTrigger", false]) then {
+            missionNamespace setVariable ["GRAD_herding_targetFree", true, true];
+        };
 	};
 
 }] call CBA_fnc_addEventHandler;

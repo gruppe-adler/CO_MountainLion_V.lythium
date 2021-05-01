@@ -27,3 +27,11 @@ GRAD_BELL_SOUNDS = [
 	"bell4",
 	"bell4_low"
 ];
+
+["zen_remoteControlStarted", {
+	params ["_unit"];
+
+	if (!(_unit getVariable ["GRAD_isShepherd", false])) exitWith {};
+
+	[_unit] call GRAD_herding_fnc_addGestureHandler;
+}] call CBA_fnc_addEventhandler;
