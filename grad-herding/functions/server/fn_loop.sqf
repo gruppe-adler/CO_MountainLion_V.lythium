@@ -35,13 +35,11 @@ private _targetDebug2 = "VR_3DSelector_01_default_F" createVehicleLocal [0,0,0];
 
 
 	// target wp
-	private _targetPos = [0,0,0];
+	private _targetPos = [0,0,0]; // exit wp
 
 	if (alive _shepherd) then {
 		_targetPos = [_shepherd] call GRAD_herding_fnc_getWaypointFromShepherd;
-		diag_log format ["getting waypoint from shepherd %1", _targetPos];
-	} else {
-		diag_log format ["shepherd dead, running to %1", _targetPos];
+		// diag_log format ["getting waypoint from shepherd %1", _targetPos];
 	};
 	
 

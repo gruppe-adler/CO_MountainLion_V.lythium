@@ -32,7 +32,7 @@ if (isMultiplayer) then {
 
 private _chairs = [];
 
-for "_i" from 1 to 64 do {
+for "_i" from 1 to 36 do {
     private _varName = format ["chair_%1", _i];
     _chairs pushBackUnique (call compile _varName);
 };

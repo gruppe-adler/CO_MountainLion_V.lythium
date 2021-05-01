@@ -17,7 +17,9 @@ private _herdAnimals = [];
 private _currentIndex = (missionNamespace getVariable ["GRAD_herding_instanceCount", 0]) + 1;
 missionNamespace setVariable ["GRAD_herding_instanceCount", _currentIndex, true];
 
-private _shepherd = (createGroup west) createUnit ["UK3CB_TKC_C_WORKER", _spawnPosition, [], 0, "NONE"];
+private _group = createGroup west;
+private _shepherd = _group createUnit ["UK3CB_TKC_B_WORKER", _spawnPosition, [], 0, "NONE"];
+_shepherd setVariable ["BIS_enableRandomization", false];
 
 private _pole = "Land_Net_Fence_pole_F" createVehicle [0,0,0];
 _pole attachTo [_shepherd, [0,0,0], "RightHandMiddle1", true];
@@ -28,6 +30,7 @@ _shepherd setVariable ["GRAD_isShepherd", true, true];
 
 if (_killTrigger) then {
 	_shepherd setVariable ["GRAD_isShepherd_killTrigger", true, true];
+	missionNamespace setVariable ["GRAD_shepherd", _shepherd, true];
 };
 
 _shepherd addMPEventHandler ["MPkilled", {
@@ -35,6 +38,8 @@ _shepherd addMPEventHandler ["MPkilled", {
 
 	if (!local _unit) exitWith {};
 	detach (_unit getVariable ["shepherdPole", objNull]);
+
+	["GRAD_shepherd_dead", [_unit]] call CBA_fnc_globalEvent;
 }];
 
 _herdArray set [0, _shepherd];

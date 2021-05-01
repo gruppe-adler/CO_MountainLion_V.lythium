@@ -53,7 +53,7 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
     if (GRAD_SANDSTORM_DEBUG) then {
          // debug marker pos
-         _markerstr setMarkerPos (getPos vehicle player);
+         _markerstr setMarkerPos (positionCameraToWorld [0,0,0]);
     };
 
     //
