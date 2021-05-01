@@ -42,19 +42,16 @@ _triggerSound attachTo [_helperObject];
 
 missionNamespace setVariable [_identifier, _trigger, true];
 
-setWind [0,1,true];
 0 setWindDir _dir;
 
 // turn up wind speed over time
-[_speed, _identifier] spawn {
-    params ["_maxSpeed", "_identifier"];
+[_speed, _id] spawn {
+    params ["_maxSpeed", "_id"];
 
     private _currentSpeed = 1;
 
     for "_i" from 1 to _maxSpeed step 1 do {
-        setWind [0, _i];
-        missionNamespace setVariable [_identifier + "_speed", _i, true];
-
+        ["GRAD_sandstorm_parametersEdited",[_id, _i, windDir]] call CBA_fnc_globalEvent;
         sleep 1;
     };
 };
@@ -76,7 +73,7 @@ diag_log "add server marker";
 
 [{
     params ["_args", "_handle"];
-    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_markerstr", "_identifier", "_speed"];
+    _args params ["_helperObject", "_trigger", "_triggerSound", "_size", "_markerstr", "_id", "_identifier", "_speed"];
 
     if (isNull _helperObject) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -84,13 +81,11 @@ diag_log "add server marker";
         deleteVehicle _trigger;
         deleteVehicle _triggerSound;
 
-        [_speed, _identifier] spawn {
-            params ["_maxSpeed", "_identifier"];
+        [_speed, _id] spawn {
+            params ["_maxSpeed", "_id"];
 
             for "_i" from _maxSpeed to 1 step -1 do {
-                setWind [0, _i];
-                missionNamespace setVariable [_identifier + "_speed", _currentSpeed, true];
-
+                ["GRAD_sandstorm_parametersEdited", [_id, _i, windDir]] call CBA_fnc_globalEvent;
                 sleep 1;
             };
         };
@@ -131,7 +126,7 @@ diag_log "add server marker";
         systemChat "deleting trigger out of map";
     };
 
-}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _identifier, _speed]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _id, _identifier, _speed]] call CBA_fnc_addPerFrameHandler;
 
 
 ["GRAD_sandstorm_parametersEdited", {
@@ -140,16 +135,12 @@ diag_log "add server marker";
     diag_log format ["edited sandstorm parameters: %1 - %2 - %3", _id, _speed, _windDirection];
 
     private _identifier = format ["GRAD_sandstorm_id%1", _id];
-
-
     missionNamespace setVariable [_identifier + "_speed", _speed, true];
 
     private _vector = [0, _speed];
     private _newVector = [ _vector, -_windDirection ] call BIS_fnc_rotateVector2D;
     _newVector params ["_vectorX", "_vectorY"];
-
-    diag_log format ["_identifier: %1 - _newVector: %2", _identifier, _newVector];
-
+    // diag_log format ["_identifier: %1 - _newVector: %2", _identifier, _newVector];
     setWind [_vectorX, _vectorY, true];
 
 }] call CBA_fnc_addEventhandler;

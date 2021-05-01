@@ -70,8 +70,8 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		["GRAD Sandstorm", [
 			[
 		        "SLIDER",
-		        ["Sandstorm Radius", "4 - 12km (def 6km)"],
-		        [4000, 12000, 6000, 1],
+		        ["Sandstorm Radius", "4 - 12km (def 4km)"],
+		        [4000, 12000, 4000, 1],
 		        true
 		    ],
 		    [
