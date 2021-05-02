@@ -45,3 +45,6 @@ private _chance = 2;
 	 	_veh removeItem _x;
 	};
 } forEach _backpacks;
+
+
+deleteVehicle _veh;

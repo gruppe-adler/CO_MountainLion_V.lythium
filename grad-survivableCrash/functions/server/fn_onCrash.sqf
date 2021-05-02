@@ -51,31 +51,18 @@ params ["_veh"];
 			[_x, _veh] remoteExecCall ["GRAD_survivableCrash_fnc_onCrashLocal", _x];
 		} forEach crew _veh;
 
-		_veh setHitPointDamage ["HitHull",.88];
-		_veh setHitPointDamage ["HitFuel",.88];
-
 
 		[{
 			params ["_veh"];
 			count (crew _veh) < 1
 		},{
 			params ["_veh"];
-			_veh engineOn false;
-			_veh setVehicleLock "LOCKED";
-			_veh allowDamage true;
-			{ _veh setHitPointDamage [_x,.7]; } forEach [
-				"hithydraulics",
-				"hittransmission",
-				"glass1",
-				"glass2",
-				"glass3",
-				"glass4",
-				"glass5",
-				"glass6"
-			];
-			_veh allowDamage false;
 
-			[_veh] call GRAD_survivableCrash_fnc_throwOutInventory;
+			playSound3d ["A3\Sounds_F\sfx\missions\vehicle_collision", crashSite, false, [0,0,0], 1, 250];
+			playSound3d ["A3\Sounds_F\sfx\missions\vehicle_drag_end", crashSite, false, [0,0,0], 1, 250];
+			playSound3d ["A3\Sounds_F\sfx\missions\vehicle_dragging", crashSite, false, [0,0,0], 1, 250];
+
+			[_veh] call GRAD_survivableCrash_fnc_throwOutInventoryVehicle;
 
 		}, [_veh]] call CBA_fnc_waitUntilAndExecute;
 

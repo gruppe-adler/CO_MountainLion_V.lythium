@@ -11,6 +11,7 @@ class GRAD_herding {
 
         class create;
         class createSniper;
+        class fillWithAnimals;
         class getWaypointFromShepherd;
         class init {preInit = 1;};
         class loop;

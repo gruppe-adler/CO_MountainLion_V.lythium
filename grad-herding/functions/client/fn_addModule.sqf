@@ -25,6 +25,15 @@
 }] call zen_custom_modules_fnc_register;
 
 
+["BERGLOEWE MISSION", "Fill vehicle with Animals", {
+
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+    [_objectUnderCursor] remoteExec ["GRAD_herding_fnc_fillWithAnimals", 2];
+
+}] call zen_custom_modules_fnc_register;
+
+
+
 ["zen_remoteControlStarted", {
     params ["_unit"];
 

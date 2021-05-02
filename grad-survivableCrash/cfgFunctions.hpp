@@ -15,9 +15,11 @@ class grad_survivableCrash {
 
           class addHandler;
           class autoInit { postInit = 1; };
+          class crashedHelo;
           class onCrash;
           class onDisable;
           class spawnHolder;
-          class throwOutInventory;
+          class throwOutInventoryUnit;
+          class throwOutInventoryVehicle;
   };
 };

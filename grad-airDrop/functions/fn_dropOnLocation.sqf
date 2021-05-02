@@ -1,16 +1,39 @@
-params ["_position", ["_vehicles", []]];
+params ["_positionASL", ["_vehicles", []]];
 
 private _plane = "RHS_C130J" createVehicle [0,0,0];
-private _spawnPos = [20000, _position#1, 1000];
-private _despawnPos = [-5000, _position#1, 1000];
+private _spawnPos = [20000, _positionASL#1, 1000];
+private _despawnPos = [-5000, _positionASL#1, 1000];
 
 createVehicleCrew _plane;
 _plane setPos _spawnPos;
-_plane setDir (_plane getDir _position);
+_plane setDir (_plane getDir _positionASL);
 _plane engineOn true;
-_plane flyInHeight 100;
 _plane setSpeedMode "LIMITED";
 _plane setVelocityModelSpace [0, 300, 0]; // initial push
+
+
+private _findTerrainHeight = {
+    params ["_positionA", "_positionB"];
+
+    private _height = (getTerrainHeightASL _positionA) max (getTerrainHeightASL _positionB);
+    private _found = false;
+    while { !_found } do {
+        _positionA set [2, _height]; _positionB set [2, _height];
+        private _intersects = terrainIntersectASL [_positionA, _positionB];
+        if (_intersects) then {
+            _height = _height + 50;
+            ("raising height to " + str _height) call BIS_fnc_log;
+        } else {
+            _found = true;
+            _height
+        };
+    };
+};
+
+private _flyHeightASL = [_spawnPos, _positionASL] call _findTerrainHeight;
+_plane flyInHeight 10;
+_plane flyInHeightASL [_flyHeightASL, _flyHeightASL, _flyHeightASL]; 
+_positionASL set [2, _flyHeightASL];
 
 {
   private _type = _x;
@@ -19,15 +42,15 @@ _plane setVelocityModelSpace [0, 300, 0]; // initial push
   _vehicle attachTo [_plane, [0,0,-3000]];
 } forEach _vehicles;
 
-group _plane addWaypoint [_position, 0];
+group _plane addWaypoint [_positionASL, 0];
 group _plane addWaypoint [_despawnPos, 1];
 
 [{
-    params ["_plane", "_position"];
-    _plane distance2D _position < 200
+    params ["_plane", "_positionASL"];
+    _plane distance2D _positionASL < 200
 },
 {
-    params ["_plane", "_position"];
+    params ["_plane", "_positionASL"];
     [_plane] spawn {
         params ["_plane"];
         {
@@ -36,7 +59,7 @@ group _plane addWaypoint [_despawnPos, 1];
         } forEach (attachedObjects _plane);
     };
 },
-[_plane, _position]] call CBA_fnc_waitUntilAndExecute;
+[_plane, _positionASL]] call CBA_fnc_waitUntilAndExecute;
 
 [{
     params ["_plane", "_despawnPos"];

@@ -7,11 +7,15 @@ addCamShake [10, 2, 9];
 playSound "tingle";
 playSound "wind";
 
+
+// [] call GRAD_survivableCrash_fnc_disableRadio;
+[player] call GRAD_survivableCrash_fnc_disableBFT;
+
 [{
     params ["_args", "_handle"];
     _args params ["_vehicle"];
 
-    if (isTouchingGround _vehicle) exitWith {
+    if (isNull _vehicle) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
     };
 
@@ -24,7 +28,7 @@ playSound "wind";
     params ["_args", "_handle"];
     _args params ["_vehicle"];
 
-    if (isTouchingGround _vehicle) exitWith {
+    if (isNull _vehicle) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
     };
 
