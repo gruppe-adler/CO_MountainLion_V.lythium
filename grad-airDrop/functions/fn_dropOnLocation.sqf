@@ -30,8 +30,8 @@ private _findTerrainHeight = {
     };
 };
 
-private _flyHeightASL = [_spawnPos, _positionASL] call _findTerrainHeight;
-_plane flyInHeight 10;
+private _flyHeightASL = [_spawnPos, _despawnPos] call _findTerrainHeight;
+_plane flyInHeight 150;
 _plane flyInHeightASL [_flyHeightASL, _flyHeightASL, _flyHeightASL]; 
 _positionASL set [2, _flyHeightASL];
 
@@ -42,12 +42,12 @@ _positionASL set [2, _flyHeightASL];
   _vehicle attachTo [_plane, [0,0,-3000]];
 } forEach _vehicles;
 
-group _plane addWaypoint [_positionASL, 0];
+// group _plane addWaypoint [_positionASL, 0];
 group _plane addWaypoint [_despawnPos, 1];
 
 [{
     params ["_plane", "_positionASL"];
-    _plane distance2D _positionASL < 200
+    _plane distance2D _positionASL < 100
 },
 {
     params ["_plane", "_positionASL"];
@@ -71,3 +71,38 @@ group _plane addWaypoint [_despawnPos, 1];
     deleteVehicle _plane;
 },
 [_plane, _despawnPos]] call CBA_fnc_waitUntilAndExecute;
+
+// DEBUG
+[{
+    params ["_args", "_handle"];
+    _args params ["_plane", "_flyHeightASL"];
+
+    if (isNull _plane) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+    };  
+
+    private _position = getPosASL _plane;
+    _position params ["", "", "_zPos"];
+
+    private _color = if (abs (_flyHeightASL - _zPos) <= 10) then {
+        "ColorGreen"
+    } else {
+        if (abs (_flyHeightASL - _zPos) > 10) then {
+            "ColorYellow"
+        } else {
+            if (abs (_flyHeightASL - _zPos) > 30) then {
+                "ColorOrange"
+            } else {
+                if (abs (_flyHeightASL - _zPos) > 40) then {
+                    "ColorRed"
+                } else {
+                    "ColorBlack"
+                };
+            };
+        };
+    };
+    private _markerstr = createMarker [format ["markername_%1", _position],[_position#0,_position#1]];
+    _markerstr setMarkerShapeLocal "ICON";
+    _markerstr setMarkerTypeLocal "hd_dot";
+    _markerstr setMarkerColorLocal _color;
+}, 1, [_plane, _flyHeightASL]] call CBA_fnc_addPerFrameHandler;

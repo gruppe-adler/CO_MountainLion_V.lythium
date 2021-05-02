@@ -108,6 +108,8 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
             player setVariable ["tf_receivingDistanceMultiplicator", 4];
             player setVariable ["tf_sendingDistanceMultiplicator", 0.25];
+            
+            player setVariable ["ace_map_hideBlueForceMarker", true, true];
         };
 
         [_updateRate, true] call GRAD_sandstorm_fnc_adjustFog;
@@ -128,6 +130,10 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
             player setVariable ["tf_receivingDistanceMultiplicator", 1];
             player setVariable ["tf_sendingDistanceMultiplicator", 1];
+
+            if (!(player getVariable ["GRAD_survivableCrash_crashed", false])) then {
+                player setVariable ["ace_map_hideBlueForceMarker", false, true];
+            };
 
             {
                 deleteVehicle _x;

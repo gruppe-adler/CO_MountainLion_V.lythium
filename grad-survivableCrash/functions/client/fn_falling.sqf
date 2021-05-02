@@ -8,6 +8,8 @@ playSound "tingle";
 playSound "wind";
 
 
+player setVariable ["GRAD_survivableCrash_crashed", true, true];
+
 // [] call GRAD_survivableCrash_fnc_disableRadio;
 [player] call GRAD_survivableCrash_fnc_disableBFT;
 

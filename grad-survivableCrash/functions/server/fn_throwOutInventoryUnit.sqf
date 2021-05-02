@@ -35,13 +35,13 @@ private _chance = 100;
 
 if (random _chance > 1) then {
     private _holder = [_position, _radius] call GRAD_survivableCrash_fnc_spawnHolder;
-    _unit action ["DropWeapon", _holder, currentWeapon player];
+    _unit action ["DropWeapon", _holder, primaryWeapon _unit];
     diag_log "dropping wep";
 };
 
 
 if (random _chance > 1) then {
     private _holder = [_position, _radius] call GRAD_survivableCrash_fnc_spawnHolder;
-    _unit action ["DropBag", _holder, typeOf unitBackpack player];
+    _unit action ["DropBag", _holder, typeOf unitBackpack _unit];
     diag_log "dropping bag";
 };

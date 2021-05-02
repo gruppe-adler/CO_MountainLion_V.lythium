@@ -1,7 +1,7 @@
 params ["_veh"];
 
 // _veh setHitPointDamage ["HitHRotor",.88];
-// _veh setHitPointDamage ["HitVRotor",.88];
+
 
 [_veh] spawn { 
 	params ["_veh"];
@@ -18,7 +18,7 @@ params ["_veh"];
 
 
 	_veh setHitPointDamage ["hitavionics",1];
-
+	_veh setHitPointDamage ["HitVRotor",.88];
 	// private _smoke = createVehicle ["test_EmptyObjectForSmoke", position _veh, [], 0, "CAN_COLLIDE"];
 	// _smoke attachTo [_veh,[0,0,0],"motor"];
 
@@ -33,9 +33,6 @@ params ["_veh"];
 	// waits till ground is hit, stores travel vector
 	[{
 		params ["_veh"];
-		if (!(isTouchingGround _veh)) then {
-			_veh setVariable ["GRAD_survivableCrash_velocity", vectorMagnitude velocity _veh];
-		};
 		isTouchingGround _veh
 	},
 	{
@@ -57,10 +54,6 @@ params ["_veh"];
 			count (crew _veh) < 1
 		},{
 			params ["_veh"];
-
-			playSound3d ["A3\Sounds_F\sfx\missions\vehicle_collision", crashSite, false, [0,0,0], 1, 250];
-			playSound3d ["A3\Sounds_F\sfx\missions\vehicle_drag_end", crashSite, false, [0,0,0], 1, 250];
-			playSound3d ["A3\Sounds_F\sfx\missions\vehicle_dragging", crashSite, false, [0,0,0], 1, 250];
 
 			[_veh] call GRAD_survivableCrash_fnc_throwOutInventoryVehicle;
 

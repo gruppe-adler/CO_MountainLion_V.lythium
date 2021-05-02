@@ -5,6 +5,11 @@ params ["_unit"];
 [_unit, true, 3 + random 30] call ace_medical_fnc_setUnconscious;
 _unit allowDamage false;
 
+
+playSound "vehicle_collision";
+playSound "vehicle_drag_end";
+playSound "vehicle_dragging";
+
 _unit unassignItem "itemmap";_unit removeItem "itemmap";
 _unit unassignItem "itemgps";_unit removeItem "itemgps";
 _unit unlinkItem "itemRadio";
@@ -45,8 +50,10 @@ if (_unit == player) then {
 	{
 		params ["_unit"];
 
-		// private _cause = ["vehiclecrash", "explosive"] select (round random 1);
-		// [_unit, random [.3, .7, 1], selectRandom ["head", "body", "hand_l", "hand_r", "leg_l", "leg_r"], _cause] call ace_medical_fnc_addDamageToUnit;
+		[_unit, _unit] call ace_medical_fnc_treatmentAdvanced_fullHealLocal; // remove ace damage
+
+		private _cause = ["vehiclecrash", "explosive"] select (round random 1); // add own damage
+		[_unit, random [.3, .7, 1], selectRandom ["head", "body", "hand_l", "hand_r", "leg_l", "leg_r"], _cause] call ace_medical_fnc_addDamageToUnit;
 		
 		[_unit] execVM "grad-survivableCrash\functions\server\fn_throwOutInventoryUnit.sqf";
 
@@ -55,7 +62,8 @@ if (_unit == player) then {
 
 			_unit allowDamage true;
 			[_unit, false] call ace_medical_fnc_setUnconscious;
-			[player, "Acts_UnconsciousStandUp_part1"] remoteExecCall ["switchMove"];
+			cutText [" ", "BLACK IN", 5];
+			[player, "Acts_UnconsciousStandUp_part1"] remoteExecCall ["switchMove", 0];
 
 		}, [_unit], 2 + random 15] call CBA_fnc_waitAndExecute;
 
