@@ -3,7 +3,8 @@ params ["_screen"];
 if (isServer) then {
     _screen setVariable ["GRAD_missionControl_pipEffect", 2, true];
     _screen setVariable ["GRAD_missionControl_zoomLevel", 0.1, true];
-    _screen enableSimulationGlobal false;
+    // _screen enableSimulationGlobal false;
+    _screen attachTo [screen_base];
 };
 
 if (hasInterface) then {

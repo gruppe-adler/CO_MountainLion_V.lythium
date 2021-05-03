@@ -122,106 +122,13 @@ class CfgHints
    };
 };
 
-class CfgGradFortifications {
-    canDemolishDefault = 1;
-    demolitionTimeFactor = 1;
-    playerInventorySize = 1;
-    vehicleInventorySizeFactor = 2;
 
-    class Fortifications {
-        class Land_CncBarrier_stripes_F {
-              buildTime = 3;
-              packUpTime = 3;
-              size = 1;
-        };
-        class Land_CncBarrierMedium_F {
-              buildTime = 3;
-              packUpTime = 3;
-              size = 1;
-        };
-        class RoadBarrier_F {
-              buildTime = 0;
-              packUpTime = 0;
-              size = 1;
-        };
-        class CUP_SignT_Stop {
-              buildTime = 0;
-              packUpTime = 0;
-              size = 1;
-        };
-        class RoadBarrier_small_F {
-              buildTime = 0;
-              packUpTime = 0;
-              size = 1;
-        };
-        class RoadCone_L_F {
-              buildTime = 0;
-              packUpTime = 0;
-              size = 1;
-        };
-        class RoadCone_F {
-              buildTime = 0;
-              packUpTime = 0;
-              size = 1;
-        };
-        class Sign_Checkpoint_TK_EP1 {
-              buildTime = 0;
-              packUpTime = 0;
-              size = 1;
-        };
-        class Land_GuardShed {
-              buildTime = 20;
-              packUpTime = 20;
-              size = 1;
-        };
-        class Flag_NATO_F {
-              buildTime = 5;
-              packUpTime = 5;
-              size = 1;
-        };
-        class Flag_UK_F {
-              buildTime = 5;
-              packUpTime = 5;
-              size = 1;
-        };
-        class FlagCarrierGermany_EP1 {
-              buildTime = 5;
-              packUpTime = 5;
-              size = 1;
-        };
-    };
-
-    class Vehicles {
-        class UK3CB_BAF_MAN_HX58_Container_Sand {
-            isStorage = 1;
-            vehicleInventorySize = 4000;
-        };
-    };
-};
 
 class cfgSounds {
 
   #include "grad-survivableCrash\cfgSounds.hpp"
   #include "grad-herding\cfgSounds.hpp"
   // #include "node_modules\grad-leaveNotes\cfgSounds.hpp"
-
-    class GRAD_heartbeat_slow_1
-      {
-        name = "GRAD_heartbeat_slow_1";
-        // filename, volume, pitch
-        sound[] = {"sounds\slow_1.wav", 20, 1};
-        // subtitle delay in seconds, subtitle text
-        titles[] = {0, ""};
-      };
-      class GRAD_heartbeat_slow_2
-    {
-      name = "GRAD_heartbeat_slow_2";
-      // filename, volume, pitch
-      sound[] = {"sounds\slow_2.wav", 20, 1};
-      // subtitle delay in seconds, subtitle text
-      titles[] = {0, ""};
-    };
-
 };
 
 class cfgMusic {
@@ -239,6 +146,7 @@ class CfgSFX
 {
     #include "GRAD-sandstorm\cfgSfx.hpp"
 };
+
 
 class CfgNotifications {
     #include "node_modules\grad-customGear\cfgNotifications.hpp"

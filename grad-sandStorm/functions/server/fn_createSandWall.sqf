@@ -81,6 +81,8 @@ diag_log "add server marker";
         deleteVehicle _trigger;
         deleteVehicle _triggerSound;
 
+        deleteMarkerLocal _markerstr;
+
         [_speed, _id] spawn {
             params ["_maxSpeed", "_id"];
 

@@ -8,6 +8,7 @@ private _unit = _group createUnit ["UK3CB_TKM_O_SNI", _position, [], 0, "NONE"];
 removeAllWeapons _unit;
 _unit disableAI "PATH";
 _unit disableAI "AIMINGERROR";
+_unit disableAI "AUTOTARGET";
 _unit setUnitPos "DOWN";
 _unit setSkill ["spotDistance", 1];
 _unit setSkill ["spotTime",1];

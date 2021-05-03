@@ -11,7 +11,6 @@ _plane engineOn true;
 _plane setSpeedMode "LIMITED";
 _plane setVelocityModelSpace [0, 300, 0]; // initial push
 
-
 private _findTerrainHeight = {
     params ["_positionA", "_positionB"];
 

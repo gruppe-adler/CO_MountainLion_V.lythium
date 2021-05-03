@@ -3,6 +3,7 @@ class grad_missionControl {
 	class client {
 		  file = grad-missionControl\functions\client;
 
+      class addCuratorIcon;
       class addModules;
       class addVehicleMarker;
       class adjustDroneFOV;

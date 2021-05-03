@@ -18,7 +18,7 @@ grad_textures_fnc_clearCargo = {
 
     [_vehicle] call grad_textures_fnc_clearCargo;
 
-}] call CBA_fnc_addClassEventHandler;
+}, true, [], true] call CBA_fnc_addClassEventHandler;
 
 ["RHS_C130J", "init", {
 
@@ -29,7 +29,7 @@ grad_textures_fnc_clearCargo = {
 
     [_vehicle] call grad_textures_fnc_clearCargo;
 
-}] call CBA_fnc_addClassEventHandler;
+}, true, [], true] call CBA_fnc_addClassEventHandler;
 
 
 ["gm_ge_army_iltis_mg3", "init", {
@@ -44,7 +44,7 @@ grad_textures_fnc_clearCargo = {
         ["windshield",1,"doorBag_unhide",0,"beacon_01_org_unhide",0,"beacon_01_blu_unhide",0,"coldWeatherKit_unhide",0]
     ] call BIS_fnc_initVehicle;
 
-}] call CBA_fnc_addClassEventHandler;
+}, true, [], true] call CBA_fnc_addClassEventHandler;
 
 ["gm_ge_army_iltis_cargo", "init", {
 
@@ -58,7 +58,7 @@ grad_textures_fnc_clearCargo = {
         ["radio_01_unhide",1,"radio_02_unhide",0,"cover_hoops_unhide",0,"cover_doors_unhide",0,"windshield",1,"doorBag_unhide",0,"beacon_01_org_unhide",0,"beacon_01_blu_unhide",0,"coldWeatherKit_unhide",0]
     ] call BIS_fnc_initVehicle;
 
-}] call CBA_fnc_addClassEventHandler;
+}, true, [], true] call CBA_fnc_addClassEventHandler;
 
 ["gm_ge_army_u1300l_cargo", "init", {
 
@@ -72,4 +72,4 @@ grad_textures_fnc_clearCargo = {
         ["BoardWall_2_1_unhide",1,"cover_hoops_unhide",0,"cover_down_unhide",0,"cover_up_unhide",0,"BoardWall_1_1_extension_unhide",0,"camonetpoles_1_1_unhide",0,"camonetrack_unhide",0,"generator_unhide",0,"sign_mlc_unhide",0,"sign_medic_unhide",0]
     ] call BIS_fnc_initVehicle;
 
-}] call CBA_fnc_addClassEventHandler;
+}, true, [], true] call CBA_fnc_addClassEventHandler;

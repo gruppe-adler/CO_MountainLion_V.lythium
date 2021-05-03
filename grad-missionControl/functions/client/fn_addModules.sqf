@@ -68,6 +68,25 @@ waitUntil {  time > 3 };
 
 
 
+["zen_curatorDisplayLoaded", {
+    params ["_display"];
+
+    // execute once only
+    if (missionNamespace getVariable ["IconsAdded", false]) exitWith { "done before" call BIS_fnc_log; };
+    missionNamespace setVariable ["IconsAdded", true];
+
+    private _allIcons = missionNamespace getVariable ["GRAD_CURATORICONS", []];
+
+    {
+        private _icon = _x;
+        _icon set [0, getAssignedCuratorLogic player];
+        _icon call BIS_fnc_addCuratorIcon;
+    } forEach _allIcons;
+
+}] call CBA_fnc_addEventhandler;
+
+
+
 
 ["BERGLOEWE MISSION", "Start Kaffeefahrt",
 {
