@@ -129,6 +129,13 @@ class cfgSounds {
   #include "grad-survivableCrash\cfgSounds.hpp"
   #include "grad-herding\cfgSounds.hpp"
   // #include "node_modules\grad-leaveNotes\cfgSounds.hpp"
+
+  class buzz
+  {
+      name = "buzz";
+      sound[] = {"audio\buzz.ogg", 1, 1, 50};
+      titles[] = {0,""};
+  };
 };
 
 class cfgMusic {
@@ -145,6 +152,48 @@ class cfgMusic {
 class CfgSFX
 {
     #include "GRAD-sandstorm\cfgSfx.hpp"
+
+    class song1
+    {
+        name = "song1";
+        sounds[]={sfxsound};
+        sfxsound[]={"audio\song1.ogg",35,1,150,1,1,1,0};
+        empty[]= {"",0,0,0,0,0,0,0};
+    };
+
+    class song2
+    {
+        name = "song2";
+        sounds[]={sfxsound};
+        sfxsound[]={"audio\song2.ogg",35,1,150,1,1,1,0};
+        empty[]= {"",0,0,0,0,0,0,0};
+    };
+        
+    class song3
+    {
+        name = "song3";
+        sounds[]={sfxsound};
+        sfxsound[]={"audio\song3.ogg",35,1,150,1,1,1,0};
+        empty[]= {"",0,0,0,0,0,0,0};
+    };
+};
+
+class CfgVehicles
+{
+    class song1 // class name to be used with createSoundSource
+    {
+        sound = "song1"; // reference to CfgSFX class
+    };
+
+    class song2 // class name to be used with createSoundSource
+    {
+        sound = "song2"; // reference to CfgSFX class
+    };
+
+    class song3 // class name to be used with createSoundSource
+    {
+        sound = "song3"; // reference to CfgSFX class
+    };
 };
 
 

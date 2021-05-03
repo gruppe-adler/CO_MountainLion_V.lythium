@@ -8,6 +8,7 @@ class grad_missionControl {
       class addVehicleMarker;
       class adjustDroneFOV;
       class adjustDronePipEffect;
+      class brokenRadio;
       class createBloodEffect;
       class detectFapper  { postInit = 1; };
       class droneFeedInit;
@@ -43,6 +44,7 @@ class grad_missionControl {
       class readIntel;
       class secondaryExplosions;
       class sitDown;
+      class soundSourceHelper;
       class startKaffeefahrt;
       class suicideCar;
       class suicideCarExplode;

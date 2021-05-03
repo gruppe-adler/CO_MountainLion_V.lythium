@@ -136,6 +136,28 @@ waitUntil {  time > 3 };
 }] call zen_custom_modules_fnc_register;
 
 
+["BERGLOEWE MUSIC", "Random Arab Song",
+    {
+      // Get all the passed parameters
+      params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+      _position = ASLToAGL _position;
+
+      private _radio = "land_gm_euro_furniture_radio_01" createVehicle [0,0,0];
+      _radio setPos _position;
+
+      [_radio, true, [0, .5, 1], 10] remoteExec ["ace_dragging_fnc_setCarryable", 0, true]; 
+
+      private _song = selectRandom ["song1","song2","song3"];
+      private _source = createSoundSource [_song, _position, [], 0];
+      [_source, _radio, false] call GRAD_missionControl_fnc_soundSourceHelper;
+      
+      {
+        _x addCuratorEditableObjects [[_radio], false];
+      } forEach allCurators;
+
+}] call zen_custom_modules_fnc_register;
+
+
 
 ["BERGLOEWE HELPERS", "Weaponize Civ Vehicle Crew",
 {
