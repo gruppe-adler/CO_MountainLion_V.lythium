@@ -26,6 +26,7 @@ if (hasInterface) then {
         addMissionEventHandler ["Draw3D", {
             private _droneCam = player getVariable ["GRAD_missionControl_droneCam", objNull];
             private _droneCamInternal = player getVariable ["GRAD_missionControl_droneCamInternal", objNull];
+            if (isNull (missionNameSpace getVariable ["stage1_drone", objNull])) exitWith {};
             if (!isNull _droneCamInternal)  then {
                 private _dir =
                     (stage1_drone selectionPosition "laserstart")

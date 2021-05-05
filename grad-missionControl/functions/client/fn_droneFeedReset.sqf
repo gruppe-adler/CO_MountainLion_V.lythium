@@ -7,7 +7,9 @@ private _droneCam = "camera" camCreate [0,0,0];
 _droneCam cameraEffect ["Internal", "Back", "uavrtt"];
 
 /* attach cam to gunner cam position */
-_droneCam attachTo [stage1_drone, [0,0,0], "commanderview"];
+if (!isNull (missionNameSpace getVariable ["stage1_drone", objNull])) then {
+    _droneCam attachTo [stage1_drone, [0,0,0], "commanderview"];
+};
 
 /* make it zoom in a little */
 _droneCam camSetFov (_screen getVariable ["GRAD_missionControl_zoomLevel", 0.1]);
