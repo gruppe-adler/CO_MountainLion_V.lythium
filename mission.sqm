@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=3135;
+		nextID=3137;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=715;
+		nextID=735;
 	};
 	class Camera
 	{
-		pos[]={10189.724,70.147766,4425.5386};
-		dir[]={-0.86817074,-0.45269445,0.20334047};
-		up[]={-0.44076616,0.8916657,0.103235};
-		aside[]={0.22804564,-7.4505806e-009,0.97365046};
+		pos[]={11400.414,48.613476,2496.9644};
+		dir[]={-0.83454889,-0.4345144,0.33879331};
+		up[]={-0.40262201,0.90065438,0.16344954};
+		aside[]={0.37615606,-2.5401823e-007,0.9265824};
 	};
 };
 binarizationWanted=0;
@@ -9736,7 +9736,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=468;
+		items=470;
 		class Item0
 		{
 			dataType="Object";
@@ -11445,14 +11445,14 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11478.108,22.997898,2377.0728};
-				angles[]={0.0084924707,0,6.2784262};
+				position[]={11478.108,22.997894,2377.073};
+				angles[]={0.0084997527,0,6.2784204};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="call{[position this, ""Airplane CAS""] call GRAD_missionControl_fnc_addVehicleMarker;}";
+				init="call{[position this, ""CAS""] call GRAD_missionControl_fnc_addVehicleMarker;}";
 			};
 			id=755;
 			type="Land_ClutterCutter_small_F";
@@ -11462,16 +11462,17 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={11380.718,23.422253,2552.2781};
+				position[]={11376,23.422485,2555};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
-				init="call{[position this, ""Special Forces""] call GRAD_missionControl_fnc_addVehicleMarker;}";
+				init="call{[position this, ""BW CH-53G""] call GRAD_missionControl_fnc_addVehicleMarker;}";
 			};
 			id=757;
 			type="Land_ClutterCutter_small_F";
+			atlOffset=-1.9073486e-006;
 		};
 		class Item47
 		{
@@ -33046,6 +33047,39 @@ class Mission
 				};
 				nAttributes=14;
 			};
+		};
+		class Item468
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11349,38.999538,2538};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="call{[position this, ""UAV""] call GRAD_missionControl_fnc_addVehicleMarker;}";
+			};
+			id=3135;
+			type="Land_ClutterCutter_small_F";
+			atlOffset=14.244301;
+		};
+		class Item469
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11344,23.423532,2557};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{[position this, ""KSK Bo-105""] call GRAD_missionControl_fnc_addVehicleMarker;}";
+			};
+			id=3136;
+			type="Land_ClutterCutter_small_F";
+			atlOffset=-1.9073486e-006;
 		};
 	};
 	class Connections

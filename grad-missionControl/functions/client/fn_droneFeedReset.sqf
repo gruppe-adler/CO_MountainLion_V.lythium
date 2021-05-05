@@ -2,6 +2,12 @@ private _screen = player getVariable ["GRAD_missionControl_pipScreen", objNull];
 
 _screen setObjectTexture [0, "#(argb,512,512,1)r2t(uavrtt,1)"];
 
+if (missionNamespace getVariable ["droneFeedOnBillboard", false]) then {
+    if (!isNull (missionNamespace getVariable ["intro_billboard", objNull])) then {
+        intro_billboard setObjectTexture [0, "#(argb,512,512,1)r2t(uavrtt,1)"];
+    };
+};
+
 /* create camera and stream to render surface */
 private _droneCam = "camera" camCreate [0,0,0];
 _droneCam cameraEffect ["Internal", "Back", "uavrtt"];
