@@ -1,4 +1,4 @@
-["BERGLOEWE MISSION", "Create Shepherd with Killtrigger", {
+["BERGLOEWE SHEPHERD", "Create Shepherd with Killtrigger", {
 
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
     _position = ASLToAGL _position;
@@ -7,7 +7,7 @@
 }] call zen_custom_modules_fnc_register;
 
 
-["BERGLOEWE MISSION", "Create normal Shepherd", {
+["BERGLOEWE SHEPHERD", "Create normal Shepherd", {
 
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
     _position = ASLToAGL _position;
@@ -16,7 +16,7 @@
 }] call zen_custom_modules_fnc_register;
 
 
-["BERGLOEWE MISSION", "Create Sniper", {
+["BERGLOEWE SHEPHERD", "Create Sniper", {
 
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
     _position = ASLToAGL _position;
@@ -25,7 +25,7 @@
 }] call zen_custom_modules_fnc_register;
 
 
-["BERGLOEWE MISSION", "Fill vehicle with Animals", {
+["BERGLOEWE SHEPHERD", "Fill vehicle with Animals", {
 
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
     [_objectUnderCursor] remoteExec ["GRAD_herding_fnc_fillWithAnimals", 2];

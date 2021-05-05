@@ -1,4 +1,4 @@
-["BERGLOEWE MISSION", "Airdrop here: Wiesel",
+["BERGLOEWE PHASE II", "Airdrop here: Wiesel",
 {
   // Get all the passed parameters
   params [["_positionASL", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
@@ -8,7 +8,7 @@
 }] call zen_custom_modules_fnc_register;
 
 
-["BERGLOEWE MISSION", "Airdrop here: Transport LKW",
+["BERGLOEWE PHASE II", "Airdrop here: Transport LKW",
 {
   // Get all the passed parameters
   params [["_positionASL", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
@@ -17,7 +17,7 @@
 
 }] call zen_custom_modules_fnc_register;
 
-["BERGLOEWE MISSION", "Airdrop here: Iltis Transport",
+["BERGLOEWE PHASE II", "Airdrop here: Iltis Transport",
 {
   // Get all the passed parameters
   params [["_positionASL", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
@@ -26,7 +26,7 @@
 
 }] call zen_custom_modules_fnc_register;
 
-["BERGLOEWE MISSION", "Airdrop here: Iltis MG",
+["BERGLOEWE PHASE II", "Airdrop here: Iltis MG",
 {
   // Get all the passed parameters
   params [["_positionASL", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];

@@ -30,6 +30,18 @@ params ["_veh"];
 	} forEach crew _veh;
 
 
+	[{
+		params ["_veh"];
+		getPos _veh select 2 < 30
+	},{	
+		params ["_veh"];
+		// trigger ejection and effects on crew
+		{
+			[_x, _veh] remoteExecCall ["GRAD_survivableCrash_fnc_onCrashLocal", _x];
+		} forEach crew _veh;
+
+	}, [_veh]] call CBA_fnc_waitUntilAndExecute;
+
 	// waits till ground is hit, stores travel vector
 	[{
 		params ["_veh"];
@@ -40,14 +52,6 @@ params ["_veh"];
 
 		_veh setPos (getMarkerPos "mrk_crashSite");
 		_veh attachTo [crashSite, [0,0,0]];
-		_veh setVectorDir [0.963404,-0.126286,-0.236441];
-		_veh setVectorUp [0.201631,-0.239806,0.949651];
-
-		// trigger ejection and effects on crew
-		{
-			[_x, _veh] remoteExecCall ["GRAD_survivableCrash_fnc_onCrashLocal", _x];
-		} forEach crew _veh;
-
 
 		[{
 			params ["_veh"];

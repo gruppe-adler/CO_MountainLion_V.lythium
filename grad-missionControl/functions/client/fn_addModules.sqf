@@ -88,19 +88,19 @@ waitUntil {  time > 3 };
 
 
 
-["BERGLOEWE MISSION", "Start Kaffeefahrt",
+["BERGLOEWE PHASE I", "Start Kaffeefahrt",
 {
   remoteExec ["grad_missionControl_fnc_startKaffeefahrt", 2];
 
 }] call zen_custom_modules_fnc_register;
 
-["BERGLOEWE MISSION", "Start SuicideCar",
+["BERGLOEWE PHASE I", "Start SuicideCar",
 {
   remoteExec ["grad_missionControl_fnc_suicideCar", 2];
 
 }] call zen_custom_modules_fnc_register;
 
-["BERGLOEWE MISSION", "Change Briefing Slide",
+["BERGLOEWE PHASECHANGE", "Change Briefing Slide",
 {
   intro_billboard setObjectTextureGlobal [0, "pic\briefing2.paa"];
 

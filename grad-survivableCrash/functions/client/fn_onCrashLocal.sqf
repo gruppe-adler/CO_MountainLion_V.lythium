@@ -1,14 +1,14 @@
 params ["_unit"];
 
+cutText [" ", "BLACK", 0.001];
 
 // [_unit, 0.5] call ace_medical_fnc_adjustPainLevel;
-[_unit, true, 3 + random 30] call ace_medical_fnc_setUnconscious;
-_unit allowDamage false;
+[_unit, true] call ace_medical_fnc_setUnconscious;
 
-
-playSound "vehicle_collision";
-playSound "vehicle_drag_end";
-playSound "vehicle_dragging";
+0 fadeSpeech 2;
+playSound ["vehicle_collision", true];
+playSound ["vehicle_drag_end", true];
+playSound ["vehicle_dragging", true];
 
 _unit unassignItem "itemmap";_unit removeItem "itemmap";
 _unit unassignItem "itemgps";_unit removeItem "itemgps";
@@ -24,9 +24,7 @@ if (_unit == player) then {
 
 [{
 	params ["_unit"];
-	_alt = getPosATL _unit select 2;
-	_speed = vectorMagnitude velocity _unit;
-	_alt < 2 or _speed < .5
+	vehicle _unit distance2d crashSite < 10
 },{
 	params ["_unit"];
 
@@ -50,10 +48,14 @@ if (_unit == player) then {
 	{
 		params ["_unit"];
 
-		[_unit, _unit] call ace_medical_fnc_treatmentAdvanced_fullHealLocal; // remove ace damage
+		// [_unit, _unit] call ace_medical_fnc_treatmentAdvanced_fullHealLocal; // remove ace damage
+		[player, player] call ace_medical_treatment_fnc_fullHeal;
+		[_unit, true] call ace_medical_fnc_setUnconscious;
 
-		private _cause = ["vehiclecrash", "explosive"] select (round random 1); // add own damage
-		[_unit, random [.3, .7, 1], selectRandom ["head", "body", "hand_l", "hand_r", "leg_l", "leg_r"], _cause] call ace_medical_fnc_addDamageToUnit;
+		private _injuredBodyPart = ["Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg"] selectRandomWeighted [0.3, 0.1, 0.2, 0.2, 0.3, 0.3];
+        private _currentUnitDamage = _unit getHitpointDamage _injuredBodyPart;
+        private _damageAmount = (_currentUnitDamage + random 1) max (_currentUnitDamage + 0.1);
+		[_unit, _damageAmount, _injuredBodyPart, "shell", objNull] call ace_medical_fnc_addDamageToUnit;
 		
 		[_unit] execVM "grad-survivableCrash\functions\server\fn_throwOutInventoryUnit.sqf";
 
@@ -63,9 +65,25 @@ if (_unit == player) then {
 			_unit allowDamage true;
 			[_unit, false] call ace_medical_fnc_setUnconscious;
 			cutText [" ", "BLACK IN", 5];
+
+			["DynamicBlur", 400, [10]] spawn 
+			   { 
+			    params ["_name", "_priority", "_effect", "_handle"]; 
+			    private _handle = ppEffectCreate [_name, [10]]; 
+			    _handle ppEffectEnable true; 
+			    _handle ppEffectAdjust [10]; 
+			    _handle ppEffectCommit 0; _handle ppEffectAdjust [0]; 
+			    _handle ppEffectCommit 5; 
+
+			    waitUntil {ppEffectCommitted _handle}; 
+			    uiSleep 5; 
+			    _handle ppEffectEnable false; 
+			    ppEffectDestroy _handle; 
+			   };
+
 			[player, "Acts_UnconsciousStandUp_part1"] remoteExecCall ["switchMove", 0];
 
-		}, [_unit], 2 + random 15] call CBA_fnc_waitAndExecute;
+		}, [_unit], 5 + random 15] call CBA_fnc_waitAndExecute;
 
 	}, [_unit]] call CBA_fnc_waitUntilAndExecute;
 

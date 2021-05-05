@@ -6,7 +6,7 @@ addCamShake [10, 2, 9];
 
 playSound "tingle";
 playSound "wind";
-
+player allowDamage false;
 
 player setVariable ["GRAD_survivableCrash_crashed", true, true];
 
@@ -22,7 +22,7 @@ player setVariable ["GRAD_survivableCrash_crashed", true, true];
     };
 
      playSound "tingle";
-     addCamShake [10, 2, 9];
+     addCamShake [8, 9, 4];
 
 }, 9, [_vehicle]] call CBA_fnc_addPerFrameHandler;
 
