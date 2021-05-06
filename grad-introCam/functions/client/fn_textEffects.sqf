@@ -45,7 +45,7 @@ sleep 20;
 // ml_mosque say3D ["muezzin", 1000];
 
 if (typeOf player isEqualTo "B_officer_F") then {
-	slot_platoonlead action ["WeaponOnBack", slot_platoonlead];
+	player action ["WeaponOnBack", player];
 	//player action ["SwitchWeapon", player, player, 100];
 };
 

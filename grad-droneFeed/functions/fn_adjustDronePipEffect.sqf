@@ -4,6 +4,7 @@ private _droneCamInternal = player getVariable ["GRAD_missionControl_droneCamInt
 
 if (isNull _droneCamInternal) then {
     "uavrtt" setPiPEffect [_effect];
+    [] call GRAD_droneFeed_fnc_droneFeedReset;
 } else {
     switch (_effect) do { 
         case 1 : {  camUseNVG true; }; 

@@ -9,6 +9,7 @@ private _droneCamInternal = "camera" camCreate [0,0,0];
 _droneCamInternal cameraEffect ["Internal", "Back"];
 
 /* attach cam to gunner cam position */
+if (isNil "stage1_drone") exitWith { "drone is MIA" call BIS_fnc_log; };
 _droneCamInternal attachTo [stage1_drone, [0,0,0], "commanderview"];
 
 /* make it zoom in a little */

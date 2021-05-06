@@ -1,12 +1,15 @@
-private _screen = player getVariable ["GRAD_missionControl_pipScreen", objNull];
+if (isNil "stage1_drone") exitWith {};
 
+private _screen = player getVariable ["GRAD_missionControl_pipScreen", objNull];
 _screen setObjectTexture [0, "#(argb,512,512,1)r2t(uavrtt,1)"];
 
+/*
 if (missionNamespace getVariable ["droneFeedOnBillboard", false]) then {
     if (!isNull (missionNamespace getVariable ["intro_billboard", objNull])) then {
         intro_billboard setObjectTexture [0, "#(argb,512,512,1)r2t(uavrtt,1)"];
     };
 };
+*/
 
 /* create camera and stream to render surface */
 
@@ -20,6 +23,8 @@ _droneCam cameraEffect ["Internal", "Back", "uavrtt"];
 /* attach cam to gunner cam position */
 if (!isNull (missionNameSpace getVariable ["stage1_drone", objNull])) then {
     _droneCam attachTo [stage1_drone, [0,0,0], "commanderview"];
+    _droneCam camSetTarget uav_target;
+    _droneCam camCommit 0;
 };
 
 /* make it zoom in a little */

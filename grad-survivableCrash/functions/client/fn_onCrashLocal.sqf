@@ -57,7 +57,7 @@ if (_unit == player) then {
 			private _injuredBodyPart = ["Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg"] selectRandomWeighted [0.3, 0.1, 0.2, 0.2, 0.3, 0.3];
 	        private _currentUnitDamage = _unit getHitpointDamage _injuredBodyPart;
 	        private _damageAmount = (_currentUnitDamage + random 1) max (_currentUnitDamage + 0.1);
-			[_unit, _damageAmount, _injuredBodyPart, "shell", objNull] call ace_medical_fnc_addDamageToUnit;
+			[_unit, _damageAmount, _injuredBodyPart, "bullet", objNull] call ace_medical_fnc_addDamageToUnit;
 			[_unit, 0.5] call ace_medical_status_fnc_adjustPainLevel;
 		},[_unit]] call CBA_fnc_execNextFrame;
 		

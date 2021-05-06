@@ -40,9 +40,10 @@ private _camDefinitions = [
   	[_x] call GRAD_introCam_fnc_addShot;
 } forEach _camDefinitions;
 
+
 [{
     BRIEFING_DONE = true;
     introLogo setObjectTextureGlobal [0,""];
-}, [], 63] call CBA_fnc_waitAndExecute;
+}, [], 180] call CBA_fnc_waitAndExecute;
 
 [] remoteExec ["GRAD_introCam_fnc_preLoad", [0,-2] select isDedicated, false];
