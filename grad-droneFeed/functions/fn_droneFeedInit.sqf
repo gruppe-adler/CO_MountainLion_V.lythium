@@ -66,6 +66,9 @@ if (hasInterface) then {
                         _dir vectorCrossProduct [-(_dir select 1), _dir select 0, 0]
                     ];
                 };
+                if (!isNull _droneCam) then {
+                    _droneCam setPos (stage1_drone modelToWorldVisual (stage1_drone selectionPosition "commanderview"));
+                };
             }];
 
 

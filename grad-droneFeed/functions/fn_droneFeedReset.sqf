@@ -22,7 +22,6 @@ _droneCam cameraEffect ["Internal", "Back", "uavrtt"];
 
 /* attach cam to gunner cam position */
 if (!isNull (missionNameSpace getVariable ["stage1_drone", objNull])) then {
-    _droneCam attachTo [stage1_drone, [0,0,0], "commanderview"];
     _droneCam camSetTarget uav_target;
     _droneCam camCommit 0;
 };
