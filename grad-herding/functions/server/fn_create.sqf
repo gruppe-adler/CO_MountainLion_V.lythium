@@ -64,7 +64,7 @@ for "_i" from 1 to _count do {
 				_herdArray set [1, _animal];
 		} else {
 				_animal setDir (_animal getRelDir (_herdArray select 1));
-						
+
 				// Add animal to animal list
 				_herdAnimals pushBack _animal;
 		};
@@ -72,11 +72,17 @@ for "_i" from 1 to _count do {
 		_animal addEventHandler ["AnimChanged", {
 			params ["_unit", "_anim"];
 
+			// only force every second animation sequence to allow for turning
+			if (!(_unit getVariable ["GRAD_HERDING_ANIM_SKIP", false])) exitWith {
+					_unit setVariable ["GRAD_HERDING_ANIM_SKIP", true]
+			};
+			_unit setVariable ["GRAD_HERDING_ANIM_SKIP", false];
+
 			if (!alive _unit) exitWith {_unit removeEventHandler ["AnimChanged", _thisEventhandler]; };
 			// diag_log format ["_animDone done %1", _anim];
 			private _anim = _unit getVariable ["GRAD_HERDING_ANIM", GRAD_HERDING_ANIM_STOP];
 			// [_unit, _anim] remoteExec ["switchMove", 0];
-			_unit playMove _anim; // playmoveNow prevents turning
+			_unit playMoveNow _anim; // playmoveNow prevents turning
 			// diag_log format ["_animDone exec %1", _anim];
 		}];
 };
@@ -84,7 +90,7 @@ for "_i" from 1 to _count do {
 // fill herd with animal array
 _herdArray set [2, _herdAnimals];
 
-// save herd index to make it globally und publicly accessible 
+// save herd index to make it globally und publicly accessible
 private _instanceString = format ["GRAD_herding_instance_%1", _currentIndex];
 missionNamespace setVariable [_instanceString, _herdArray, true];
 
