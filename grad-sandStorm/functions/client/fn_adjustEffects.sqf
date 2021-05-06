@@ -8,10 +8,10 @@ params ["_duration"];
 
 private _inBuilding = [] call GRAD_sandstorm_fnc_inBuilding;
 private _ppGrain = (player getVariable ["isInsideSandstormPP", [objNull,objNull]]) select 1;
-private _vehicleState = ([player] call TFAR_fnc_isTurnedOut) select 1;
+private _isTurnedOut = isTurnedOut player;
 
 private _vehicle = objectParent player;
-private _inVehicle = _vehicleState > 2;
+private _inVehicle = _vehicle != player;
 
 
 private _shakepower = 0.5 + random 0.5;
@@ -29,39 +29,40 @@ private _apertureOutsideNoGoggles = 20;
 
 private _originalVolume = 1;
 
-// todo doesnt work
-if (_vehicleState > 1) then {
-    if (_inVehicle) then {
-        // Covered vehicle - attenuate sound, reduce camshake and film grain and particles
-        // {if (typeOf _x == "#particlesource") then {deleteVehicle _x}} forEach (vehicle player nearObjects 10);
-        // todo: widen radius of particle sources to not interfere
-        if (_vehicle isKindOf "Air" && {(getPos _vehicle) select 2 > 0}) then {
-            // not in sync
-            addCamShake [(_shakepower*4), _shakeduration, _shakefreq];
-            if (GRAD_SANDSTORM_DEBUG) then {
-                systemChat format ["player inside air vehicle"];
-            };
-        } else {
-            addCamShake [(_shakepower/4), _shakeduration, _shakefreq];
-            if (GRAD_SANDSTORM_DEBUG) then {
-                systemChat format ["player inside land vehicle"];
-            };
+if (!_isTurnedOut && _inVehicle) then {
+    // Covered vehicle - attenuate sound, reduce camshake and film grain and particles
+    // {if (typeOf _x == "#particlesource") then {deleteVehicle _x}} forEach (vehicle player nearObjects 10);
+    // todo: widen radius of particle sources to not interfere
+    if (_vehicle isKindOf "Air" && {(getPos _vehicle) select 2 > 0}) then {
+        // not in sync
+        addCamShake [(_shakepower*4), _shakeduration, _shakefreq];
+        if (GRAD_SANDSTORM_DEBUG) then {
+            systemChat format ["player inside air vehicle"];
         };
-        0.1 fadeMusic 0.35;
-        _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
+        _ppGrain ppEffectAdjust [0.2 + random 0.1, 1.25, -0.01, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
-        setAperture _apertureInVehicle;
     } else {
-        // Open vehicle - slight attenuation, reduce camshake, normal film grain
-        addCamShake [(_shakepower/2), _shakeduration, _shakefreq];
-        0.1 fadeMusic 0.85;
-        _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
+        addCamShake [(_shakepower/4), _shakeduration, _shakefreq];
+        if (GRAD_SANDSTORM_DEBUG) then {
+            systemChat format ["player inside land vehicle"];
+        };
+        _ppGrain ppEffectAdjust [0.1, 1.25, -0.01, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
-        setAperture _apertureInOpenVehicle;
     };
+    0.1 fadeMusic 0.35;
+    setAperture _apertureInVehicle;
 };
 
-if (_inBuilding) then {
+if (_isTurnedOut && _inVehicle) then {
+    // Open vehicle - slight attenuation, reduce camshake, normal film grain
+    addCamShake [(_shakepower/2), _shakeduration, _shakefreq];
+    0.1 fadeMusic 0.85;
+    _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
+    _ppGrain ppEffectCommit 1;
+    setAperture _apertureInOpenVehicle;
+};
+
+if (!_inVehicle && _inBuilding) then {
     if (GRAD_SANDSTORM_DEBUG) then {
         systemChat format ["player inside building"];
     };
@@ -89,8 +90,7 @@ if (_inBuilding) then {
     };
 };
 
-if (_vehicleState == 1 && !_inBuilding) then {
-
+if (!_inVehicle && !_inBuilding) then {
     // Player wearing eyewear adjust film grain
     if (goggles player != "") then {
         _ppGrain ppEffectAdjust [0.08, 1.25, 1.0, 0.75, 1, 0];
@@ -103,7 +103,7 @@ if (_vehicleState == 1 && !_inBuilding) then {
         */
         setAperture _apertureOutsideGoggles;
     } else {
-        _ppGrain ppEffectAdjust [0.08, 1.25, 2.05, 0.75, 1, 0];
+        _ppGrain ppEffectAdjust [0.12+random 0.1, 1.25, 2.05, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
 
         /*
@@ -116,7 +116,6 @@ if (_vehicleState == 1 && !_inBuilding) then {
     enableCamShake true;
     addCamShake [_shakepower/3, _shakeduration/2, _shakefreq];
     0.5 fadeMusic _originalVolume;
-
 };
 
 _inBuilding
