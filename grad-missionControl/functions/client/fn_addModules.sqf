@@ -68,35 +68,6 @@ waitUntil {  time > 3 };
 
 
 
-["zen_curatorDisplayLoaded", {
-    params ["_display"];
-
-    [] call GRAD_missionControl_fnc_droneFeedReset;
-
-    // execute once only
-    if (missionNamespace getVariable ["IconsAdded", false]) exitWith { "done before" call BIS_fnc_log; };
-    missionNamespace setVariable ["IconsAdded", true];
-
-    private _allIcons = missionNamespace getVariable ["GRAD_CURATORICONS", []];
-
-    {
-        private _icon = _x;
-        _icon set [0, getAssignedCuratorLogic player];
-        _icon call BIS_fnc_addCuratorIcon;
-    } forEach _allIcons;
-
-}] call CBA_fnc_addEventhandler;
-
-
-["BERGLOEWE PHASE I", "Change Briefing Slide to I",
-{
-  intro_billboard setObjectTextureGlobal [0, "pic\briefing.paa"];
-  missionNamespace setVariable ["droneFeedOnBillboard", false, true];
-  [] remoteExec ["GRAD_missionControl_fnc_droneFeedReset", 0];
-  
-}] call zen_custom_modules_fnc_register;
-
-
 ["BERGLOEWE PHASE I", "Start Kaffeefahrt",
 {
   remoteExec ["grad_missionControl_fnc_startKaffeefahrt", 2];
@@ -109,20 +80,6 @@ waitUntil {  time > 3 };
 
 }] call zen_custom_modules_fnc_register;
 
-["BERGLOEWE PHASECHANGE", "Change Briefing Slide to II",
-{
-  intro_billboard setObjectTextureGlobal [0, "pic\briefing2.paa"];
-  missionNamespace setVariable ["droneFeedOnBillboard", false, true];
-  [] remoteExec ["GRAD_missionControl_fnc_droneFeedReset", 0];
-
-}] call zen_custom_modules_fnc_register;
-
-["BERGLOEWE PHASECHANGE", "Set Drone Feed on Billboard",
-{
-  missionNamespace setVariable ["droneFeedOnBillboard", true, true];
-  [] remoteExec ["GRAD_missionControl_fnc_droneFeedReset", 0];
-
-}] call zen_custom_modules_fnc_register;
 
 
 ["BERGLOEWE HELPERS", "Alert enemy AI around here",
@@ -163,12 +120,12 @@ waitUntil {  time > 3 };
       private _radio = "land_gm_euro_furniture_radio_01" createVehicle [0,0,0];
       _radio setPos _position;
 
-      [_radio, true, [0, .5, 1], 10] remoteExec ["ace_dragging_fnc_setCarryable", 0, true]; 
+      [_radio, true, [0, .5, 1], 10] remoteExec ["ace_dragging_fnc_setCarryable", 0, true];
 
       private _song = selectRandom ["song1","song2","song3"];
       private _source = createSoundSource [_song, _position, [], 0];
       [_source, _radio, false] call GRAD_missionControl_fnc_soundSourceHelper;
-      
+
       {
         _x addCuratorEditableObjects [[_radio], false];
       } forEach allCurators;

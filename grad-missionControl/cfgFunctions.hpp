@@ -6,17 +6,10 @@ class grad_missionControl {
       class addCuratorIcon;
       class addModules;
       class addVehicleMarker;
-      class adjustDroneFOV;
-      class adjustDronePipEffect;
       class brokenRadio;
       class createBloodEffect;
       class detectFapper  { postInit = 1; };
-      class droneFeedInit;
-      class droneFeedinterpretMouseWheel;
-      class droneFeedinterpretMouseClick;
-      class droneFeedReset;
       class dropZeusEars;
-      class inspectDroneFeed;
       class setMyFrequency;
       class setGroupFrequencies;
       class stopMusic;
@@ -38,7 +31,7 @@ class grad_missionControl {
       class enableChargeMode;
       class fapper;
       class fillSupplyBox;
-      class getPosInCircle;   
+      class getPosInCircle;
       class isInsideHouse;
       class ownerShipHandler { postInit = 1; };
       class readIntel;

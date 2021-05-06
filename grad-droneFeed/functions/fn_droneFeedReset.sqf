@@ -9,7 +9,12 @@ if (missionNamespace getVariable ["droneFeedOnBillboard", false]) then {
 };
 
 /* create camera and stream to render surface */
-private _droneCam = "camera" camCreate [0,0,0];
+
+private _droneCam = player getVariable ["GRAD_missionControl_droneCam", objNull];
+
+if (isNull _droneCam) then {
+  _droneCam = "camera" camCreate [0,0,0];
+};
 _droneCam cameraEffect ["Internal", "Back", "uavrtt"];
 
 /* attach cam to gunner cam position */

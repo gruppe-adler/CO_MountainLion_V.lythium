@@ -10,7 +10,7 @@ if (isServer) then {
 
 if (hasInterface) then {
     player setVariable ["GRAD_missionControl_pipScreen", _screen];
-    [] call GRAD_missionControl_fnc_droneFeedReset;
+    [] call GRAD_droneFeed_fnc_droneFeedReset;
 
     if (!(player getVariable ["GRAD_missionControl_droneInit", false])) then {
 
@@ -19,7 +19,7 @@ if (hasInterface) then {
         ["cameraView", {
             params ["_unit", "_newCamera"];
             // systemChat str "Camera changed.";
-            [] call GRAD_missionControl_fnc_droneFeedReset;
+            [] call GRAD_droneFeed_fnc_droneFeedReset;
         }, true] call CBA_fnc_addPlayerEventHandler;
 
         /* adjust cam orientation */
@@ -55,8 +55,8 @@ if (hasInterface) then {
 
              private _currentFOV =  _target getVariable ["GRAD_missionControl_zoomLevel", 0.1];
             _currentFOV = _currentFOV - 0.05;
-            [_currentFOV, _droneCam] remoteExec ["GRAD_missionControl_fnc_adjustDroneFOV", [0,-2] select isDedicated];
             _target setVariable ["GRAD_missionControl_zoomLevel", _currentFOV, true];
+            ["GRAD_droneFeed_fovChange", [_currentFOV, _target]] call CBA_fnc_globalEvent;
         }, {
              true
         }, nil, [_droneCam]] call ace_interact_menu_fnc_createAction;
@@ -68,8 +68,8 @@ if (hasInterface) then {
 
             private _currentFOV =  _target getVariable ["GRAD_missionControl_zoomLevel", 0.1];
             _currentFOV = _currentFOV + 0.05;
-            [_currentFOV, _droneCam] remoteExec ["GRAD_missionControl_fnc_adjustDroneFOV", [0,-2] select isDedicated];
             _target setVariable ["GRAD_missionControl_zoomLevel", _currentFOV, true];
+            ["GRAD_droneFeed_fovChange", [_currentFOV, _target]] call CBA_fnc_globalEvent;
         }, {
              true
         }, nil, [_droneCam]] call ace_interact_menu_fnc_createAction;
@@ -80,8 +80,8 @@ if (hasInterface) then {
 
             private _currentEffect = _target getVariable ["GRAD_missionControl_pipEffect", 2];
             _currentEffect = if (_currentEffect < 2) then { _currentEffect + 1 } else { 0 };
-            [_currentEffect] remoteExec ["GRAD_missionControl_fnc_adjustDronePipEffect", [0,-2] select isDedicated];
             _target setVariable ["GRAD_missionControl_pipEffect", _currentEffect, true];
+            ["GRAD_droneFeed_pipChange", [_currentEffect, _target]] call CBA_fnc_globalEvent;
         }, {
              true
         }, nil, []] call ace_interact_menu_fnc_createAction;
@@ -90,7 +90,7 @@ if (hasInterface) then {
         private _action = ["InspectFeed","Inspect Drone Feed", "\A3\ui_f\data\igui\cfg\actions\RadarOff_ca.paa", {
             params ["_target", "_player", "_args"];
 
-            [_target] call GRAD_missionControl_fnc_inspectDroneFeed;
+            [_target] call GRAD_droneFeed_fnc_inspectDroneFeed;
         }, {
              true
         }, nil, []] call ace_interact_menu_fnc_createAction;

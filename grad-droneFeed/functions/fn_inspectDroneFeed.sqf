@@ -30,11 +30,11 @@ inGameUISetEventHandler ["NextAction", "true"];
 
 private _mouseClickEH = (findDisplay 46) displayAddEventHandler [
       "MouseButtonDown",
-      "_this call GRAD_missionControl_fnc_droneFeedinterpretMouseClick"
+      "_this call GRAD_droneFeed_fnc_droneFeedinterpretMouseClick"
 ];
 private _mouseWheelEH = (findDisplay 46) displayAddEventHandler [
       "MouseZChanged",
-      "_this call GRAD_missionControl_fnc_droneFeedinterpretMouseWheel"
+      "_this call GRAD_droneFeed_fnc_droneFeedinterpretMouseWheel"
 ];
 
 

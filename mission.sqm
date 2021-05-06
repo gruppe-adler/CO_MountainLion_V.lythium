@@ -17829,7 +17829,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{[this] call GRAD_missionControl_fnc_droneFeedInit;}";
+				init="call{[this] call GRAD_droneFeed_fnc_droneFeedInit;}";
 			};
 			id=1459;
 			type="Land_TripodScreen_01_large_black_F";
