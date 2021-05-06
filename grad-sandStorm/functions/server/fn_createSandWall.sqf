@@ -42,16 +42,14 @@ _triggerSound attachTo [_helperObject];
 
 missionNamespace setVariable [_identifier, _trigger, true];
 
-0 setWindDir _dir;
-
 // turn up wind speed over time
-[_speed, _id] spawn {
-    params ["_maxSpeed", "_id"];
+[_speed, _id, _dir] spawn {
+    params ["_maxSpeed", "_id", "_dir"];
 
     private _currentSpeed = 1;
 
     for "_i" from 1 to _maxSpeed step 1 do {
-        ["GRAD_sandstorm_parametersEdited",[_id, _i, windDir]] call CBA_fnc_globalEvent;
+        ["GRAD_sandstorm_parametersEdited",[_id, _i, _dir]] call CBA_fnc_globalEvent;
         sleep 1;
     };
 };
@@ -98,7 +96,7 @@ diag_log "add server marker";
 
     diag_log format ["%1 %2", _speed, _dir];
 
-    private _newPos = (getPos _helperObject) getPos [_speed, _dir];
+    private _newPos = (getPos _helperObject) getPos [_speed*3, _dir];
     _helperObject setPosASL _newPos;
     _helperObject setVectorUp [0,0,1];
 
