@@ -16,7 +16,7 @@ private _colorR = 0.3;
 private _colorG = 0.25;
 private _colorB = 0.2;
 private _lifetime = 20;
-private _multi = 0.1;
+private _multi = 0.05;
 
 [{
 	params ["_args", "_handle"];
@@ -40,7 +40,7 @@ private _multi = 0.1;
 		 [0, 0, 0], 0.3,
 		 1,
 		 1,
-		 50,
+		 0.0001,
 		 [8, 12, 14, 16, 19, 23, 25, 27, 29, 31, 32, 36, 40, 45],
 		 [
 
