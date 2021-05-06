@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=735;
+		nextID=755;
 	};
 	class Camera
 	{
 		pos[]={11400.414,48.613476,2496.9644};
-		dir[]={-0.83454889,-0.4345144,0.33879331};
-		up[]={-0.40262201,0.90065438,0.16344954};
-		aside[]={0.37615606,-2.5401823e-007,0.9265824};
+		dir[]={-0.44170237,-0.62354708,0.64509219};
+		up[]={-0.3522878,0.78177643,0.514507};
+		aside[]={0.82513493,-9.8720193e-008,0.5649786};
 	};
 };
 binarizationWanted=0;
@@ -18755,6 +18755,7 @@ class Mission
 			};
 			id=2289;
 			type="gm_ge_army_ch53g";
+			atlOffset=-3.8146973e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -21812,7 +21813,7 @@ class Mission
 			};
 			id=2400;
 			type="MetalBarrel_burning_F";
-			atlOffset=0.89653015;
+			atlOffset=0.89649963;
 		};
 		class Item220
 		{
@@ -21828,7 +21829,7 @@ class Mission
 			};
 			id=2401;
 			type="MetalBarrel_burning_F";
-			atlOffset=0.89910889;
+			atlOffset=0.89907837;
 		};
 		class Item221
 		{
@@ -21844,7 +21845,7 @@ class Mission
 			};
 			id=2402;
 			type="MetalBarrel_burning_F";
-			atlOffset=0.89167786;
+			atlOffset=0.89164734;
 		};
 		class Item222
 		{
@@ -21861,7 +21862,7 @@ class Mission
 			};
 			id=2403;
 			type="MetalBarrel_burning_F";
-			atlOffset=0.897995;
+			atlOffset=0.89796448;
 		};
 		class Item223
 		{
@@ -21878,7 +21879,7 @@ class Mission
 			};
 			id=2404;
 			type="MetalBarrel_burning_F";
-			atlOffset=0.90803528;
+			atlOffset=0.90800476;
 		};
 		class Item224
 		{
@@ -21946,7 +21947,7 @@ class Mission
 			};
 			id=2416;
 			type="gm_pallet_01";
-			atlOffset=1.4466858;
+			atlOffset=1.5909424;
 		};
 		class Item226
 		{
@@ -23634,7 +23635,7 @@ class Mission
 			};
 			id=2643;
 			type="UK3CB_TKM_O_MTLB_PKT";
-			atlOffset=0.00010681152;
+			atlOffset=0.15745544;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -28049,7 +28050,7 @@ class Mission
 			};
 			id=3043;
 			type="gm_ge_army_bo105p1m_vbh_swooper";
-			atlOffset=-0.018997192;
+			atlOffset=0.10075378;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -32523,7 +32524,7 @@ class Mission
 				};
 			};
 			id=3125;
-			atlOffset=0.00010681152;
+			atlOffset=0.15745544;
 		};
 		class Item464
 		{
@@ -32619,7 +32620,7 @@ class Mission
 				};
 			};
 			id=3127;
-			atlOffset=0.00010681152;
+			atlOffset=0.15745544;
 		};
 		class Item465
 		{
@@ -32660,6 +32661,7 @@ class Mission
 			};
 			id=3134;
 			type="gm_ge_army_u1300l_cargo";
+			atlOffset=1.1444092e-005;
 			class CustomAttributes
 			{
 				class Attribute0

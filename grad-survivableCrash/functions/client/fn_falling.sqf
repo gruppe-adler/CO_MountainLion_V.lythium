@@ -13,6 +13,24 @@ player setVariable ["GRAD_survivableCrash_crashed", true, true];
 // [] call GRAD_survivableCrash_fnc_disableRadio;
 [player] call GRAD_survivableCrash_fnc_disableBFT;
 
+
+["DynamicBlur", 400, [10], _vehicle] spawn 
+   { 
+    params ["_name", "_priority", "_effect", "_vehicle"]; 
+    private _handle = ppEffectCreate [_name, [10]]; 
+    _handle ppEffectEnable true; 
+    _handle ppEffectAdjust [0]; 
+    _handle ppEffectCommit 0; 
+    _handle ppEffectAdjust [10]; 
+    _handle ppEffectCommit 20;
+
+    waitUntil {isNull _vehicle};
+
+    _handle ppEffectEnable false; 
+    ppEffectDestroy _handle; 
+   };
+
+
 [{
     params ["_args", "_handle"];
     _args params ["_vehicle"];
