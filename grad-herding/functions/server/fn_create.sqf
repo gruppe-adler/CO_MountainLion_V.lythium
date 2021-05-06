@@ -16,16 +16,16 @@ params [
 	["_killTrigger", false]
 ];
 
-private _herdArray = [_shepherd, objNull, [], []];
-private _herdAnimals = [];
-
 // get amount of herds created and add to counter
 private _currentIndex = (missionNamespace getVariable ["GRAD_herding_instanceCount", 0]) + 1;
 missionNamespace setVariable ["GRAD_herding_instanceCount", _currentIndex, true];
 
 private _group = createGroup west;
-private _shepherd = _group createUnit ["UK3CB_TKC_B_WORKER", _spawnPosition, [], 0, "NONE"];
-_shepherd setVariable ["BIS_enableRandomization", false];
+if (isNull _shepherd) then {
+	private _shepherd = _group createUnit ["UK3CB_TKC_B_WORKER", _spawnPosition, [], 0, "NONE"];
+	_shepherd setVariable ["BIS_enableRandomization", false];
+};
+
 
 private _pole = "Land_Net_Fence_pole_F" createVehicle [0,0,0];
 _pole attachTo [_shepherd, [0,0,0], "RightHandMiddle1", true];
@@ -48,7 +48,14 @@ _shepherd addMPEventHandler ["MPkilled", {
 	["GRAD_shepherd_dead", [_unit]] call CBA_fnc_globalEvent;
 }];
 
-_herdArray set [0, _shepherd];
+private _herdArray = createHashMapFromArray [
+	["shepherd", _shepherd]
+	["leader", objNull]
+	["animals", []]
+];
+_herdArray set ["shepherd", _shepherd];
+
+private _herdAnimals = [];
 
 for "_i" from 1 to _count do {
 
@@ -67,9 +74,9 @@ for "_i" from 1 to _count do {
 		// Declare first animal to leader of flock
 		if (_i isEqualTo 1) then {
 				_animal setDir (random 360);
-				_herdArray set [1, _animal];
+				_herdArray set ["leader", _animal];
 		} else {
-				_animal setDir (_animal getRelDir (_herdArray select 1));
+				_animal setDir (_animal getRelDir (_herdArray get "leader"));
 
 				// Add animal to animal list
 				_herdAnimals pushBack _animal;
@@ -94,7 +101,7 @@ for "_i" from 1 to _count do {
 };
 
 // fill herd with animal array
-_herdArray set [2, _herdAnimals];
+_herdArray set ["animals", _herdAnimals];
 
 // save herd index to make it globally und publicly accessible
 private _instanceString = format ["GRAD_herding_instance_%1", _currentIndex];
