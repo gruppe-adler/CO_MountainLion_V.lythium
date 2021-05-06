@@ -135,7 +135,7 @@ diag_log "add server marker";
         systemChat "deleting trigger out of map";
     };
 
-}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _id, _identifier, _speed, _target]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _id, _identifier, _speed]] call CBA_fnc_addPerFrameHandler;
 
 
 ["GRAD_sandstorm_parametersEdited", {

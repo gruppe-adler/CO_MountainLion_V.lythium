@@ -14,10 +14,10 @@ player setVariable ["GRAD_survivableCrash_crashed", true, true];
 [player] call GRAD_survivableCrash_fnc_disableBFT;
 
 
-["DynamicBlur", 400, [10], _vehicle] spawn 
+["DynamicBlur", _vehicle] spawn 
    { 
-    params ["_name", "_priority", "_effect", "_vehicle"]; 
-    private _handle = ppEffectCreate [_name, [10]]; 
+    params ["_name", "_vehicle"]; 
+    private _handle = ppEffectCreate [_name, 400]; 
     _handle ppEffectEnable true; 
     _handle ppEffectAdjust [0]; 
     _handle ppEffectCommit 0; 
