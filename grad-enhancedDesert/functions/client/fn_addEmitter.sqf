@@ -15,8 +15,8 @@ diag_log format ["adding emitter to %1", _vehicle];
 private _colorR = 0.3;
 private _colorG = 0.25;
 private _colorB = 0.2;
-private _lifetime = 30;
-private _multi = 0.2;
+private _lifetime = 20;
+private _multi = 0.1;
 
 [{
 	params ["_args", "_handle"];
