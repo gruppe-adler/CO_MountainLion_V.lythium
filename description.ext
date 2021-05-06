@@ -144,7 +144,7 @@ class cfgMusic {
     class muse_high
     {
         name = "muse_high";
-        sound[] = {"audio\muse_high.ogg", 2, 1};
+        sound[] = {"audio\intro.ogg", 2, 1};
         titles[]={};
     };
 };
