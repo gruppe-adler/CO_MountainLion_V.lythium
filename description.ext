@@ -147,6 +147,13 @@ class cfgMusic {
         sound[] = {"audio\intro.ogg", 2, 1};
         titles[]={};
     };
+
+    class outro
+    {
+        name = "outro";
+        sound[] = {"audio\outro.ogg", 2, 1};
+        titles[]={};
+    };
 };
 
 class CfgSFX
