@@ -4,6 +4,8 @@
 
     [crashheli] remoteExec ["GRAD_survivableCrash_fnc_onCrash", crashheli];
 
+    missionNamespace setVariable ["GRAD_sandstorm_target", objNull, true];
+
 }] call zen_custom_modules_fnc_register;
 
 ["BERGLOEWE PHASECHANGE", "Disable Engine of Object", {
@@ -16,5 +18,5 @@
 
 
 {
-  [ _x, ["\A3\ui_f\data\map\markers\handdrawn\warning_CA.paa", [1,1,1,1], position crashSite, 1, 1, 45, "Crash Site", 1, 0.05, "TahomaB"], false ] call BIS_fnc_addCuratorIcon;
+  [ _x, ["\A3\ui_f\data\map\markers\handdrawn\warning_CA.paa", [1,1,1,1], position crashSite, 1, 1, 0, "Crash Site", 1, 0.05, "TahomaB"], false ] call BIS_fnc_addCuratorIcon;
 } forEach allCurators;

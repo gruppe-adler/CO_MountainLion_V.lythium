@@ -101,4 +101,6 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		    [_position, _radius, _speed, _windDirection] remoteExec ["GRAD_sandstorm_fnc_createSandWall", 2];
 		}, {}, [_position]] call zen_dialog_fnc_create;
 
+		missionNamespace setVariable ["GRAD_sandstorm_target", crashheli, true];
+
 }] call zen_custom_modules_fnc_register;

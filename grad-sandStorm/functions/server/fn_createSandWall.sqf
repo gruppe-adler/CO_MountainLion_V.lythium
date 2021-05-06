@@ -91,6 +91,15 @@ diag_log "add server marker";
         };
     };
 
+    private _target = missionNamespace getVariable ["GRAD_sandstorm_target", objNull];
+    if (!isNull _target) then {
+        private _vector = [0, _speed];
+        private _directionToTarget = _helperObject getDir _target;
+        private _newVector = [ _vector, -_directionToTarget ] call BIS_fnc_rotateVector2D;
+        _newVector params ["_vectorX", "_vectorY"];
+        // diag_log format ["_identifier: %1 - _newVector: %2", _identifier, _newVector];
+        setWind [_vectorX, _vectorY, true];
+    };
     private _dir = windDir;
     private _speed = missionNamespace getVariable [_identifier + "_speed", 0];
 
@@ -126,7 +135,7 @@ diag_log "add server marker";
         systemChat "deleting trigger out of map";
     };
 
-}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _id, _identifier, _speed]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_helperObject, _trigger, _triggerSound, _size, _markerstr, _id, _identifier, _speed, _target]] call CBA_fnc_addPerFrameHandler;
 
 
 ["GRAD_sandstorm_parametersEdited", {
