@@ -8,7 +8,13 @@
 
 if (!isServer) exitWith {};
 
-params ["_spawnPosition", ["_count",10], ["_shepherd", objNull], ["_animalType", "Goat_random_F"], ["_killTrigger", false]];
+params [
+	"_spawnPosition", 
+	["_count",10], 
+	["_shepherd", objNull], 
+	["_animalType", "Goat_random_F"], 
+	["_killTrigger", false]
+];
 
 private _herdArray = [_shepherd, objNull, [], []];
 private _herdAnimals = [];

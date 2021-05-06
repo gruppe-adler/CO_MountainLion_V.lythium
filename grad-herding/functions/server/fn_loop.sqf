@@ -48,7 +48,7 @@ private _targetDebug2 = "VR_3DSelector_01_default_F" createVehicleLocal [0,0,0];
 	private _count = count (_animalArrayLiving + [_leadanimal]);
 	// animations and move command
 	
-	{	
+	{
 		if (!alive _x) exitWith {
 				[_x, _index] call GRAD_herding_fnc_removeAnimalFromHerd;
 		};

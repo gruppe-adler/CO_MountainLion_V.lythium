@@ -10,4 +10,4 @@ Really basic herding behaviour for Arma3 (wip)
 
 Sample Call:
 
-`[position player, player, 15, "Sheep_random_F"] call GRAD_herding_fnc_create;`
+`[position player, 15, player, "Sheep_random_F"] call GRAD_herding_fnc_create;`
