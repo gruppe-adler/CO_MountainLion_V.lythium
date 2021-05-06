@@ -5,6 +5,7 @@ class GRAD_enhancedDesert {
 
 		class addEmitter;
 		class autoInit { postInit = 1; };
+        class modules { postInit = 1; };
 		class roadReflection;
 	};
 };

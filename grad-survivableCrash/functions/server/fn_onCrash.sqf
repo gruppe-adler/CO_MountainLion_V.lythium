@@ -1,6 +1,6 @@
 params ["_veh"];
 
-// _veh setHitPointDamage ["HitHRotor",.88];
+// runs where vehicle is local
 
 
 [_veh] spawn { 

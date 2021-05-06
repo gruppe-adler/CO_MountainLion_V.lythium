@@ -39,4 +39,6 @@ _this attachTo [_para, [0,2,0]];
     {
         if (!isNull _x) then {deleteVehicle _x};
     } count (_this select 1);
+
+    _vehicle setDamage 0; // remove any damage that might have been received from touchdown
 };

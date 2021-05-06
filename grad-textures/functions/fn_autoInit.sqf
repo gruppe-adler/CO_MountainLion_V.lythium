@@ -11,7 +11,7 @@ grad_textures_fnc_clearCargo = {
 
 ["I_LT_01_cannon_F", "init", {
 
-    _vehicle = _this#0;
+    params ["_vehicle"];
 
     _vehicle setObjectTextureGlobal [0, "grad-textures\data\TBW_Wiesel3_Main_Tropen_CO.paa"];
     _vehicle setObjectTextureGlobal [1, "grad-textures\data\TBW_Wiesel3_Cannon_Tropen_CO.paa"];
@@ -22,7 +22,7 @@ grad_textures_fnc_clearCargo = {
 
 ["RHS_C130J", "init", {
 
-    _vehicle = _this#0;
+    params ["_vehicle"];
 
     _vehicle setObjectTextureGlobal [0, "grad-textures\data\c130.paa"];
     _vehicle setObjectTextureGlobal [1, "grad-textures\data\c130_w.paa"];
@@ -34,7 +34,7 @@ grad_textures_fnc_clearCargo = {
 
 ["gm_ge_army_iltis_mg3", "init", {
 
-    _vehicle = _this#0;
+    params ["_vehicle"];
 
     [_vehicle] call grad_textures_fnc_clearCargo;
 
@@ -48,7 +48,7 @@ grad_textures_fnc_clearCargo = {
 
 ["gm_ge_army_iltis_cargo", "init", {
 
-    _vehicle = _this#0;
+    params ["_vehicle"];
 
     [_vehicle] call grad_textures_fnc_clearCargo;
 
@@ -62,7 +62,7 @@ grad_textures_fnc_clearCargo = {
 
 ["gm_ge_army_u1300l_cargo", "init", {
 
-    _vehicle = _this#0;
+    params ["_vehicle"];
     
     [_vehicle] call grad_textures_fnc_clearCargo;
 

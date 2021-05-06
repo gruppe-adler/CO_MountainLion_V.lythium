@@ -104,3 +104,53 @@ diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
 		missionNamespace setVariable ["GRAD_sandstorm_target", crashheli, true];
 
 }] call zen_custom_modules_fnc_register;
+
+
+
+["BERGLOEWE PHASECHANGE", "Nudge Heli to Sandstorm", {
+
+private _existingSandstormsCount = missionNamespace getVariable ["GRAD_sandstorm_existingSandstormCount", 0];
+private _sandStormIds = [];
+private _sandStormIdentifier = [];
+
+if (_existingSandstormsCount < 1) exitWith { hint "no sandstorms active"; };
+
+for [{_i = 1}, {_i < 2}, {_i = _i + 1}] do
+{
+	diag_log format ["i %1", _i];
+	_sandStormIds pushBackUnique _i;
+	_sandStormIdentifier pushBackUnique [str _i, "sandstorm " + str _i];
+};
+
+diag_log format ["sandstormIds: %1", _sandStormIds];
+diag_log format ["_sandStormIdentifier: %1", _sandStormIdentifier];
+
+
+		["GRAD Sandstorm", [
+		    [
+		    	"COMBO",
+		    	["Sandstorm ID", "Which sandstorm values to nudge to"], [
+		    	_sandStormIds, _sandStormIdentifier, 0],
+		    	true
+		    ],
+		    [
+		        "SLIDER",
+		        ["Speed", "0 - 120 kmh (def 50)"],
+		        [0, 120, 50, 1],
+		        true
+		    ]
+		], {
+		    params ["_dialogValues", "_args"];
+		    _args params ["_position"];
+
+		    _dialogValues params [
+		    	"_id",
+		    	"_speed"
+		    ];
+
+		    [crashheli, _speed, _id] remoteExecCall ["GRAD_standstorm_fnc_nudgeToSandstorm", crashheli];
+
+		}, {}, []] call zen_dialog_fnc_create;
+	
+
+}] call zen_custom_modules_fnc_register;

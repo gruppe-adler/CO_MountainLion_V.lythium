@@ -45,6 +45,7 @@ class cfgFunctions {
   #include "grad-airDrop\cfgFunctions.hpp"
   #include "grad-textures\cfgFunctions.hpp"
   #include "grad-herding\cfgFunctions.hpp"
+  #include "grad-droneFeed\cfgFunctions.hpp"
 
 
   #include "node_modules\grad-makeFire\cfgFunctions.hpp"

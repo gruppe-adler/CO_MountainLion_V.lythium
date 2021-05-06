@@ -16,7 +16,7 @@ private _colorR = 0.3;
 private _colorG = 0.25;
 private _colorB = 0.2;
 private _lifetime = 20;
-private _multi = 0.05;
+private _multi = 0.1;
 
 [{
 	params ["_args", "_handle"];
@@ -32,13 +32,15 @@ private _multi = 0.05;
 
 	private _speed = speed _vehicle;
 
+	_multi = _multi + random 0.05;
+
 	if (GRAD_enhancedDesert_ACTIVE && {(_speed > 15)} && {isEngineOn _vehicle}) then {
 		drop [
 		"\A3\data_f\cl_basic",
 		 "", "Billboard", 1, _lifetime,
 		 [0, 0, 0],
 		 [0, 0, 0], 0.3,
-		 1,
+		 2,
 		 1,
 		 0.0001,
 		 [8, 12, 14, 16, 19, 23, 25, 27, 29, 31, 32, 36, 40, 45],

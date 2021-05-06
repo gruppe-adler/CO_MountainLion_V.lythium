@@ -27,6 +27,7 @@ _pole setVectorDirAndUp [[0,0.66,-0.33],[0,0.33,0.66]];
 _shepherd setVariable ["shepherdPole", _pole, true];
 
 _shepherd setVariable ["GRAD_isShepherd", true, true];
+_shepherd setBehaviour "CARELESS";
 
 if (_killTrigger) then {
 	_shepherd setVariable ["GRAD_isShepherd_killTrigger", true, true];

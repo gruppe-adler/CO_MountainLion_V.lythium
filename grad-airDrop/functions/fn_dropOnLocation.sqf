@@ -29,10 +29,10 @@ private _findTerrainHeight = {
     };
 };
 
-private _flyHeightASL = [_spawnPos, _despawnPos] call _findTerrainHeight;
-_plane flyInHeight 150;
-_plane flyInHeightASL [_flyHeightASL, _flyHeightASL, _flyHeightASL]; 
-_positionASL set [2, _flyHeightASL];
+// private _flyHeightASL = [_spawnPos, _despawnPos] call _findTerrainHeight;
+_plane flyInHeight 200;
+// _plane flyInHeightASL [_flyHeightASL, _flyHeightASL, _flyHeightASL]; 
+// _positionASL set [2, _flyHeightASL];
 
 {
   private _type = _x;
@@ -72,6 +72,7 @@ group _plane addWaypoint [_despawnPos, 1];
 [_plane, _despawnPos]] call CBA_fnc_waitUntilAndExecute;
 
 // DEBUG
+/*
 [{
     params ["_args", "_handle"];
     _args params ["_plane", "_flyHeightASL"];
@@ -105,3 +106,4 @@ group _plane addWaypoint [_despawnPos, 1];
     _markerstr setMarkerTypeLocal "hd_dot";
     _markerstr setMarkerColorLocal _color;
 }, 1, [_plane, _flyHeightASL]] call CBA_fnc_addPerFrameHandler;
+*/

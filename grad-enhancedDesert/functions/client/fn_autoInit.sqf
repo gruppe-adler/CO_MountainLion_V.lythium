@@ -7,5 +7,5 @@
 }] call CBA_fnc_addClassEventHandler;
 
 if (isServer) then {
-	GRAD_enhancedDesert_ACTIVE = true; publicVariable "GRAD_enhancedDesert_ACTIVE";
+	GRAD_enhancedDesert_ACTIVE = false; publicVariable "GRAD_enhancedDesert_ACTIVE";
 };

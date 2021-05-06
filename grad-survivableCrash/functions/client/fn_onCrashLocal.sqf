@@ -50,12 +50,16 @@ if (_unit == player) then {
 
 		// [_unit, _unit] call ace_medical_fnc_treatmentAdvanced_fullHealLocal; // remove ace damage
 		[player, player] call ace_medical_treatment_fnc_fullHeal;
-		[_unit, true] call ace_medical_fnc_setUnconscious;
+		[_unit, true] call ace_medical_fnc_setUnconscious;   
 
-		private _injuredBodyPart = ["Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg"] selectRandomWeighted [0.3, 0.1, 0.2, 0.2, 0.3, 0.3];
-        private _currentUnitDamage = _unit getHitpointDamage _injuredBodyPart;
-        private _damageAmount = (_currentUnitDamage + random 1) max (_currentUnitDamage + 0.1);
-		[_unit, _damageAmount, _injuredBodyPart, "shell", objNull] call ace_medical_fnc_addDamageToUnit;
+		[{
+			params ["_unit"];
+			private _injuredBodyPart = ["Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg"] selectRandomWeighted [0.3, 0.1, 0.2, 0.2, 0.3, 0.3];
+	        private _currentUnitDamage = _unit getHitpointDamage _injuredBodyPart;
+	        private _damageAmount = (_currentUnitDamage + random 1) max (_currentUnitDamage + 0.1);
+			[_unit, _damageAmount, _injuredBodyPart, "shell", objNull] call ace_medical_fnc_addDamageToUnit;
+			[_unit, 0.5] call ace_medical_status_fnc_adjustPainLevel;
+		},[_unit]] call CBA_fnc_execNextFrame;
 		
 		[_unit] execVM "grad-survivableCrash\functions\server\fn_throwOutInventoryUnit.sqf";
 
@@ -66,7 +70,7 @@ if (_unit == player) then {
 			[_unit, false] call ace_medical_fnc_setUnconscious;
 			cutText [" ", "BLACK IN", 5];
 
-			["DynamicBlur", 400, [10]] spawn 
+			["DynamicBlur", 1, [10]] spawn 
 			   { 
 			    params ["_name", "_priority", "_effect", "_handle"]; 
 			    private _handle = ppEffectCreate [_name, [10]]; 

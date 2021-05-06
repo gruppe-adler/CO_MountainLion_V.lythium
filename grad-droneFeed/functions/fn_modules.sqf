@@ -26,9 +26,9 @@
 }] call CBA_fnc_addEventhandler;
 
 ["GRAD_droneFeed_fovChange", {
-    params ["_effect", "_target"];
+    params ["_fov", "_target"];
 
-    [_effect, _target] call GRAD_droneFeed_fnc_adjustDroneFOV;
+    [_fov, _target] call GRAD_droneFeed_fnc_adjustDroneFOV;
 
 }] call CBA_fnc_addEventhandler;
 

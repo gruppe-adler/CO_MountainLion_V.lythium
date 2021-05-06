@@ -104,6 +104,22 @@ waitUntil {  time > 3 };
 }] call zen_custom_modules_fnc_register;
 
 
+["BERGLOEWE PHASE END", "Create Chair Circle",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+  _position = ASLToAGL _position;
+  ["Land_CampingChair_V1_F", _position, count (PlayableUnits + switchableUnits)] call GRAD_missionControl_fnc_createChairCircle;
+
+}] call zen_custom_modules_fnc_register;
+
+
+["BERGLOEWE PHASE I", "Start SuicideCar",
+{
+  remoteExec ["grad_missionControl_fnc_suicideCar", 2];
+
+}] call zen_custom_modules_fnc_register;
+
 ["BERGLOEWE MUSIC", "Outro Music",
 {
   [5, 1] remoteExec ["fadeMusic"];

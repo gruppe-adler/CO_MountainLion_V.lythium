@@ -28,6 +28,7 @@ class GRAD_sandstorm {
           class getEmitterParamsRandom;
 
           class inBuilding;
+          class nudgeToSandstorm;
 
           class removePostProcessing;
 
