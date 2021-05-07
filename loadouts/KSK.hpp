@@ -46,6 +46,13 @@ class KSK {
                 LIST_1("11Rnd_45ACP_Mag"),
                 LIST_7("rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan")
             };
+            backpack =  "SMM_AssaultPack_BW_MC";
+            addItemsToBackpack[] = {
+                LIST_4("rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan"),
+                LIST_2("SmokeShell"),
+                LIST_2("HandGrenade"),
+                LIST_2("ACE_salineIV_500")
+            };
         };
 
         //Combat Life Saver
@@ -56,6 +63,9 @@ class KSK {
                 LIST_8("SmokeShell"),
                 LIST_1("11Rnd_45ACP_Mag"),
                 LIST_8("rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan")
+            };
+            addItemsToBackpack[] = {
+                LIST_2("ACE_bodyBag")
             };
     		vest = "rhsusf_spcs_ocp_medic";
             class Rank {
@@ -87,6 +97,8 @@ class KSK {
         //Rifleman (AT)
         class soldier_LAT2_F: Soldier_F {
             secondaryWeapon = "rhs_weap_M136";
+            backpack = "";
+            addItemsToBackpack[] = {};
         };
 
         //Squad Leader
@@ -114,6 +126,8 @@ class KSK {
                 LIST_1("11Rnd_45ACP_Mag"),
                 LIST_7("rhsusf_mag_40Rnd_46x30_FMJ")
             };
+            backpack = "";
+            addItemsToBackpack[] = {};
         };
     };
 
