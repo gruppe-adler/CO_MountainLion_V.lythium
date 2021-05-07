@@ -4,3 +4,4 @@ BRIEFING_DONE = false;
 
 enableSentences false;
 ["BLU_F", "BwTrop"] call GRAD_Loadout_fnc_FactionSetLoadout;
+["BLU_T_F", "KSK"] call GRAD_Loadout_fnc_FactionSetLoadout;
