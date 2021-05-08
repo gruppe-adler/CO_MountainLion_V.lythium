@@ -16705,7 +16705,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{if (isServer) then { { this setObjectTextureGlobal [_x, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; } forEach [0,1,2,3,4]; };}";
+				init="call{if (isServer) then { { this setObjectTextureGlobal [_x, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; } forEach [0,1,2,3,4]; };" \n "" \n "this addEventHandler [""Local"", { " \n " params [""_entity"", ""_isLocal""]; " \n " " \n "    if (!_isLocal) exitWith {}; " \n " " \n "    _entity allowDamage false; " \n "}];}";
 				name="crashheli";
 				textures="gm_ge_oli";
 			};
@@ -16886,7 +16886,7 @@ class Mission
 															"SCALAR"
 														};
 													};
-													value=1;
+													value=0;
 												};
 											};
 											class Item8
@@ -16914,7 +16914,7 @@ class Mission
 															"SCALAR"
 														};
 													};
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -17076,7 +17076,26 @@ class Mission
 						};
 					};
 				};
-				nAttributes=10;
+				class Attribute10
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=11;
 			};
 		};
 		class Item205
@@ -23626,6 +23645,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				lock="LOCKED";
 				disableSimulation=1;
 			};
 			id=2954;
@@ -31470,7 +31490,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3279;
-					type="B_recon_TL_F";
+					type="B_T_Soldier_SL_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -31549,7 +31569,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3280;
-					type="B_recon_LAT_F";
+					type="B_T_Soldier_LAT2_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -31624,11 +31644,11 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						description="Rifleman";
+						description="Explosive Specialist";
 						isPlayable=1;
 					};
 					id=3281;
-					type="B_recon_F";
+					type="B_T_Soldier_Exp_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -31727,7 +31747,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3282;
-					type="B_recon_medic_F";
+					type="B_T_Medic_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -31806,7 +31826,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3283;
-					type="B_recon_F";
+					type="B_T_Soldier_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -31904,7 +31924,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3284;
-					type="B_recon_F";
+					type="B_T_Soldier_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -32002,7 +32022,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3285;
-					type="B_recon_JTAC_F";
+					type="B_T_Helipilot_F";
 					class CustomAttributes
 					{
 						class Attribute0
@@ -32100,7 +32120,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=3286;
-					type="B_recon_F";
+					type="B_T_Soldier_F";
 					class CustomAttributes
 					{
 						class Attribute0
