@@ -23645,6 +23645,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				lock="LOCKED";
 				disableSimulation=1;
 			};
 			id=2954;
