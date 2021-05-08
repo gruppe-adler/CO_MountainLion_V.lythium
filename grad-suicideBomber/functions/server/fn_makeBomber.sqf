@@ -17,7 +17,7 @@ private _explosives = [["Explosive",[0.0664063,0.123474,1.15262],[[-0.0383632,0.
 } forEach _explosives;
 
 
-[_unit] remoteExecCall ["GRAD_suicideBomber_fnc_addAction", [0,-2] select isDedicated];
+[_unit] remoteExec ["GRAD_suicideBomber_fnc_addAction", [0,-2] select isDedicated];
 
 [{
     params ["_unit"];
