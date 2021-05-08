@@ -17,6 +17,7 @@ class KSK {
 		handgunWeapon = "hgun_Pistol_heavy_01_F";
         handgunWeaponMagazine = "11Rnd_45ACP_Mag";
         handgunWeaponOptics = "optic_MRD";
+        handgunWeaponMuzzle = "muzzle_snds_acp";
 		binoculars = "ACE_Vector";
 		map = "ItemMap";
 		compass = "ItemCompass";
@@ -57,7 +58,7 @@ class KSK {
 
         //Combat Life Saver
         class medic_F: Soldier_F {
-            backpack = "SMM_Kitbag_BW_FT";
+            backpack = "SMM_Kitbag_BW_MC";
             addItemsToVest[] = {
                 LIST_2("SmokeShellPurple"),
                 LIST_8("SmokeShell"),
@@ -139,4 +140,3 @@ class KSK {
         };
     };
 };
-
