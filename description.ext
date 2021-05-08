@@ -46,6 +46,7 @@ class cfgFunctions {
   #include "grad-textures\cfgFunctions.hpp"
   #include "grad-herding\cfgFunctions.hpp"
   #include "grad-droneFeed\cfgFunctions.hpp"
+  #include "grad-suicideBomber\cfgFunctions.hpp"
 
 
   #include "node_modules\grad-makeFire\cfgFunctions.hpp"
@@ -136,6 +137,20 @@ class cfgSounds {
   {
       name = "buzz";
       sound[] = {"audio\buzz.ogg", 1, 1, 50};
+      titles[] = {0,""};
+  };
+
+  class suicide_bomber1
+  {
+      name = "suicide_bomber1";
+      sound[] = {"audio\suicide_bomber1.ogg", 1, 1, 50};
+      titles[] = {0,""};
+  };
+
+  class suicide_bomber2
+  {
+      name = "suicide_bomber2";
+      sound[] = {"audio\suicide_bomber2.ogg", 1, 1, 50};
       titles[] = {0,""};
   };
 };

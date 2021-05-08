@@ -11,7 +11,7 @@ private _ppGrain = (player getVariable ["isInsideSandstormPP", [objNull,objNull]
 private _isTurnedOut = isTurnedOut player;
 
 private _vehicle = objectParent player;
-private _inVehicle = _vehicle != player;
+private _inVehicle = !isNull _vehicle;
 
 
 private _shakepower = 0.5 + random 0.5;

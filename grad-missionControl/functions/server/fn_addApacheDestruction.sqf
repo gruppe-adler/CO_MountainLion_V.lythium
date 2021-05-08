@@ -3,7 +3,7 @@ params ["_unit"];
 _unit addEventHandler ["HandleDamage", {
     params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint"];
 
-    if ((typeOf (vehicle _source)) == "RHS_AH64D_wd") then {
+    if ((typeOf (vehicle _source)) == "RHSGREF_A29B_HIDF") then {
 
         _unit setVariable ["ML_isVaporized", true];
         _unit removeAllEventHandlers "HandleDamage";

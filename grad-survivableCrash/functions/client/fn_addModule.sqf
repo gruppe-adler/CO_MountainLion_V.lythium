@@ -20,3 +20,20 @@
 {
   [ _x, ["\A3\ui_f\data\map\markers\handdrawn\warning_CA.paa", [1,1,1,1], position crashSite, 1, 1, 0, "Crash Site", 1, 0.05, "TahomaB"], false ] call BIS_fnc_addCuratorIcon;
 } forEach allCurators;
+
+
+["BERGLOEWE PHASE I", "Disallow Damage", {
+
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    [_objectUnderCursor, false] remoteExec ["allowDamage", _objectUnderCursor];
+
+}] call zen_custom_modules_fnc_register;
+
+["BERGLOEWE PHASE I", "Allow Damage", {
+
+    params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+
+    [_objectUnderCursor, true] remoteExec ["allowDamage", _objectUnderCursor];
+
+}] call zen_custom_modules_fnc_register;
