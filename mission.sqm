@@ -16705,7 +16705,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{if (isServer) then { { this setObjectTextureGlobal [_x, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; } forEach [0,1,2,3,4]; };}";
+				init="call{if (isServer) then { { this setObjectTextureGlobal [_x, '#(rgb,8,8,3)color(0.25,0.2,0.1,1)']; } forEach [0,1,2,3,4]; };" \n "" \n "this addEventHandler [""Local"", { " \n " params [""_entity"", ""_isLocal""]; " \n " " \n "    if (!_isLocal) exitWith {}; " \n " " \n "    _entity allowDamage false; " \n "}];}";
 				name="crashheli";
 				textures="gm_ge_oli";
 			};
@@ -17076,7 +17076,26 @@ class Mission
 						};
 					};
 				};
-				nAttributes=10;
+				class Attribute10
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=11;
 			};
 		};
 		class Item205
