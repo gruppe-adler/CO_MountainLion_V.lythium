@@ -37,7 +37,9 @@ _unit addMPEventHandler ["MPHit", {
     if (_fapper getVariable ["fapperTouched", false]) exitWith {};
     _fapper setVariable ["fapperTouched", true];
 
-    [_fapper, "Acts_CivilHiding_1"] remoteExec ["switchMove", 0];
+    if (alive _fapper) then {
+        [_fapper, "Acts_CivilHiding_1"] remoteExec ["switchMove", 0];
+    };
     _fapper enableAI "ALL";
     _fapper removeAllEventHandlers "AnimDone";    
 }] call CBA_fnc_addEventhandler;

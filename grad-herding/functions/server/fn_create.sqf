@@ -17,10 +17,11 @@ private _herdAnimals = [];
 private _currentIndex = (missionNamespace getVariable ["GRAD_herding_instanceCount", 0]) + 1;
 missionNamespace setVariable ["GRAD_herding_instanceCount", _currentIndex, true];
 
-private _group = if (!isNull _shepherd) then { group _shepherd } else { createGroup west };
+private _group = if (!isNull _shepherd) then { createGroup civilian } else { createGroup west };
 if (isNull _shepherd) then {
 	_shepherd = _group createUnit ["UK3CB_TKC_B_WORKER", _spawnPosition, [], 0, "NONE"];
 };
+[_shepherd] joinSilent _group;
 _shepherd setVariable ["BIS_enableRandomization", false];
 
 private _pole = "Land_Net_Fence_pole_F" createVehicle [0,0,0];
@@ -31,6 +32,7 @@ _shepherd setVariable ["shepherdPole", _pole, true];
 _shepherd setVariable ["GRAD_isShepherd", true, true];
 _shepherd setBehaviour "CARELESS";
 _shepherd setSpeedMode "LIMITED";
+_shepherd setUnitPos "UP";
 
 if (_killTrigger) then {
 	_shepherd setVariable ["GRAD_isShepherd_killTrigger", true, true];
@@ -76,17 +78,13 @@ for "_i" from 1 to _count do {
 		_animal addEventHandler ["AnimChanged", {
 			params ["_unit", "_anim"];
 
-			// only force every second animation sequence to allow for turning
-			if (!(_unit getVariable ["GRAD_HERDING_ANIM_SKIP", false])) exitWith {
-					_unit setVariable ["GRAD_HERDING_ANIM_SKIP", true]
-			};
-			_unit setVariable ["GRAD_HERDING_ANIM_SKIP", false];
-
+			// only force every 3rd animation sequence to allow for turning
+			if (random 3 > 2) exitWith {};
 			if (!alive _unit) exitWith {_unit removeEventHandler ["AnimChanged", _thisEventhandler]; };
 			// diag_log format ["_animDone done %1", _anim];
 			private _anim = _unit getVariable ["GRAD_HERDING_ANIM", GRAD_HERDING_ANIM_STOP];
 			// [_unit, _anim] remoteExec ["switchMove", 0];
-			_unit playMoveNow _anim; // playmoveNow prevents turning
+			_unit playMove _anim; // playmoveNow prevents turning
 			// diag_log format ["_animDone exec %1", _anim];
 		}];
 };

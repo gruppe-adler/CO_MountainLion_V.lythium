@@ -1,14 +1,17 @@
 params ["_veh"];
 
-// runs where vehicle is local
 
+// runs where vehicle is local
+if (!local _veh) exitWith {};
+
+[_veh, true] remoteExec ["allowDamage"];
 
 [_veh] spawn { 
 	params ["_veh"];
 
 	for "_i" from 0 to 20 do {
 		private _damage = _veh getHitPointDamage "HitEngine";
-		_veh setHitPointDamage ["HitEngine",_damage + 0.1];
+		[_veh, ["HitEngine",_damage + 0.1]] remoteExec ["setHitPointDamage", _veh];
 		sleep 1;
 	};
 
@@ -16,13 +19,11 @@ params ["_veh"];
 		[_veh] remoteExecCall ["GRAD_survivableCrash_fnc_falling", _x];
 	} forEach crew _veh;
 
-
-	_veh setHitPointDamage ["hitavionics",1];
-	_veh setHitPointDamage ["HitVRotor",.88];
+	[_veh, ["hitavionics",1]] remoteExec ["setHitPointDamage", _veh];
+	[_veh, ["HitVRotor",.88]] remoteExec ["setHitPointDamage", _veh];
 	// private _smoke = createVehicle ["test_EmptyObjectForSmoke", position _veh, [], 0, "CAN_COLLIDE"];
 	// _smoke attachTo [_veh,[0,0,0],"motor"];
-
-	_veh allowDamage false;
+	[_veh, false] remoteExec ["allowDamage"];
 
 	// hide BFT
 	{

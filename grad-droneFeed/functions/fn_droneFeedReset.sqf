@@ -17,8 +17,9 @@ private _droneCam = player getVariable ["GRAD_missionControl_droneCam", objNull]
 
 if (isNull _droneCam) then {
   _droneCam = "camera" camCreate [0,0,0];
+  _droneCam cameraEffect ["Internal", "Back", "uavrtt"];
 };
-_droneCam cameraEffect ["Internal", "Back", "uavrtt"];
+
 
 /* attach cam to gunner cam position */
 if (!isNull (missionNameSpace getVariable ["stage1_drone", objNull])) then {

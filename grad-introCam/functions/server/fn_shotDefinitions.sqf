@@ -45,6 +45,7 @@ private _camDefinitions = [
     BRIEFING_DONE = true;
     publicVariable "BRIEFING_DONE";
     introLogo setObjectTextureGlobal [0,""];
+    setTimeMultiplier 4;
 }, [], 180] call CBA_fnc_waitAndExecute;
 
 [] remoteExec ["GRAD_introCam_fnc_preLoad", [0,-2] select isDedicated, false];
