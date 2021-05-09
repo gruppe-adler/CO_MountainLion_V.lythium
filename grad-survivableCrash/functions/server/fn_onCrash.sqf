@@ -1,8 +1,6 @@
 params ["_veh"];
 
 
-// runs where vehicle is local
-if (!local _veh) exitWith {};
 
 [_veh, true] remoteExec ["allowDamage"];
 
