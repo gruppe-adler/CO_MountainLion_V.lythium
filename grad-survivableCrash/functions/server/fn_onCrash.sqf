@@ -1,7 +1,5 @@
 params ["_veh"];
 
-
-
 [_veh, true] remoteExec ["allowDamage"];
 
 [_veh] spawn { 
@@ -19,8 +17,7 @@ params ["_veh"];
 
 	[_veh, ["hitavionics",1]] remoteExec ["setHitPointDamage", _veh];
 	[_veh, ["HitVRotor",.88]] remoteExec ["setHitPointDamage", _veh];
-	// private _smoke = createVehicle ["test_EmptyObjectForSmoke", position _veh, [], 0, "CAN_COLLIDE"];
-	// _smoke attachTo [_veh,[0,0,0],"motor"];
+	
 	[_veh, false] remoteExec ["allowDamage"];
 
 	// hide BFT
@@ -31,7 +28,7 @@ params ["_veh"];
 
 	[{
 		params ["_veh"];
-		getPos _veh select 2 < 30
+		getPos _veh select 2 < 5
 	},{	
 		params ["_veh"];
 		// trigger ejection and effects on crew
@@ -41,7 +38,7 @@ params ["_veh"];
 
 	}, [_veh]] call CBA_fnc_waitUntilAndExecute;
 
-	// waits till ground is hit, stores travel vector
+	// waits till ground is hit
 	[{
 		params ["_veh"];
 		isTouchingGround _veh
@@ -61,18 +58,6 @@ params ["_veh"];
 			[_veh] call GRAD_survivableCrash_fnc_throwOutInventoryVehicle;
 
 		}, [_veh]] call CBA_fnc_waitUntilAndExecute;
-
-		// lets vehicle slide a bit
-		/*
-		private _velocityVeh = velocity _veh;
-		private _dir = (_velocityVeh select 0) atan2 (_velocityVeh select 1);
-		private _speed = 4 + random 2;
-
-		_velocityVeh = [(sin _dir) * _speed * sqrt abs(_velocityVeh select 0),
-			(cos _dir) * _speed * sqrt abs(_velocityVeh select 1),
-			(1 + random 4) * sqrt(abs(_velocityVehPrev)) + .4 ];
-		_veh setVelocity _velocityVeh;
-		*/
 
 	}, [_veh]] call CBA_fnc_waitUntilAndExecute;
 

@@ -2,7 +2,7 @@ params ["_screen"];
 diwako_dui_main_toggled_off = true;
 ("BIS_layerStatic" call BIS_fnc_rscLayer) cutRsc ["RscStatic", "PLAIN"];
 
-private _effect = _screen getVariable ["GRAD_missionControl_pipEffect", 2];
+private _effect = _screen getVariable ["GRAD_missionControl_pipEffect", 1];
 private _zoom = _screen getVariable ["GRAD_missionControl_zoomLevel", 0.1];
 
 private _droneCamInternal = "camera" camCreate [0,0,0];
@@ -14,12 +14,12 @@ _droneCamInternal attachTo [stage1_drone, [0,0,0], "commanderview"];
 
 /* make it zoom in a little */
 _droneCamInternal camSetFov _zoom;
+_droneCamInternal camCommit 0;
 
 /* switch cam to thermal */
 switch (_effect) do { 
-    case 1 : {  camUseNVG true; }; 
-    case 2 : {  true setCamUseTI 0; }; 
-    default {  /*...code...*/ }; 
+    case 1 : {  true setCamUseTI 0; }; 
+    default {  camUseNVG false; false SetCamUseTi 0; }; 
 };
 
 player setVariable ["GRAD_missionControl_droneCamInternal", _droneCamInternal];
@@ -27,17 +27,12 @@ player setVariable ["GRAD_missionControl_droneCamInternal", _droneCamInternal];
 inGameUISetEventHandler ["PrevAction", "true"];
 inGameUISetEventHandler ["NextAction", "true"];
 
-["Mode","Exit","Zoom"] call ace_interaction_fnc_showMouseHint;
+["","Exit",""] call ace_interaction_fnc_showMouseHint;
 
 private _mouseClickEH = (findDisplay 46) displayAddEventHandler [
       "MouseButtonDown",
       "_this call GRAD_droneFeed_fnc_droneFeedinterpretMouseClick"
 ];
-private _mouseWheelEH = (findDisplay 46) displayAddEventHandler [
-      "MouseZChanged",
-      "_this call GRAD_droneFeed_fnc_droneFeedinterpretMouseWheel"
-];
-
 
 
 
@@ -59,10 +54,9 @@ player setVariable ["GRAD_missionControl_dronePPEffect", _ppGrain];
     params ["_droneCamInternal"];
     isNull _droneCamInternal
 }, {
-    params ["_droneCamInternal", "_mouseClickEH", "_mouseWheelEH"];
+    params ["_droneCamInternal", "_mouseClickEH"];
     (findDisplay 46) displayRemoveEventHandler ["MouseButtonDown", _mouseClickEH];
-    (findDisplay 46) displayRemoveEventHandler ["MouseZChanged", _mouseWheelEH];
 
     inGameUISetEventHandler ["PrevAction", "false"];
     inGameUISetEventHandler ["NextAction", "false"];
-}, [_droneCamInternal, _mouseClickEH, _mouseWheelEH]] call CBA_fnc_waitUntilAndExecute;
+}, [_droneCamInternal, _mouseClickEH]] call CBA_fnc_waitUntilAndExecute;

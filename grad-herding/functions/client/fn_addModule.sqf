@@ -34,15 +34,6 @@
 
 
 
-["zen_remoteControlStarted", {
-    params ["_unit"];
-
-    if (!(_unit getVariable ["GRAD_isShepherd", false])) exitWith {};
-
-    [_unit] call GRAD_herding_fnc_addGestureHandler;
-}] call CBA_fnc_addEventhandler;
-
-
 ["ace_common_playActionNow", {
     params ["_unit", "_anim"];
 
@@ -57,26 +48,9 @@
         if (_unit getVariable ["GRAD_isShepherd_killTrigger", false]) then {
             ["GRAD_shepherd_gesture", [_unit]] call CBA_fnc_globalEvent;
         };
+    } else {
+        _unit setVariable ["GRAD_HERDING_TARGET", [], true];
     };
 
-    if (_anim isEqualTo "ace_gestures_regroup") then {
-        private _target = position _unit;
-        _unit setVariable ["GRAD_HERDING_TARGET", _target, true];
-        hint "directing herd to me";
-
-        if (_unit getVariable ["GRAD_isShepherd_killTrigger", false]) then {
-            ["GRAD_shepherd_gesture", [_unit]] call CBA_fnc_globalEvent;
-        };
-    };
-
-    if (_anim isEqualTo "ace_gestures_hold") then {
-        private _target = position _unit;
-        _unit setVariable ["GRAD_HERDING_TARGET", _target, true];
-        hint "directing herd to me";
-
-        if (_unit getVariable ["GRAD_isShepherd_killTrigger", false]) then {
-            ["GRAD_shepherd_gesture", [_unit]] call CBA_fnc_globalEvent;
-        };
-    };
 
 }] call CBA_fnc_addEventHandler;

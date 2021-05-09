@@ -1,7 +1,7 @@
 params ["_screen"];
 
 if (isServer) then {
-    _screen setVariable ["GRAD_missionControl_pipEffect", 2, true];
+    _screen setVariable ["GRAD_missionControl_pipEffect", 1, true];
     _screen setVariable ["GRAD_missionControl_zoomLevel", 0.1, true];
     // _screen enableSimulationGlobal false;
     // _screen attachTo [screen_base];
@@ -23,36 +23,15 @@ if (hasInterface) then {
 
             player setVariable ["GRAD_missionControl_droneInit", true];
 
-            ["cameraView", {
+            ["featureCamera", {
                 params ["_unit", "_newCamera"];
                 // systemChat str "Camera changed.";
-                [] call GRAD_droneFeed_fnc_droneFeedReset;
+                private _screen = player getVariable ["GRAD_missionControl_pipScreen", objNull];
+                if (_unit distance _screen < 50) then {
+                    [true] call GRAD_droneFeed_fnc_droneFeedReset;
+                };
             }, true] call CBA_fnc_addPlayerEventHandler;
 
-            /* adjust cam orientation */
-            /*
-            addMissionEventHandler ["Draw3D", {
-                private _droneCam = player getVariable ["GRAD_missionControl_droneCam", objNull];
-                private _droneCamInternal = player getVariable ["GRAD_missionControl_droneCamInternal", objNull];
-                if (isNull (missionNameSpace getVariable ["stage1_drone", objNull])) exitWith {};
-                private _dir =
-                    ((vehicle stage1_drone) modelToWorldVisual (stage1_drone selectionPosition "laserstart"))
-                        vectorFromTo
-                    ((vehicle stage1_drone) modelToWorldVisual (stage1_drone selectionPosition "commanderview"));
-
-                if (!isNull _droneCamInternal)  then {
-                    _droneCamInternal setVectorDirAndUp [
-                        _dir,
-                        _dir vectorCrossProduct [-(_dir select 1), _dir select 0, 0]
-                    ];
-                } else {
-                    _droneCam setVectorDirAndUp [
-                        _dir,
-                        _dir vectorCrossProduct [-(_dir select 1), _dir select 0, 0]
-                    ];
-                };
-            }];
-            */
 
 
              addMissionEventHandler ["Draw3D", {
@@ -106,8 +85,8 @@ if (hasInterface) then {
             private _action = ["CycleCamModes","Cycle Cam Modes", "\A3\ui_f\data\igui\cfg\actions\RadarOn_ca.paa", {
                 params ["_target", "_player", "_args"];
 
-                private _currentEffect = _target getVariable ["GRAD_missionControl_pipEffect", 2];
-                _currentEffect = if (_currentEffect < 2) then { _currentEffect + 1 } else { 0 };
+                private _currentEffect = _target getVariable ["GRAD_missionControl_pipEffect", 1];
+                _currentEffect = if (_currentEffect < 1) then { 1 } else { 0 };
                 _target setVariable ["GRAD_missionControl_pipEffect", _currentEffect, true];
                 ["GRAD_droneFeed_pipChange", [_currentEffect, _target]] call CBA_fnc_globalEvent;
             }, {

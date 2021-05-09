@@ -1,6 +1,7 @@
-params ["_fov", ["_droneCam", objNull]];
+params ["_fov", ["_screen", objNull]];
 
 private _droneCamInternal = player getVariable ["GRAD_missionControl_droneCamInternal", objNull];
+private _droneCam = player getVariable ["GRAD_missionControl_droneCam", objNull];
 
 if (isNull _droneCamInternal) then {
     _droneCam camSetFov _fov;

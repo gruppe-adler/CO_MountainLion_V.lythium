@@ -19,16 +19,16 @@
 }] call CBA_fnc_addEventhandler;
 
 ["GRAD_droneFeed_pipChange", {
-    params ["_effect", "_target"];
+    params ["_effect", "_screen"];
 
-    [_effect, _target] call GRAD_droneFeed_fnc_adjustDronePipEffect;
+    [_effect, _screen] call GRAD_droneFeed_fnc_adjustDronePipEffect;
 
 }] call CBA_fnc_addEventhandler;
 
 ["GRAD_droneFeed_fovChange", {
-    params ["_fov", "_target"];
+    params ["_fov", "_screen"];
 
-    [_fov, _target] call GRAD_droneFeed_fnc_adjustDroneFOV;
+    [_fov, _screen] call GRAD_droneFeed_fnc_adjustDroneFOV;
 
 }] call CBA_fnc_addEventhandler;
 

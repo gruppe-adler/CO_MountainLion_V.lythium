@@ -1,3 +1,5 @@
+params [["_createNew", false]];
+
 if (isNil "stage1_drone") exitWith {};
 
 private _screen = player getVariable ["GRAD_missionControl_pipScreen", objNull];
@@ -15,7 +17,7 @@ if (missionNamespace getVariable ["droneFeedOnBillboard", false]) then {
 
 private _droneCam = player getVariable ["GRAD_missionControl_droneCam", objNull];
 
-if (isNull _droneCam) then {
+if (isNull _droneCam || _createNew) then {
   _droneCam = "camera" camCreate [0,0,0];
   _droneCam cameraEffect ["Internal", "Back", "uavrtt"];
 };
@@ -29,8 +31,10 @@ if (!isNull (missionNameSpace getVariable ["stage1_drone", objNull])) then {
 
 /* make it zoom in a little */
 _droneCam camSetFov (_screen getVariable ["GRAD_missionControl_zoomLevel", 0.1]);
+_droneCam camCommit 0;
 
 /* switch cam to thermal */
-"uavrtt" setPiPEffect [_screen getVariable ["GRAD_missionControl_pipEffect", 2]];
+private _effect = _screen getVariable ["GRAD_missionControl_pipEffect", 1];
+"uavrtt" setPiPEffect [if (_effect < 1) then { 0 } else { 2 }];
 
 player setVariable ["GRAD_missionControl_droneCam", _droneCam];

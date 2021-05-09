@@ -17,27 +17,37 @@ private _herdAnimals = [];
 private _currentIndex = (missionNamespace getVariable ["GRAD_herding_instanceCount", 0]) + 1;
 missionNamespace setVariable ["GRAD_herding_instanceCount", _currentIndex, true];
 
-private _group = if (!isNull _shepherd) then { createGroup civilian } else { createGroup west };
-if (isNull _shepherd) then {
-	_shepherd = _group createUnit ["UK3CB_TKC_B_WORKER", _spawnPosition, [], 0, "NONE"];
+private _group = if (!_killTrigger && !isNull _shepherd) then { 
+	group _shepherd 
+} else { 
+	if (_killTrigger) then { createGroup west } else { createGroup civilian }; 
 };
-[_shepherd] joinSilent _group;
-_shepherd setVariable ["BIS_enableRandomization", false];
 
-private _pole = "Land_Net_Fence_pole_F" createVehicle [0,0,0];
-_pole attachTo [_shepherd, [0,0,0], "RightHandMiddle1", true];
-_pole setVectorDirAndUp [[0,0.66,-0.33],[0,0.33,0.66]];
-_shepherd setVariable ["shepherdPole", _pole, true];
-
-_shepherd setVariable ["GRAD_isShepherd", true, true];
-_shepherd setBehaviour "CARELESS";
-_shepherd setSpeedMode "LIMITED";
-_shepherd setUnitPos "UP";
+if (isNull _shepherd) then {
+	_shepherd = _group createUnit ["UK3CB_TKC_C_WORKER", _spawnPosition, [], 0, "NONE"];
+	_shepherd setVariable ["BIS_enableRandomization", false];
+};
+if (_killTrigger) then {
+	[_shepherd] joinSilent _group;
+};
 
 if (_killTrigger) then {
 	_shepherd setVariable ["GRAD_isShepherd_killTrigger", true, true];
 	missionNamespace setVariable ["GRAD_shepherd", _shepherd, true];
+} else {
+	_shepherd setCaptive true;
 };
+
+private _pole = "Land_Net_Fence_pole_F" createVehicle [0,0,0];
+_pole attachTo [_shepherd, [0,0,0], "RightHandMiddle1", false];
+_pole setVectorDirAndUp [[0,0.66,-0.33],[0,0.33,0.66]];
+_shepherd setVariable ["shepherdPole", _pole, true];
+_shepherd setUnitPos "UP";
+_shepherd setVariable ["GRAD_isShepherd", true, true];
+_shepherd setBehaviour "CARELESS";
+_shepherd setSpeedMode "LIMITED";
+_shepherd forceWalk true;
+
 
 _shepherd addMPEventHandler ["MPkilled", {
 	params ["_unit"];
@@ -62,6 +72,7 @@ for "_i" from 1 to _count do {
 		// _animal disableAI "ANIM";
 		_animal setBehaviour "CARELESS";
 		_animal setCombatMode "RED";
+		[_animal, 1.5] remoteExec ["setAnimSpeedCoef", 0];
 		// _animal setSkill 0;
 
 		// Declare first animal to leader of flock
@@ -78,14 +89,9 @@ for "_i" from 1 to _count do {
 		_animal addEventHandler ["AnimChanged", {
 			params ["_unit", "_anim"];
 
-			// only force every 3rd animation sequence to allow for turning
-			if (random 3 > 2) exitWith {};
 			if (!alive _unit) exitWith {_unit removeEventHandler ["AnimChanged", _thisEventhandler]; };
-			// diag_log format ["_animDone done %1", _anim];
 			private _anim = _unit getVariable ["GRAD_HERDING_ANIM", GRAD_HERDING_ANIM_STOP];
-			// [_unit, _anim] remoteExec ["switchMove", 0];
-			_unit playMove _anim; // playmoveNow prevents turning
-			// diag_log format ["_animDone exec %1", _anim];
+			_unit playMoveNow _anim;
 		}];
 };
 

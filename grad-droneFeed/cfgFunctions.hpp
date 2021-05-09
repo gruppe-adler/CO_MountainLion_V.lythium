@@ -7,7 +7,6 @@ class GRAD_droneFeed {
         class adjustDronePipEffect;
         class droneFeedInit;
         class droneFeedinterpretMouseClick;
-        class droneFeedinterpretMouseWheel;
         class droneFeedReset;
         class inspectDroneFeed;
 

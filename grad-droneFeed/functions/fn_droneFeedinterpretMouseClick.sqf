@@ -1,13 +1,7 @@
 private _droneCamInternal = player getVariable ["GRAD_missionControl_droneCamInternal", objNull];
 
-if (isNull _droneCamInternal) exitWith {};
-
-if ((_this select 1) == 0) then {
-    private _target = player getVariable ["GRAD_missionControl_pipScreen", objNull];
-    private _currentEffect = _target getVariable ["GRAD_missionControl_pipEffect", 2];
-    _currentEffect = if (_currentEffect < 2) then { _currentEffect + 1 } else { 0 };
-    _target setVariable ["GRAD_missionControl_pipEffect", _currentEffect, true];
-    ["GRAD_droneFeed_pipChange", [_currentEffect, _target]] call CBA_fnc_globalEvent;
+if (isNull _droneCamInternal) exitWith {
+    [true] call GRAD_droneFeed_fnc_droneFeedReset;
 };
 
 if ((_this select 1) == 1) then {
@@ -15,6 +9,8 @@ if ((_this select 1) == 1) then {
     _camera cameraeffect ["terminate", "back"];
     camDestroy _camera;
     camDestroy _droneCamInternal;
+
+    [true] call GRAD_droneFeed_fnc_droneFeedReset;
 
     player setVariable ["GRAD_missionControl_droneCamInternal", objNull];
     diwako_dui_main_toggled_off = false;

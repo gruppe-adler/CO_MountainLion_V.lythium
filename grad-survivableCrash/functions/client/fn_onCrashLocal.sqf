@@ -49,14 +49,14 @@ if (_unit == player) then {
 		params ["_unit"];
 
 		// [_unit, _unit] call ace_medical_fnc_treatmentAdvanced_fullHealLocal; // remove ace damage
-		[player, player] call ace_medical_treatment_fnc_fullHeal;
-		[_unit, true] call ace_medical_fnc_setUnconscious;   
+		// [player, player] call ace_medical_treatment_fnc_fullHeal;
+		// [_unit, true] call ace_medical_fnc_setUnconscious;   
 
 		[{
 			params ["_unit"];
 			private _injuredBodyPart = ["Head", "Body", "LeftArm", "RightArm", "LeftLeg", "RightLeg"] selectRandomWeighted [0.3, 0.1, 0.2, 0.2, 0.3, 0.3];
 	        private _currentUnitDamage = _unit getHitpointDamage _injuredBodyPart;
-	        private _damageAmount = (_currentUnitDamage + random 1) max (_currentUnitDamage + 0.1);
+	        private _damageAmount = (_currentUnitDamage + random 1) max (_currentUnitDamage + 0.3);
 			[_unit, _damageAmount, _injuredBodyPart, "bullet", objNull] call ace_medical_fnc_addDamageToUnit;
 			[_unit, 0.5] call ace_medical_status_fnc_adjustPainLevel;
 		},[_unit]] call CBA_fnc_execNextFrame;
