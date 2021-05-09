@@ -2,6 +2,7 @@
 
     params ["_vehicle"];
 
+    // every client
     [_vehicle] call GRAD_enhancedDesert_fnc_addEmitter;
 
 }] call CBA_fnc_addClassEventHandler;

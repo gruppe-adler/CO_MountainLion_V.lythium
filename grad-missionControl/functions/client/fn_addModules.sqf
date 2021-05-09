@@ -74,6 +74,7 @@ waitUntil {  time > 3 };
 
 }] call zen_custom_modules_fnc_register;
 
+
 ["BERGLOEWE PHASE I", "Start SuicideCar",
 {
   remoteExec ["grad_missionControl_fnc_suicideCar", 2];
@@ -114,11 +115,7 @@ waitUntil {  time > 3 };
 }] call zen_custom_modules_fnc_register;
 
 
-["BERGLOEWE PHASE I", "Start SuicideCar",
-{
-  remoteExec ["grad_missionControl_fnc_suicideCar", 2];
 
-}] call zen_custom_modules_fnc_register;
 
 ["BERGLOEWE MUSIC", "Outro Music",
 {

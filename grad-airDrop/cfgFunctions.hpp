@@ -5,6 +5,7 @@ class GRAD_airDrop {
         
         class modules { postInit = 1; };
         class action { postInit = 1; };
+        class ammunitionCrate;
         class airdrop;
         class drop;
         class dropOnLocation;

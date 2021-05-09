@@ -42,6 +42,7 @@ grad_airDrop_fnc_canLoad = {
     
     params ["_vehicle"];
 
+    // every client
     _vehicle addaction ["<t color=""#66ff66"">Eject</t>",{ 
         params ["_target", "_caller", "_actionId", "_arguments"];
 

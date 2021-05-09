@@ -8,9 +8,13 @@ if (isServer) then {
     // [_screen, 0, 0, 180] call ace_common_fnc_setPitchBankYaw;
 };
 
+BRIEFING_DONE = false;
+
 if (hasInterface) then {
 
     [{
+        BRIEFING_DONE
+    },{
         params ["_screen"];
         player setVariable ["GRAD_missionControl_pipScreen", _screen];
         [] call GRAD_droneFeed_fnc_droneFeedReset;
@@ -120,5 +124,5 @@ if (hasInterface) then {
             }, nil, []] call ace_interact_menu_fnc_createAction;
             [_screen, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
         };
-    }, [_screen], 10] call CBA_fnc_waitAndExecute;
+    }, [_screen]] call CBA_fnc_waitUntilAndExecute;
 };

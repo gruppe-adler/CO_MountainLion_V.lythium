@@ -1,4 +1,4 @@
-params ["_positionASL", ["_vehicles", []]];
+params ["_positionASL", ["_vehicles", []], ["_vehicle", objNull]];
 
 private _plane = "RHS_C130J" createVehicle [0,0,0];
 private _spawnPos = [20000, _positionASL#1, 1000];
@@ -40,6 +40,10 @@ _plane flyInHeight 200;
   private _vehicle = _type createVehicle [0,0,0];
   _vehicle attachTo [_plane, [0,0,-3000]];
 } forEach _vehicles;
+
+if (count _vehicles == 0 && !isNull _vehicle) then {
+    _vehicle attachTo [_plane, [0,0,-3000]];
+};
 
 // group _plane addWaypoint [_positionASL, 0];
 group _plane addWaypoint [_despawnPos, 1];

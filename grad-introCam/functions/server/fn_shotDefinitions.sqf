@@ -43,6 +43,7 @@ private _camDefinitions = [
 
 [{
     BRIEFING_DONE = true;
+    publicVariable "BRIEFING_DONE";
     introLogo setObjectTextureGlobal [0,""];
 }, [], 180] call CBA_fnc_waitAndExecute;
 

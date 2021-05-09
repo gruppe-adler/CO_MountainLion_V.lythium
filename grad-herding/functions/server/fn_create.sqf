@@ -17,8 +17,10 @@ private _herdAnimals = [];
 private _currentIndex = (missionNamespace getVariable ["GRAD_herding_instanceCount", 0]) + 1;
 missionNamespace setVariable ["GRAD_herding_instanceCount", _currentIndex, true];
 
-private _group = createGroup west;
-private _shepherd = _group createUnit ["UK3CB_TKC_B_WORKER", _spawnPosition, [], 0, "NONE"];
+private _group = if (!isNull _shepherd) then { group _shepherd } else { createGroup west };
+if (isNull _shepherd) then {
+	_shepherd = _group createUnit ["UK3CB_TKC_B_WORKER", _spawnPosition, [], 0, "NONE"];
+};
 _shepherd setVariable ["BIS_enableRandomization", false];
 
 private _pole = "Land_Net_Fence_pole_F" createVehicle [0,0,0];
@@ -28,6 +30,7 @@ _shepherd setVariable ["shepherdPole", _pole, true];
 
 _shepherd setVariable ["GRAD_isShepherd", true, true];
 _shepherd setBehaviour "CARELESS";
+_shepherd setSpeedMode "LIMITED";
 
 if (_killTrigger) then {
 	_shepherd setVariable ["GRAD_isShepherd_killTrigger", true, true];

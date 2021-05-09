@@ -37,7 +37,7 @@ _handle ppEffectCommit 15;
     };
     playMusic "";
     0 fadeMusic 1;
-}, [_vehicle]] call CBA_fnc_waitUntilAndExecute;
+}, [_vehicle, _handle]] call CBA_fnc_waitUntilAndExecute;
 
 
 [{

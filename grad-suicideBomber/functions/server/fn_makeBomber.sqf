@@ -12,7 +12,11 @@ private _explosives = [["Explosive",[0.0664063,0.123474,1.15262],[[-0.0383632,0.
 
   private _explosive = _type createVehicle [0,0,0];
   _explosive attachTo [_unit, _offset];
-  _explosive setVectorDirAndUp _vectorDirAndUp;
+
+  [{
+    params ["_explosive", "_vectorDirAndUp"];
+      _explosive setVectorDirAndUp _vectorDirAndUp;
+  }, [_explosive, _vectorDirAndUp]] call CBA_fnc_execNextFrame;
 
 } forEach _explosives;
 
