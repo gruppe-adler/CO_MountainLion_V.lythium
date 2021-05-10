@@ -15,6 +15,10 @@ private _radius = 4;
 private _chance = 100;
 
 
+if (backpack _unit == "TFAR_rt1523g") then {
+    removeBackpackGlobal _unit;
+};
+
 {
     if (random _chance > 1) then {
         private _holder = [_position, _radius] call GRAD_survivableCrash_fnc_spawnHolder;
