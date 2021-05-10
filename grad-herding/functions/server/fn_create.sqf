@@ -68,7 +68,7 @@ for "_i" from 1 to _count do {
 		private _animal = createAgent [_animalType, _spawnPosition, [], 3, "NONE"];
 
 		// Disable animal behaviour
-		_animal setVariable ["BIS_fnc_animalBehaviour_disable", true];
+		_animal setVariable ["BIS_fnc_animalBehaviour_disable", true, true];
 		_animal disableAI "FSM";
 		// _animal disableAI "MOVE";
 		// _animal disableAI "ANIM";
