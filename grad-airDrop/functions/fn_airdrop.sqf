@@ -25,8 +25,6 @@ _this attachTo [_para, [0,2,0]];
     detach _vehicle;
     _vehicle setVelocity _vel;
 
-    [] remoteExec ["GRAD_textures_fnc_autoInit", 0];
-
     missionNamespace setVariable ["#FX", [_vehicle, _vel select 2]];
     publicVariable "#FX";
     playSound3D [
