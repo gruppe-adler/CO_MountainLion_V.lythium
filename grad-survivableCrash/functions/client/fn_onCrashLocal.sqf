@@ -15,7 +15,7 @@ _unit unassignItem "itemgps";_unit removeItem "itemgps";
 _unit unlinkItem "itemmap";
 _unit unlinkItem "itemgps";
 _unit UNLINKITEM (call TFAR_fnc_activeSWRadio);
-
+_unit UNLINKITEM (call TFAR_fnc_activeLrRadio);
 
 // [] call GRAD_survivableCrash_fnc_disableRadio;
 [_unit] call GRAD_survivableCrash_fnc_disableBFT;
