@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=3349;
+		nextID=3355;
 	};
 	class MarkerIDProvider
 	{
@@ -16,11 +16,11 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1115;
+		nextID=1135;
 	};
 	class Camera
 	{
-		pos[]={10169.301,66.324188,4399.2603};
+		pos[]={10169.851,74.265068,4377.5659};
 		dir[]={0.14757103,-0.45761618,0.87681824};
 		up[]={0.075949952,0.88914979,0.45126951};
 		aside[]={0.98613095,0,-0.16596867};
@@ -10594,7 +10594,26 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=1;
+		class Attribute1
+		{
+			property="cba_settings_hasSettingsFile";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"BOOL"
+						};
+					};
+					value=1;
+				};
+			};
+		};
+		nAttributes=2;
 	};
 };
 class Mission
@@ -10622,7 +10641,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=486;
+		items=491;
 		class Item0
 		{
 			dataType="Object";
@@ -29771,7 +29790,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={6878.3838,228.85414,4480.6035};
+				position[]={6792.6812,255.83786,4680.2417};
+				angles[]={5.9892583,0,6.1489105};
 			};
 			id=3129;
 			type="grad_civs_common_ExclusionZone";
@@ -29779,13 +29799,11 @@ class Mission
 		class Item453
 		{
 			dataType="Trigger";
-			position[]={1997.2815,769.89313,9734.3047};
-			angle=4.5928569;
+			position[]={7644.2891,208.54462,4355.061};
 			class Attributes
 			{
-				sizeA=11000;
-				sizeB=7000;
-				isRectangle=1;
+				sizeA=100;
+				sizeB=100;
 			};
 			id=3130;
 			type="EmptyDetectorAreaR250";
@@ -35580,21 +35598,133 @@ class Mission
 				nAttributes=1;
 			};
 		};
+		class Item486
+		{
+			dataType="Trigger";
+			position[]={10925.568,42.500332,7578.502};
+			class Attributes
+			{
+				sizeA=100;
+				sizeB=100;
+			};
+			id=3349;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item487
+		{
+			dataType="Trigger";
+			position[]={9932.4492,115.14987,9214.4844};
+			class Attributes
+			{
+				sizeA=100;
+				sizeB=100;
+			};
+			id=3350;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item488
+		{
+			dataType="Trigger";
+			position[]={5261.0518,296.9176,10775.926};
+			class Attributes
+			{
+				sizeA=100;
+				sizeB=100;
+			};
+			id=3351;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item489
+		{
+			dataType="Trigger";
+			position[]={6915.5723,224.84402,4521.6602};
+			class Attributes
+			{
+				sizeA=100;
+				sizeB=100;
+			};
+			id=3353;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item490
+		{
+			dataType="Trigger";
+			position[]={11317.781,23.343172,2520.8679};
+			angle=0.90757114;
+			class Attributes
+			{
+				sizeA=1200;
+				sizeB=200;
+				isRectangle=1;
+			};
+			id=3354;
+			type="EmptyDetectorAreaR250";
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=1;
+			nextID=6;
 		};
 		class Links
 		{
-			items=1;
+			items=6;
 			class Item0
 			{
 				linkID=0;
 				item0=3129;
 				item1=3130;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=3129;
+				item1=3349;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=3350;
+				item1=3129;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=3353;
+				item1=3129;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=3351;
+				item1=3129;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=3354;
+				item1=3129;
 				class CustomData
 				{
 					type="Sync";
