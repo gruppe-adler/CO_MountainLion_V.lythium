@@ -11,6 +11,7 @@
 
     params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
     _position = ASLToAGL _position;
+    _position set [2, 0.5]; // a bit above ground
     [_position, 15, objNull, "Goat_random_F", false] remoteExec ["GRAD_herding_fnc_create", 2];
 
 }] call zen_custom_modules_fnc_register;

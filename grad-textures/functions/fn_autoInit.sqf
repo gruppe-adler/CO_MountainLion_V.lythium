@@ -1,7 +1,5 @@
 // only server
 
-if (!isServer) exitWith {};
-
 grad_textures_fnc_clearCargo = {
     params ["_vehicle"];
 
@@ -15,6 +13,8 @@ grad_textures_fnc_clearCargo = {
 
     params ["_vehicle"];
 
+    if (!local _vehicle) exitWith {};
+
     _vehicle setObjectTextureGlobal [0, "grad-textures\data\TBW_Wiesel3_Main_Tropen_CO.paa"];
     _vehicle setObjectTextureGlobal [1, "grad-textures\data\TBW_Wiesel3_Cannon_Tropen_CO.paa"];
 
@@ -25,6 +25,8 @@ grad_textures_fnc_clearCargo = {
 ["RHS_C130J", "init", {
 
     params ["_vehicle"];
+
+    if (!local _vehicle) exitWith {};
 
     _vehicle setObjectTextureGlobal [0, "grad-textures\data\c130.paa"];
     _vehicle setObjectTextureGlobal [1, "grad-textures\data\c130_w.paa"];
@@ -37,6 +39,8 @@ grad_textures_fnc_clearCargo = {
 ["gm_ge_army_iltis_mg3", "init", {
 
     params ["_vehicle"];
+
+    if (!local _vehicle) exitWith {};
 
     [_vehicle] call grad_textures_fnc_clearCargo;
 
@@ -52,6 +56,8 @@ grad_textures_fnc_clearCargo = {
 
     params ["_vehicle"];
 
+    if (!local _vehicle) exitWith {};
+
     [_vehicle] call grad_textures_fnc_clearCargo;
 
     [
@@ -65,6 +71,8 @@ grad_textures_fnc_clearCargo = {
 ["gm_ge_army_u1300l_cargo", "init", {
 
     params ["_vehicle"];
+
+    if (!local _vehicle) exitWith {};
     
     [_vehicle] call grad_textures_fnc_clearCargo;
 
@@ -77,9 +85,11 @@ grad_textures_fnc_clearCargo = {
 }, true, [], true] call CBA_fnc_addClassEventHandler;
 
 
-["gm_ge_army_iltis_cargo", "init", {
+["gm_ge_army_iltis_cargo_des_rc", "init", {
 
     params ["_vehicle"];
+
+    if (!local _vehicle) exitWith {};
     
     [_vehicle] call grad_textures_fnc_clearCargo;
 

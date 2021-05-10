@@ -66,45 +66,19 @@ for "_i" from 1 to _count do {
 
 		// Spawn animal
 		private _animal = createAgent [_animalType, _spawnPosition, [], 3, "NONE"];
-
+		_animal setVariable ["lambs_danger_disableAI", true, true];
 		// Disable animal behaviour
 		_animal setVariable ["BIS_fnc_animalBehaviour_disable", true, true];
 		_animal disableAI "FSM";
-		// _animal disableAI "MOVE";
-		// _animal disableAI "ANIM";
 		_animal setBehaviour "CARELESS";
 		_animal setCombatMode "RED";
-		_animal setVariable ["lambs_danger_disableAI", true, true];
+		
 		[_animal, 2] remoteExec ["setAnimSpeedCoef", 0, true];
 		_animal setVariable ["GRAD_shepherd", _shepherd, true];
-		// _animal setSkill 0;
-
-		_animal addEventHandler ["AnimChanged", {
-			params ["_animal", "_anim"];
-
-			// dont stop if shepherd is far away
-			private _shepherd = _animal getVariable ["GRAD_shepherd", objNull];
-			diag_log format ["%2 AnimChanged %1", _anim, _animal];
-			
-			if (!isNull _shepherd && {alive _shepherd}) then {
-				if (_anim == GRAD_HERDING_ANIM_EAT) then {
-					if (_shepherd distance _animal > 2) then {
-						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
-					};
-				};
-				if (_anim == GRAD_HERDING_ANIM_STOP) then {
-					if (_shepherd distance _animal > 4) then {
-						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
-					};
-				};
-			};			
-			
-		}];
 
 		_animal setDir (_animal getRelDir _shepherd);
 		// Add animal to animal list
 		_herdAnimals pushBack _animal;
-		
 };
 
 // fill herd with animal array
