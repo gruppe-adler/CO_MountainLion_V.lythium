@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=3355;
+		nextID=3359;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1135;
+		nextID=1155;
 	};
 	class Camera
 	{
-		pos[]={10169.851,74.265068,4377.5659};
-		dir[]={0.14757103,-0.45761618,0.87681824};
-		up[]={0.075949952,0.88914979,0.45126951};
-		aside[]={0.98613095,0,-0.16596867};
+		pos[]={15162.056,83.287674,3712.2168};
+		dir[]={-0.16153383,-0.67213392,0.7226311};
+		up[]={-0.14663522,0.74039584,0.65597767};
+		aside[]={0.97594404,-4.0681334e-007,0.21816};
 	};
 };
 binarizationWanted=0;
@@ -145,13 +145,14 @@ addons[]=
 	"grad_civs_common",
 	"A3_Characters_F_Exp",
 	"A3_Characters_F_Tank",
-	"A3_Characters_F_Mark"
+	"A3_Characters_F_Mark",
+	"grad_civs_transit"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=83;
+		items=84;
 		class Item0
 		{
 			className="A3_Structures_F";
@@ -689,6 +690,12 @@ class AddonsMetaData
 			name="Arma 3 Marksmen - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
+		};
+		class Item83
+		{
+			className="grad_civs_transit";
+			name="transit";
+			author="AUTHOR";
 		};
 	};
 };
@@ -10641,7 +10648,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=491;
+		items=495;
 		class Item0
 		{
 			dataType="Object";
@@ -35650,7 +35657,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={11317.781,23.343172,2520.8679};
-			angle=0.90757114;
+			angle=0.90757102;
 			class Attributes
 			{
 				sizeA=1200;
@@ -35660,16 +35667,145 @@ class Mission
 			id=3354;
 			type="EmptyDetectorAreaR250";
 		};
+		class Item491
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1956.329,316.10303,13926.7};
+				angles[]={6.275785,0,0.064071037};
+			};
+			id=3355;
+			type="grad_civs_transit_transitSource";
+			atlOffset=-3.0517578e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="grad_civs_transit_transitSource_interval";
+					expression="_this setVariable ['Interval',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=600;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="grad_civs_transit_transitSource_vehicles";
+					expression="_this setVariable ['Vehicles',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[]";
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item492
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1918.2472,315.30618,13943.748};
+				angles[]={6.2518692,0,0.020816853};
+			};
+			id=3356;
+			type="grad_civs_transit_transitSink";
+		};
+		class Item493
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15147.125,21.766357,3770.679};
+				angles[]={0.0049914722,0,0.013999403};
+			};
+			id=3357;
+			type="grad_civs_transit_transitSource";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="grad_civs_transit_transitSource_interval";
+					expression="_this setVariable ['Interval',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=600;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="grad_civs_transit_transitSource_vehicles";
+					expression="_this setVariable ['Vehicles',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[]";
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item494
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15144.8,21.720423,3817.5767};
+				angles[]={0.0009765625,0,0.010000871};
+			};
+			id=3358;
+			type="grad_civs_transit_transitSink";
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=6;
+			nextID=8;
 		};
 		class Links
 		{
-			items=6;
+			items=8;
 			class Item0
 			{
 				linkID=0;
@@ -35725,6 +35861,26 @@ class Mission
 				linkID=5;
 				item0=3354;
 				item1=3129;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item6
+			{
+				linkID=6;
+				item0=3357;
+				item1=3356;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item7
+			{
+				linkID=7;
+				item0=3355;
+				item1=3358;
 				class CustomData
 				{
 					type="Sync";
