@@ -52,7 +52,7 @@ if (typeOf player isEqualTo "B_officer_F") then {
 
 sleep 70;
 
-[ "B R I E F I N G", "26.11.2018" ] spawn BIS_fnc_infoText;
+[ "B R I E F I N G", "10.06.2015" ] spawn BIS_fnc_infoText;
 
 10 fadeMusic 0;
 10 fadeSound 0;

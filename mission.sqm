@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=915;
+		nextID=935;
 	};
 	class Camera
 	{
-		pos[]={11084.346,61.90189,2934.0708};
-		dir[]={0.59668958,-0.38637704,-0.70333093};
-		up[]={0.24995872,0.92234099,-0.29463178};
-		aside[]={-0.76254994,0,-0.64692956};
+		pos[]={11236.242,165.66243,8931.7373};
+		dir[]={-0.6385715,-0.31604472,0.70168656};
+		up[]={-0.21272033,0.94874179,0.23374492};
+		aside[]={0.73959219,-8.859206e-008,0.6730721};
 	};
 };
 binarizationWanted=0;
@@ -761,7 +761,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=164;
+									items=165;
 									class Item0
 									{
 										class data
@@ -3058,6 +3058,20 @@ class CustomAttributes
 											value="grad_civs_residents_maxcivsresidents";
 										};
 									};
+									class Item164
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="grad_civs_voyage_maxcivsinvehicles";
+										};
+									};
 								};
 							};
 						};
@@ -3074,7 +3088,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=164;
+									items=165;
 									class Item0
 									{
 										class data
@@ -10435,7 +10449,52 @@ class CustomAttributes
 																"SCALAR"
 															};
 														};
-														value=10.330564;
+														value=20;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item164
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1.7216932;
 													};
 												};
 												class Item1
@@ -15022,7 +15081,7 @@ class Mission
 			};
 			id=1381;
 			type="UserTexture10m_F";
-			atlOffset=17.080868;
+			atlOffset=17.080786;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -29595,11 +29654,13 @@ class Mission
 		class Item453
 		{
 			dataType="Trigger";
-			position[]={5085,601.15906,3309};
+			position[]={1997.2815,769.89313,9734.3047};
+			angle=4.5928569;
 			class Attributes
 			{
-				sizeA=4000;
-				sizeB=4000;
+				sizeA=11000;
+				sizeB=7000;
+				isRectangle=1;
 			};
 			id=3130;
 			type="EmptyDetectorAreaR250";
