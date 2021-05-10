@@ -24,6 +24,9 @@ _this attachTo [_para, [0,2,0]];
     _vel = velocity _vehicle;
     detach _vehicle;
     _vehicle setVelocity _vel;
+
+    [] remoteExec ["GRAD_textures_fnc_autoInit", 0];
+
     missionNamespace setVariable ["#FX", [_vehicle, _vel select 2]];
     publicVariable "#FX";
     playSound3D [
@@ -40,5 +43,5 @@ _this attachTo [_para, [0,2,0]];
         if (!isNull _x) then {deleteVehicle _x};
     } count (_this select 1);
 
-    _vehicle setDamage 0; // remove any damage that might have been received from touchdown
+    _vehicle setDamage 0; // remove any damage that might have been received from touchdown    
 };

@@ -14,6 +14,8 @@ grad_textures_fnc_clearCargo = {
     params ["_vehicle"];
 
     if (!local _vehicle) exitWith {};
+    if (_vehicle getVariable ["GRAD_textures_init", false]) exitWith {};
+    _vehicle setVariable ["GRAD_textures_init", true, true];
 
     _vehicle setObjectTextureGlobal [0, "grad-textures\data\TBW_Wiesel3_Main_Tropen_CO.paa"];
     _vehicle setObjectTextureGlobal [1, "grad-textures\data\TBW_Wiesel3_Cannon_Tropen_CO.paa"];
@@ -27,6 +29,8 @@ grad_textures_fnc_clearCargo = {
     params ["_vehicle"];
 
     if (!local _vehicle) exitWith {};
+    if (_vehicle getVariable ["GRAD_textures_init", false]) exitWith {};
+    _vehicle setVariable ["GRAD_textures_init", true, true];
 
     _vehicle setObjectTextureGlobal [0, "grad-textures\data\c130.paa"];
     _vehicle setObjectTextureGlobal [1, "grad-textures\data\c130_w.paa"];
@@ -41,6 +45,8 @@ grad_textures_fnc_clearCargo = {
     params ["_vehicle"];
 
     if (!local _vehicle) exitWith {};
+    if (_vehicle getVariable ["GRAD_textures_init", false]) exitWith {};
+    _vehicle setVariable ["GRAD_textures_init", true, true];
 
     [_vehicle] call grad_textures_fnc_clearCargo;
 
@@ -57,6 +63,8 @@ grad_textures_fnc_clearCargo = {
     params ["_vehicle"];
 
     if (!local _vehicle) exitWith {};
+    if (_vehicle getVariable ["GRAD_textures_init", false]) exitWith {};
+    _vehicle setVariable ["GRAD_textures_init", true, true];
 
     [_vehicle] call grad_textures_fnc_clearCargo;
 
@@ -73,6 +81,8 @@ grad_textures_fnc_clearCargo = {
     params ["_vehicle"];
 
     if (!local _vehicle) exitWith {};
+    if (_vehicle getVariable ["GRAD_textures_init", false]) exitWith {};
+    _vehicle setVariable ["GRAD_textures_init", true, true];
     
     [_vehicle] call grad_textures_fnc_clearCargo;
 
@@ -90,6 +100,8 @@ grad_textures_fnc_clearCargo = {
     params ["_vehicle"];
 
     if (!local _vehicle) exitWith {};
+    if (_vehicle getVariable ["GRAD_textures_init", false]) exitWith {};
+    _vehicle setVariable ["GRAD_textures_init", true, true];
     
     [_vehicle] call grad_textures_fnc_clearCargo;
 
