@@ -9,5 +9,6 @@ _crate addMagazineCargoGlobal ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2", 20];
 _crate addMagazineCargoGlobal ["rhs_mag_30Rnd_556x45_Mk318_PMAG_Tan", 50];
 _crate addMagazineCargoGlobal ["rhs_mag_30Rnd_556x45_Mk318_Stanag", 50];
 _crate addMagazineCargoGlobal ["rhs_200rnd_556x45_M_SAW", 20];
+_crate addItemCargoGlobal ["tfar_anprc152", 30];
 
 _crate

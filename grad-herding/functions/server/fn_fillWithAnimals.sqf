@@ -2,6 +2,10 @@ params ["_vehicle"];
 
 if (!(_vehicle isKindOf "Car")) exitWith { "not a car" call BIS_fnc_log; };
 
+if (!local _vehicle) exitWith {
+    [_vehicle] remoteExec ["GRAD_herding_fnc_fillWithAnimals", _vehicle];
+};
+
 private _animalClassName = "Sheep_Random_F";
 
 private _spaces = [_vehicle, _animalClassName] call grad_animalTransport_common_fnc_findSuitableSpaces;

@@ -84,40 +84,31 @@ for "_i" from 1 to _count do {
 
 			// dont stop if shepherd is far away
 			private _shepherd = _animal getVariable ["GRAD_shepherd", objNull];
-
+			diag_log format ["%2 AnimChanged %1", _anim, _animal];
+			
 			if (!isNull _shepherd && {alive _shepherd}) then {
 				if (_anim == GRAD_HERDING_ANIM_EAT) then {
 					if (_shepherd distance _animal > 2) then {
-						[_animal, GRAD_HERDING_ANIM_RUN] remoteExec ["switchMove"];
-					};
-				};
-				if (_anim == GRAD_HERDING_ANIM_WALK) then {
-					if (_shepherd distance _animal > 4) then {
-						[_animal, GRAD_HERDING_ANIM_RUN] remoteExec ["switchMove"];
+						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
 					};
 				};
 				if (_anim == GRAD_HERDING_ANIM_STOP) then {
 					if (_shepherd distance _animal > 4) then {
-						[_animal, GRAD_HERDING_ANIM_RUN] remoteExec ["switchMove"];
+						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
 					};
 				};
 			};			
+			
 		}];
 
-		// Declare first animal to leader of flock
-		if (_i isEqualTo 1) then {
-				_animal setDir (random 360);
-				_herdArray set [1, _animal];
-		} else {
-				_animal setDir (_animal getRelDir (_herdArray select 1));
-
-				// Add animal to animal list
-				_herdAnimals pushBack _animal;
-		};
+		_animal setDir (_animal getRelDir _shepherd);
+		// Add animal to animal list
+		_herdAnimals pushBack _animal;
+		
 };
 
 // fill herd with animal array
-_herdArray set [2, _herdAnimals];
+_herdArray set [1, _herdAnimals];
 
 // save herd index to make it globally und publicly accessible
 private _instanceString = format ["GRAD_herding_instance_%1", _currentIndex];

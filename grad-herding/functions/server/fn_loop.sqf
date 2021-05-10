@@ -14,24 +14,16 @@ private _targetDebug2 = "VR_3DSelector_01_default_F" createVehicleLocal [0,0,0];
 	// diag_log format ["_instanceString is %1", _instanceString];
 
 	private _herdArray = missionNamespace getVariable [_instanceString, []];
-	_herdArray params ["_shepherd", "_leadanimal", "_animalArrayLiving"];
+	_herdArray params ["_shepherd", "_animalArrayLiving"];
 
 	// diag_log format ["reading herd %1 of index %2 in loop", _herdArray, _index];
 
-	// _herdArray = [_shepherd, _leadanimal, [_animal1, _animal2,...]]
-
 	// stop loop if all animals are dead
 	if (count _animalArrayLiving isEqualTo 0) exitWith {
-			[_handle] call CBA_fnc_removePerFrameHandler;
-			diag_log format ["herd %1 is dead, ending loop", _index];
+		[_handle] call CBA_fnc_removePerFrameHandler;
+		diag_log format ["herd %1 is dead, ending loop", _index];
 	};
 
-	// change lead animal if necessary
-	if (!alive _leadAnimal) then {
-			private _newLeader = selectRandom _animalArrayLiving;
-			_herdArray set [0, _newLeader];
-			missionNamespace setVariable [_instanceString, _herdArray, true];
-	};
 
 
 	// target wp
@@ -45,7 +37,7 @@ private _targetDebug2 = "VR_3DSelector_01_default_F" createVehicleLocal [0,0,0];
 
 	// _targetDebug setPos _targetPos;
 
-	private _count = count (_animalArrayLiving + [_leadanimal]);
+	private _count = count (_animalArrayLiving);
 	// animations and move command
 	
 	{	
@@ -63,7 +55,7 @@ private _targetDebug2 = "VR_3DSelector_01_default_F" createVehicleLocal [0,0,0];
 
 		}, [_x, _distance, _targetPos], random 2] call CBA_fnc_waitAndExecute;
 	 
-	} forEach (_animalArrayLiving + [_leadanimal]);
+	} forEach (_animalArrayLiving);
 
 
 }, 3, [_index]] call CBA_fnc_addPerFrameHandler;
