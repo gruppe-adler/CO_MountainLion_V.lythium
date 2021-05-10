@@ -12,7 +12,10 @@ playSound ["vehicle_dragging", true];
 
 _unit unassignItem "itemmap";_unit removeItem "itemmap";
 _unit unassignItem "itemgps";_unit removeItem "itemgps";
-_unit unlinkItem "itemRadio";
+_unit unlinkItem "itemmap";
+_unit unlinkItem "itemgps";
+_unit UNLINKITEM (call TFAR_fnc_activeSWRadio);
+
 
 // [] call GRAD_survivableCrash_fnc_disableRadio;
 [_unit] call GRAD_survivableCrash_fnc_disableBFT;
