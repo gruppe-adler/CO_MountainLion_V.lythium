@@ -36,6 +36,7 @@ class KSK {
                 LIST_1("ACE_DefusalKit"),
                 LIST_2("ACE_CableTie"),
                 LIST_1("ACE_Flashlight_MX991"),
+                LIST_1("gm_ge_facewear_dustglasses"),
 
                 GRAD_FACTIONS_MEDICITEMS_INF_LIST
             };

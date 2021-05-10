@@ -20,6 +20,7 @@ _unit addMagazine "7Rnd_408_Mag";
 _unit addMagazine "7Rnd_408_Mag";
 _unit setBehaviour "CARELESS";
 _unit setCombatMode "BLUE";
+_group setVariable ["lambs_danger_disableAI", true, true];
 
 missionNamespace setVariable ["GRAD_sniper", _unit, true];
 

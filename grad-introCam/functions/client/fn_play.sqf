@@ -13,8 +13,8 @@ player setVariable ["tf_voiceVolume", 0, true];
 diwako_dui_main_toggled_off = true;
 showChat false;
 
-if (typeOf player isEqualTo "B_officer_F") then {
-    player action ["SwitchWeapon", player, player, 100];
+if (typeOf player isEqualTo "B_officer_F" && !(weaponLowered player)) then {
+    player action ["WeaponOnBack", player];
 };
 
 private _viewDistanceCache = viewDistance;
@@ -33,6 +33,9 @@ private _count = count _shots;
   	[_x, _forEachIndex] call GRAD_introCam_fnc_camCommands;
 } forEach _shots;
 
+if (typeOf player isEqualTo "B_officer_F" && !(weaponLowered player)) then {
+    player action ["WeaponOnBack", player];
+};
 
 cutText [" ", "BLACK IN", 3];
 private _camera = "camera" camCreate (getpos player);

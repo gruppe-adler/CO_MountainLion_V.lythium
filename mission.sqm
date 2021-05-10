@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=3347;
+		nextID=3349;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=935;
+		nextID=995;
 	};
 	class Camera
 	{
-		pos[]={11236.242,165.66243,8931.7373};
-		dir[]={-0.6385715,-0.31604472,0.70168656};
-		up[]={-0.21272033,0.94874179,0.23374492};
-		aside[]={0.73959219,-8.859206e-008,0.6730721};
+		pos[]={10180.654,103.65904,4432.8872};
+		dir[]={-0.010858451,-0.38938594,0.92104793};
+		up[]={-0.0045906147,0.92106742,0.38937607};
+		aside[]={0.99996156,-2.5812506e-007,0.011788915};
 	};
 };
 binarizationWanted=0;
@@ -761,7 +761,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=165;
+									items=166;
 									class Item0
 									{
 										class data
@@ -3072,6 +3072,20 @@ class CustomAttributes
 											value="grad_civs_voyage_maxcivsinvehicles";
 										};
 									};
+									class Item165
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="ace_zeus_autoaddobjects";
+										};
+									};
 								};
 							};
 						};
@@ -3088,7 +3102,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=165;
+									items=166;
 									class Item0
 									{
 										class data
@@ -10514,6 +10528,51 @@ class CustomAttributes
 											};
 										};
 									};
+									class Item165
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
 								};
 							};
 						};
@@ -13406,15 +13465,58 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10188.995,60.135971,4576.4292};
+						position[]={10188.995,60.135963,4576.4287};
 					};
 					side="East";
 					flags=7;
 					class Attributes
 					{
+						init="call{group this setVariable [""lambs_danger_disableAI"", true];}";
 					};
 					id=1112;
 					type="UK3CB_TKM_B_RIF_1";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male02PER";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.99000001;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 				class Item1
 				{
@@ -35053,12 +35155,13 @@ class Mission
 					class PositionInfo
 					{
 						position[]={10164.189,54.832703,4433.2339};
-						angles[]={0,0.5305478,0};
+						angles[]={0,0.53054518,0};
 					};
 					side="Civilian";
 					flags=7;
 					class Attributes
 					{
+						init="call{group this setVariable [""lambs_danger_disableAI"", true];}";
 						stance="Middle";
 					};
 					id=3341;
@@ -35133,6 +35236,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						init="call{group this setVariable [""lambs_danger_disableAI"", true];}";
 						stance="Up";
 					};
 					id=3343;

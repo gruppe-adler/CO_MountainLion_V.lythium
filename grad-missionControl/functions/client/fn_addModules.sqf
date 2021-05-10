@@ -82,7 +82,27 @@ waitUntil {  time > 3 };
 }] call zen_custom_modules_fnc_register;
 
 
+["BERGLOEWE HELPERS", "Turn LAMBS OFF (whole group)",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+  
+  if (!isNull _objectUnderCursor) then {
+      (group _objectUnderCursor) setVariable ["lambs_danger_disableGroupAI", true, true];
+  };
 
+}] call zen_custom_modules_fnc_register;
+
+["BERGLOEWE HELPERS", "Turn LAMBS ON (whole group)",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+  
+  if (!isNull _objectUnderCursor) then {
+      (group _objectUnderCursor) setVariable ["lambs_danger_disableGroupAI", false, true];
+  };
+
+}] call zen_custom_modules_fnc_register;
+
+/*
 ["BERGLOEWE HELPERS", "Alert enemy AI around here",
 {
   // Get all the passed parameters
@@ -95,6 +115,7 @@ waitUntil {  time > 3 };
 }] call zen_custom_modules_fnc_register;
 
 
+
 ["BERGLOEWE HELPERS", "Toggle AI Charging",
 {
   private _current = missionNamespace getVariable ["GRAD_MISSIONCONTROL_ZEUS_AI_CHARGE", false];
@@ -103,7 +124,7 @@ waitUntil {  time > 3 };
   hint format ["AI CHARGE: %1", !_current];
 
 }] call zen_custom_modules_fnc_register;
-
+*/
 
 ["BERGLOEWE PHASE END", "Create Chair Circle",
 {

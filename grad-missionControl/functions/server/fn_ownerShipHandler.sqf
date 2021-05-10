@@ -15,7 +15,7 @@ if (!isServer) exitWith {};
     _group setGroupOwner 2;
 
 
-    // reapply loadiout if necessary
+    // reapply loadout if necessary
    	[{
    		params ["_group"];
 

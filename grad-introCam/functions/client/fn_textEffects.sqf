@@ -44,9 +44,8 @@ sleep 20;
 
 // ml_mosque say3D ["muezzin", 1000];
 
-if (typeOf player isEqualTo "B_officer_F") then {
-	player action ["WeaponOnBack", player];
-	//player action ["SwitchWeapon", player, player, 100];
+if (typeOf player isEqualTo "B_officer_F" && !(weaponLowered player)) then {
+    player action ["WeaponOnBack", player];
 };
 
 

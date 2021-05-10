@@ -47,7 +47,7 @@ _shepherd setVariable ["GRAD_isShepherd", true, true];
 _shepherd setBehaviour "CARELESS";
 _shepherd setSpeedMode "LIMITED";
 _shepherd forceWalk true;
-
+_group setVariable ["lambs_danger_disableAI", true, true];
 
 _shepherd addMPEventHandler ["MPkilled", {
 	params ["_unit"];
@@ -72,6 +72,7 @@ for "_i" from 1 to _count do {
 		// _animal disableAI "ANIM";
 		_animal setBehaviour "CARELESS";
 		_animal setCombatMode "RED";
+		_animal setVariable ["lambs_danger_disableAI", true, true];
 		[_animal, 1.5] remoteExec ["setAnimSpeedCoef", 0];
 		// _animal setSkill 0;
 
