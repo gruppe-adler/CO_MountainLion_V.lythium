@@ -20,10 +20,11 @@ _this attachTo [_para, [0,2,0]];
 ];
 0 = [_this, _paras] spawn {
     params ["_vehicle"];
-    waitUntil {getPos _vehicle select 2 < 4};
+    waitUntil {getPos _vehicle select 2 < 3};
     _vel = velocity _vehicle;
     detach _vehicle;
     _vehicle setVelocity _vel;
+    _vehicle allowDamage false;
 
     missionNamespace setVariable ["#FX", [_vehicle, _vel select 2]];
     publicVariable "#FX";
@@ -42,4 +43,5 @@ _this attachTo [_para, [0,2,0]];
     } count (_this select 1);
 
     _vehicle setDamage 0; // remove any damage that might have been received from touchdown    
+    _vehicle allowDamage true;
 };

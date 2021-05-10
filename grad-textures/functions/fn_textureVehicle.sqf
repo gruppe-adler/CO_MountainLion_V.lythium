@@ -38,8 +38,7 @@ if (_vehicle isKindOf "gm_ge_army_iltis_cargo_des_rc") then {
         ["radio_01_unhide",1,"radio_02_unhide",0,"cover_hoops_unhide",0,"cover_doors_unhide",0,"windshield",1,"doorBag_unhide",0,"beacon_01_org_unhide",0,"beacon_01_blu_unhide",0,"coldWeatherKit_unhide",0]
     ] call BIS_fnc_initVehicle;
 
-     private _crate = "ACE_medicalSupplyCrate_advanced" createVehicle [0,0,0];
-     [_crate, _vehicle] call ace_cargo_fnc_loadItem;
+     ["ACE_medicalSupplyCrate_advanced", _vehicle] call ace_cargo_fnc_loadItem;
 }; 
 
 
