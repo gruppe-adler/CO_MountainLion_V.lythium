@@ -5,6 +5,8 @@ params ["_plane", "_vehicle"];
 private _pos = _plane modelToWorld [.5,-20,0];
 
 detach _vehicle;
+[_vehicle] call GRAD_textures_fnc_textureVehicle;
+
 _vehicle setDir random 360;
 _vehicle setPos _pos;
 

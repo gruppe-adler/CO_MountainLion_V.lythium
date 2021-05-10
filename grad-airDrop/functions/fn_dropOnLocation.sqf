@@ -39,7 +39,7 @@ _plane flyInHeight 200;
 
   private _vehicle = _type createVehicle [0,0,0];
   _vehicle setVariable ["BIS_enableRandomization", false, true];
-  
+
   _vehicle attachTo [_plane, [0,0,-3000]];
 } forEach _vehicles;
 

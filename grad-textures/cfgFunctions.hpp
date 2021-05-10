@@ -4,5 +4,6 @@ class GRAD_textures {
         file = grad-textures\functions;
         
         class autoInit { postInit = 1; };
+        class textureVehicle;
     };
 };
