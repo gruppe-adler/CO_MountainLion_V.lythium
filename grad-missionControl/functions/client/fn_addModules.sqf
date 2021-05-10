@@ -102,6 +102,32 @@ waitUntil {  time > 3 };
 
 }] call zen_custom_modules_fnc_register;
 
+
+["BERGLOEWE HELPERS", "Turn BFT ON (whole group)",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+  
+  if (!isNull _objectUnderCursor) then {
+      {
+        [_x] remoteExec ["GRAD_survivableCrash_fnc_enableBFT", _x];
+      } forEach units group _objectUnderCursor;
+  };
+
+}] call zen_custom_modules_fnc_register;
+
+["BERGLOEWE HELPERS", "Turn BFT OFF (whole group)",
+{
+  params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+  
+  if (!isNull _objectUnderCursor) then {
+      {
+        [_x] remoteExec ["GRAD_survivableCrash_fnc_disableBFT", _x];
+      } forEach units group _objectUnderCursor;
+  };
+
+}] call zen_custom_modules_fnc_register;
+
+
 /*
 ["BERGLOEWE HELPERS", "Alert enemy AI around here",
 {

@@ -46,8 +46,10 @@ _shepherd setUnitPos "UP";
 _shepherd setVariable ["GRAD_isShepherd", true, true];
 _shepherd setBehaviour "CARELESS";
 _shepherd setSpeedMode "LIMITED";
+_shepherd disableAI "FSM";
 _shepherd forceWalk true;
 _group setVariable ["lambs_danger_disableAI", true, true];
+[_shepherd, 0.5] remoteExec ["setAnimSpeedCoef", 0, true];
 
 _shepherd addMPEventHandler ["MPkilled", {
 	params ["_unit"];
@@ -73,8 +75,34 @@ for "_i" from 1 to _count do {
 		_animal setBehaviour "CARELESS";
 		_animal setCombatMode "RED";
 		_animal setVariable ["lambs_danger_disableAI", true, true];
-		[_animal, 1.5] remoteExec ["setAnimSpeedCoef", 0];
+		[_animal, 2] remoteExec ["setAnimSpeedCoef", 0, true];
+		_animal setVariable ["GRAD_shepherd", _shepherd, true];
 		// _animal setSkill 0;
+
+		_animal addEventHandler ["AnimChanged", {
+			params ["_animal", "_anim"];
+
+			// dont stop if shepherd is far away
+			private _shepherd = _animal getVariable ["GRAD_shepherd", objNull];
+
+			if (!isNull _shepherd && {alive _shepherd}) then {
+				if (_anim == GRAD_HERDING_ANIM_EAT) then {
+					if (_shepherd distance _animal > 2) then {
+						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
+					};
+				};
+				if (_anim == GRAD_HERDING_ANIM_WALK) then {
+					if (_shepherd distance _animal > 4) then {
+						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
+					};
+				};
+				if (_anim == GRAD_HERDING_ANIM_STOP) then {
+					if (_shepherd distance _animal > 4) then {
+						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
+					};
+				};
+			};			
+		}];
 
 		// Declare first animal to leader of flock
 		if (_i isEqualTo 1) then {
@@ -86,14 +114,6 @@ for "_i" from 1 to _count do {
 				// Add animal to animal list
 				_herdAnimals pushBack _animal;
 		};
-
-		_animal addEventHandler ["AnimChanged", {
-			params ["_unit", "_anim"];
-
-			if (!alive _unit) exitWith {_unit removeEventHandler ["AnimChanged", _thisEventhandler]; };
-			private _anim = _unit getVariable ["GRAD_HERDING_ANIM", GRAD_HERDING_ANIM_STOP];
-			_unit playMoveNow _anim;
-		}];
 };
 
 // fill herd with animal array

@@ -4,6 +4,7 @@ class grad_survivableCrash {
           file = grad-survivableCrash\functions\client;
 
           class addModule { postInit = 1; };
+          class enableBFT;
           class disableBFT;
           class disableRadio;
           class falling;

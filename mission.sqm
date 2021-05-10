@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=995;
+		nextID=1035;
 	};
 	class Camera
 	{
-		pos[]={10180.654,103.65904,4432.8872};
-		dir[]={-0.010858451,-0.38938594,0.92104793};
-		up[]={-0.0045906147,0.92106742,0.38937607};
-		aside[]={0.99996156,-2.5812506e-007,0.011788915};
+		pos[]={10164.162,64.716286,4417.3354};
+		dir[]={0.48042595,-0.39061376,0.78524643};
+		up[]={0.20385654,0.92055488,0.33319941};
+		aside[]={0.85301489,4.9360096e-008,-0.5218873};
 	};
 };
 binarizationWanted=0;
@@ -13582,6 +13582,29 @@ class Mission
 				formation="STAG COLUMN";
 			};
 			id=1111;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="lambs_danger_disableGroupAI";
+					expression="if (_value) then { _this setVariable ['lambs_danger_disableGroupAI', _value, true]; }";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item81
 		{
@@ -35161,7 +35184,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="call{group this setVariable [""lambs_danger_disableAI"", true];}";
+						init="call{group this setVariable [""lambs_danger_disableAI"", true]; this disableAI ""MOVE"";  this disableAI ""FSM"";}";
 						stance="Middle";
 					};
 					id=3341;
@@ -35216,6 +35239,29 @@ class Mission
 				speedMode="LIMITED";
 			};
 			id=3340;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="lambs_danger_disableGroupAI";
+					expression="if (_value) then { _this setVariable ['lambs_danger_disableGroupAI', _value, true]; }";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item484
 		{
@@ -35236,7 +35282,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						init="call{group this setVariable [""lambs_danger_disableAI"", true];}";
+						init="call{group this setVariable [""lambs_danger_disableAI"", true]; this disableAI ""MOVE""; this disableAI ""FSM"";}";
 						stance="Up";
 					};
 					id=3343;
@@ -35329,6 +35375,29 @@ class Mission
 				speedMode="LIMITED";
 			};
 			id=3342;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="lambs_danger_disableGroupAI";
+					expression="if (_value) then { _this setVariable ['lambs_danger_disableGroupAI', _value, true]; }";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item485
 		{
@@ -35342,8 +35411,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={10214.047,50.021996,4437.8599};
-						angles[]={6.2182765,4.8170214,6.1756029};
+						position[]={10190.585,51.878723,4430.8076};
+						angles[]={6.2003756,4.8170214,6.1884699};
 					};
 					side="Civilian";
 					flags=6;
@@ -35353,7 +35422,6 @@ class Mission
 					};
 					id=3346;
 					type="UK3CB_TKC_C_CIV";
-					atlOffset=3.8146973e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -35415,6 +35483,25 @@ class Mission
 						};
 						class Attribute3
 						{
+							property="lambs_danger_disableAI";
+							expression="if (_value) then { _this setVariable ['lambs_danger_disableAI', _value, true]; }";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						class Attribute4
+						{
 							property="uk3cb_enable_randomisation";
 							expression="if !(_value) then { _this call uk3cb_factions_common_fnc_disable_randomize; };";
 							class Value
@@ -35432,14 +35519,14 @@ class Mission
 								};
 							};
 						};
-						nAttributes=4;
+						nAttributes=5;
 					};
 				};
 				class Item1
 				{
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
-					position[]={10176.974,54.224277,4442.4155};
+					position[]={10177.372,53.868572,4438.5186};
 					speed="LIMITED";
 					class Effects
 					{
@@ -35469,7 +35556,29 @@ class Mission
 				formation="FILE";
 			};
 			id=1013;
-			atlOffset=3.8146973e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="lambs_danger_disableGroupAI";
+					expression="if (_value) then { _this setVariable ['lambs_danger_disableGroupAI', _value, true]; }";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections

@@ -23,17 +23,6 @@ if (hasInterface) then {
 
             player setVariable ["GRAD_missionControl_droneInit", true];
 
-            ["featureCamera", {
-                params ["_unit", "_newCamera"];
-                // systemChat str "Camera changed.";
-                private _screen = player getVariable ["GRAD_missionControl_pipScreen", objNull];
-                if (_unit distance _screen < 50) then {
-                    [true] call GRAD_droneFeed_fnc_droneFeedReset;
-                };
-            }, true] call CBA_fnc_addPlayerEventHandler;
-
-
-
              addMissionEventHandler ["Draw3D", {
                 private _droneCam = player getVariable ["GRAD_missionControl_droneCam", objNull];
                 private _droneCamInternal = player getVariable ["GRAD_missionControl_droneCamInternal", objNull];
