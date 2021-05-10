@@ -81,6 +81,21 @@ waitUntil {  time > 3 };
 
 }] call zen_custom_modules_fnc_register;
 
+["BERGLOEWE PHASE III", "Stop spawning new grad-civs voyagers (=random cars)",
+{
+  grad_civs_voyage_maxCivsInVehicles = 0;
+  publicVariable "grad_civs_voyage_maxCivsInVehicles";
+  systemChat format["grad_civs_voyage_maxCivsInVehicles = %1", grad_civs_voyage_maxCivsInVehicles];
+  systemChat "you'll need to manually reroute existing cars to a far-away place where they will despawn!";
+}] call zen_custom_modules_fnc_register;
+
+["BERGLOEWE PHASE VII", "Restart spawning new grad-civs voyagers (=random cars)",
+{
+  grad_civs_voyage_maxCivsInVehicles = 20;
+  publicVariable "grad_civs_voyage_maxCivsInVehicles";
+  systemChat format["grad_civs_voyage_maxCivsInVehicles = %1", grad_civs_voyage_maxCivsInVehicles];
+}] call zen_custom_modules_fnc_register;
+
 
 ["BERGLOEWE HELPERS", "Turn LAMBS OFF (whole group)",
 {

@@ -26,4 +26,4 @@ force grad_civs_residents_maxCivsResidents = 20;
 force grad_civs_residents_meetNeighborCooldown = 150;
 force grad_civs_residents_spawnDistancesResidents = "[500,  1000]";
 force grad_civs_transit_maxVehiclesInTransit = 15;
-force grad_civs_voyage_maxCivsInVehicles = 0;
+force grad_civs_voyage_maxCivsInVehicles = 20;
