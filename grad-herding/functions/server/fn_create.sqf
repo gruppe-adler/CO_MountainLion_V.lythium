@@ -88,17 +88,17 @@ for "_i" from 1 to _count do {
 			if (!isNull _shepherd && {alive _shepherd}) then {
 				if (_anim == GRAD_HERDING_ANIM_EAT) then {
 					if (_shepherd distance _animal > 2) then {
-						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
+						[_animal, GRAD_HERDING_ANIM_RUN] remoteExec ["switchMove"];
 					};
 				};
 				if (_anim == GRAD_HERDING_ANIM_WALK) then {
 					if (_shepherd distance _animal > 4) then {
-						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
+						[_animal, GRAD_HERDING_ANIM_RUN] remoteExec ["switchMove"];
 					};
 				};
 				if (_anim == GRAD_HERDING_ANIM_STOP) then {
 					if (_shepherd distance _animal > 4) then {
-						_animal playMoveNow GRAD_HERDING_ANIM_RUN;
+						[_animal, GRAD_HERDING_ANIM_RUN] remoteExec ["switchMove"];
 					};
 				};
 			};			

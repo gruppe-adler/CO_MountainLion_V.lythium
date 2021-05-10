@@ -53,7 +53,7 @@
   // Get all the passed parameters
   params [["_positionASL", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 
-  private _crate = GRAD_airdrop_fnc_ammunitionCrate;
+  private _crate = call GRAD_airdrop_fnc_ammunitionCrate;
   [_positionASL, [], _crate] remoteExec ["GRAD_airdrop_fnc_dropOnLocation", 2];
 
 }] call zen_custom_modules_fnc_register;
